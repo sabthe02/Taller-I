@@ -1,0 +1,60 @@
+# depslib dependency file v1.0
+1708010747 source:c:\users\sabth\ude (licenciatura en informática)\1°\taller i\tiponodo.cpp
+	"TipoNodo.h"
+
+1708010822 c:\users\sabth\ude (licenciatura en informática)\1°\taller i\tiponodo.h
+
+1700257643 source:c:\users\sabth\ude (licenciatura en informática)\1°\taller i\boolean.cpp
+	"Boolean.h"
+
+1708012528 c:\users\sabth\ude (licenciatura en informática)\1°\taller i\boolean.h
+	<stdio.h>
+
+1700679195 source:c:\users\sabth\ude (licenciatura en informática)\1°\taller i\string.cpp
+	"String.h"
+
+1700839927 c:\users\sabth\ude (licenciatura en informática)\1°\taller i\string.h
+	"Boolean.h"
+
+1708012303 source:c:\users\sabth\ude (licenciatura en informática)\1°\taller i\arbolexpre.cpp
+	"ArbolExpre.h"
+
+1708012445 c:\users\sabth\ude (licenciatura en informática)\1°\taller i\arbolexpre.h
+	"ValorNodo.h"
+
+1708012441 c:\users\sabth\ude (licenciatura en informática)\1°\taller i\valornodo.h
+	"TipoNodo.h"
+
+1708012445 source:c:\users\sabth\ude (licenciatura en informática)\1°\taller i\expresion.cpp
+	"Expresion.h"
+
+1708012445 c:\users\sabth\ude (licenciatura en informática)\1°\taller i\expresion.h
+	"ArbolExpre.h"
+
+1708012445 source:c:\users\sabth\ude (licenciatura en informática)\1°\taller i\listaexpresiones.cpp
+	"ListaExpresiones.h"
+
+1708012445 c:\users\sabth\ude (licenciatura en informática)\1°\taller i\listaexpresiones.h
+	"Expresion.h"
+
+1708012445 source:c:\users\sabth\ude (licenciatura en informática)\1°\taller i\valornodo.cpp
+	"ValorNodo.h"
+
+1708012445 source:c:\users\sabth\ude (licenciatura en informática)\1°\taller i\listastrings.cpp
+	"ListaStrings.h"
+
+1708012469 c:\users\sabth\ude (licenciatura en informática)\1°\taller i\listastrings.h
+	"String.h"
+
+1708011742 source:c:\users\sabth\ude (licenciatura en informática)\1°\taller i\main.cpp
+	"ListaExpresiones.h"
+	"ListaStrings.h"
+	"Archivo.h"
+
+1708012445 c:\users\sabth\ude (licenciatura en informática)\1°\taller i\archivo.h
+	"ListaExpresiones.h"
+	"ListaStrings.h"
+
+1708012483 source:c:\users\sabth\ude (licenciatura en informática)\1°\taller i\archivo.cpp
+	"Archivo.h"
+
