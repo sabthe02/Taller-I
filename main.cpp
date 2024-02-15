@@ -1,9 +1,8 @@
-#include <iostream>
-
-using namespace std;
+#include "ListaExpresiones.h"
+#include "ListaStrings.h"
+#include "Archivo.h"
 
 int main()
 {
-    cout << "Hello world!" << endl;
-    return 0;
+
 }
