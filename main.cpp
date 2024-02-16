@@ -4,23 +4,16 @@
 
 int main()
 {
-String c, s, st, st2;
+String c;
+ListaStrings L;
 
 printf("\nIngrese cadena de caracteres con blancos al principio ");
 strcrear(c);
 scan(c);
-
-print(c);
 printf("\n");
+partirStrings(c, L);
 
-eliminarBlancosPrincipio (c, s);
+DesplegarIter (L);
 
-print(s);
-
-printf("\n");
-dividirString (s, st, st2);
-print(st);
-printf("\n");
-print(st2);
 
 }

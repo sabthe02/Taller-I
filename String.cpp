@@ -179,7 +179,6 @@ boolean encontre = FALSE;
 
 int largo = strlar(s) + 1;
 
-delete [] sb;
 sb = new char[largo];
 
 while (s[i] != '\0') {

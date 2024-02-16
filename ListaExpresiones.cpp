@@ -1,10 +1,10 @@
 #include "ListaExpresiones.h"
 
-//void Crear (Lista &L) {
+//void CrearExpre (Lista &L) {
 //    L = NULL;
 //}
 //
-//boolean Vacia(Lista L) {
+//boolean VaciaExpre(Lista L) {
 //    boolean es = FALSE;
 //    if (L == NULL)
 //        es = TRUE;
@@ -12,18 +12,18 @@
 //}
 //
 //
-//Consulta Primero(Lista L) {
+//Consulta PrimeroExpre(Lista L) {
 //    return L->info;
 //}
 //
 //
-//void Resto(Lista &L) {
+//void RestoExpre(Lista &L) {
 //    Lista aux = L;
 //    L = L->sig;
 //    delete aux;
 //}
 //
-//void InsFront(Lista &L, Consulta e) {
+//void InsFrontExpre(Lista &L, Consulta e) {
 //    Lista aux = new nodo2;
 //    aux->info = e;
 //    aux->sig = L;
@@ -31,16 +31,8 @@
 //}
 //
 //
-//void DesplegarIter(Lista L)
-//{
-//    while (L != NULL)
-//    {
-//        desplegarConsulta (L->info);
-//        L = L->sig;
-//    }
-//}
-//
-//void InsBackIter(Lista &L, Consulta c)
+
+//void InsBackIterExpre(Lista &L, Consulta c)
 //{
 //    Lista nuevo = new nodo2;
 //    nuevo->info = c;
@@ -55,6 +47,68 @@
 //    }
 //}
 //
+//void DesplegarIterExpre(Lista L)
+//{
+//    while (L != NULL)
+//    {
+//        desplegarConsulta (L->info);
+//        L = L->sig;
+//    }
+//}
+//
+
+//int LargoIterExpre (Lista L) {
+//int contador = 0;
+//
+//while (L!= NULL) {
+//        contador++;
+//        L = L -> sig;
+//}
+//
+//return contador;
+//
+//}
+
+//int UltimoIterExpre (Lista L) {
+//
+//while ((L-> sig) != NULL) {
+//        L = L -> sig;
+//}
+//
+//return L->info;
+//}
+//
+//
+//
+//int ContarIterExpre (Lista L, int numero) {
+//int contador = 0;
+//
+//while (L!= NULL) {
+//    if (numero == (L -> info)) {
+//        contador++;
+//    }
+//    L = L -> sig;
+//}
+//return contador;
+//
+//}
+//
+//boolean PerteneceIterExpre (Lista L, int numero) {
+//
+//boolean pertenece = FALSE;
+//
+//while (L!=NULL && !pertenece) {
+//    if (numero == L -> info) {
+//        pertenece = TRUE;
+//    }
+//    else {
+//        L = L -> sig;
+//    }
+//}
+//return pertenece;
+//
+//}
+
 //
 //void registrarConsulta (Lista &L, Consulta c)
 //{

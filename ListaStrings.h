@@ -3,47 +3,56 @@
 
 #include "String.h"
 
-// Cambiar a requerimientos
 
-//typedef struct nodoB {
-//                        Consulta info;
-//                        nodoB *sig;
-//                     } nodo2;
-//
-//typedef nodo2 *Lista;
-//
-////Crea una lista
-//void Crear (Lista &L);
-//
-////Verifica si la lista esta vacia
-//boolean Vacia(Lista L);
-//
-///* Precondición: lista NO vacía */
-//Consulta Primero(Lista L);
-//
-///* Precondición: lista NO vacía */
-//void Resto(Lista &L);
-//
-//void InsFront(Lista &L, Consulta e);
-//
-////Dada una lista, devuelve su largo (la cantidad de elementos de la lista)
-//Consulta LargoIter(Lista L);
-//
-////Dada una lista, despliega sus valores por pantalla.
-//void DesplegarIter(Lista L);
-//
-////Dada una lista, devuelve su último elemento
-//// Precondición: L no está vacía
-//Consulta UltimoIter(Lista L);
-//
-///*Dada una lista y un número entero, devuelve la cantidad de veces que dicho
-//entero aparece en la lista.*/
-//Consulta ContarIter(int e, Lista L);
-//
-///*Dada una lista y un número entero, devuelve TRUE si dicho entero
-//pertenece a la lista y FALSE en caso contrario.*/
-//boolean PerteneceIter(Lista L, int e);
-//
+
+typedef struct nodoS {String palabra;
+                nodoS *sig;
+                }NodoS;
+
+typedef NodoS *ListaStrings;
+
+
+//Crea una lista
+void Crear (ListaStrings &L);
+
+//Verifica si la lista esta vacia
+boolean Vacia(ListaStrings L);
+
+// Devuelve la primer palabra de la lista
+/* Precondición: lista NO vacía */
+String Primero(ListaStrings L);
+
+// Devuelve el resto de una lista
+/* Precondición: lista NO vacía */
+void Resto(ListaStrings &L);
+
+//Dada una lista y un String, agrega dicho String al final de la lista.
+void InsBackIter(String s, ListaStrings &L);
+
+//Dada una lista, inserta un String al principio de la lista
+void InsFront(String s, ListaStrings &L);
+
+//Dada una lista, devuelve su largo (la cantidad de elementos de la lista)
+int largoListaStrings(ListaStrings L);
+
+//Dada una lista, despliega sus valores por pantalla.
+void DesplegarIter(ListaStrings L);
+
+/*Dada una lista y un String, devuelve la cantidad de veces que dicho
+entero aparece en la lista.*/
+int PosicionListaString (String s, ListaStrings L);
+
+//Dada una lista, devuelve su último elemento
+//Precondición: L no está vacía
+String UltimoIter(ListaStrings L);
+
+/*Dada una lista y un número entero, devuelve TRUE si dicho entero
+pertenece a la lista y FALSE en caso contrario.*/
+boolean PerteneceIter(ListaStrings L, String s);
+
+// Partir Strings en palabras
+void partirStrings (String s, ListaStrings &L);
+
 ///*Dada una lista y dos números enteros, sustituye cada ocurrencia del
 //primer entero en la lista por el segundo entero.*/
 //void SustituirIter(Lista &L, int e1, int e2);
@@ -52,15 +61,9 @@
 //// Precondición: L no está vacía
 //Consulta MaximoIter(Lista L);
 //
-///*Dada una lista, devuelve otras dos nuevas listas, una de ellas
-//conteniendo todos los valores pares de la lista original, y la otra conteniendo todos los valores
-//impares de la lista original (se permite usar la operación básica InsFront para esta parte).
-//No se debe modificar la lista original.*/
-//void ParesImparesIter(Lista L, Lista &P, Lista &I);
-//
-////Dada una lista y un número entero, agrega dicho entero al final de la lista.
-//void InsBackIter(Lista &L, Consulta c);
-//
+// Obtener una palabra de la Lista de Strings
+String obtenerPalabraDeListaStrings (ListaStrings L);
+
 ////Registrar la realización de una nueva consulta hecha por un paciente.
 //// Se debe verificar previamente que la cédula de dicho paciente exista en el sistema y que la fecha de la nueva consulta sea válida
 //// e igual o posterior a la fecha de la última consulta registrada hasta el momento en el sistema.

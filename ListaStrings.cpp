@@ -1,62 +1,138 @@
 #include "ListaStrings.h"
 
-// Cambiar a requerimientos
 
-//void Crear (Lista &L) {
-//    L = NULL;
+void Crear (ListaStrings &L) {
+    L = NULL;
+}
+
+boolean Vacia(ListaStrings L) {
+    boolean es = FALSE;
+    if (L == NULL)
+        es = TRUE;
+    return es;
+}
+
+
+String Primero(ListaStrings L) {
+    return L->palabra;
+}
+
+
+void Resto(ListaStrings &L) {
+    ListaStrings aux = L;
+    L = L->sig;
+    delete aux;
+}
+
+void InsBackIter(String s, ListaStrings &L)
+{
+    ListaStrings nuevo = new NodoS;
+    nuevo->palabra = s;
+    nuevo->sig = NULL;
+    if (L == NULL)
+        L = nuevo;
+    else {
+        ListaStrings aux = L;
+        while (aux->sig != NULL)
+            aux = aux->sig;
+        aux->sig = nuevo;
+    }
+}
+
+void InsFront(String s, ListaStrings &L) {
+    ListaStrings aux = new NodoS;
+    aux->palabra = s;
+    aux->sig = L;
+    L = aux;
+}
+
+int largoListaStrings (ListaStrings L) {
+int contador = 0;
+
+while (L!= NULL) {
+        contador++;
+        L = L -> sig;
+}
+
+return contador;
+
+}
+
+void DesplegarIter(ListaStrings L)
+{
+    while (L != NULL)
+    {
+        print (L->palabra);
+        printf(" ");
+        L = L->sig;
+    }
+}
+
+int PosicionListaString (String s, ListaStrings L) {
+int contador = 0;
+int posicion;
+boolean encontre = FALSE;
+
+while (L!= NULL && !encontre) {
+    if (s == (L -> palabra)) {
+        encontre = TRUE;
+        posicion = contador;
+    }
+    contador++;
+    L = L -> sig;
+
+}
+return posicion;
+}
+
+
+String UltimoIter (ListaStrings L) {
+
+while ((L-> sig) != NULL) {
+        L = L -> sig;
+}
+
+return L->palabra;
+}
+
+
+boolean PerteneceIter (ListaStrings L, String s) {
+
+boolean pertenece = FALSE;
+
+while (L!=NULL && !pertenece) {
+    if (s == L -> palabra) {
+        pertenece = TRUE;
+    }
+    else {
+        L = L -> sig;
+    }
+}
+return pertenece;
+
+}
+
+void partirStrings (String s, ListaStrings &L) {
+String s2, p, r;
+if (!esVacio(s)) {
+eliminarBlancosPrincipio (s, s2);
+dividirString(s2, p, r);
+InsBackIter(p, L);
+partirStrings(r, L->sig);
+}
+
+}
+
+//String obtenerPalabraDeListaStringsPorPosicion (ListaStrings L) {
+//
+//if (L!=NULL) {
+//    if ()
 //}
 //
-//boolean Vacia(Lista L) {
-//    boolean es = FALSE;
-//    if (L == NULL)
-//        es = TRUE;
-//    return es;
 //}
-//
-//
-//Consulta Primero(Lista L) {
-//    return L->info;
-//}
-//
-//
-//void Resto(Lista &L) {
-//    Lista aux = L;
-//    L = L->sig;
-//    delete aux;
-//}
-//
-//void InsFront(Lista &L, Consulta e) {
-//    Lista aux = new nodo2;
-//    aux->info = e;
-//    aux->sig = L;
-//    L = aux;
-//}
-//
-//
-//void DesplegarIter(Lista L)
-//{
-//    while (L != NULL)
-//    {
-//        desplegarConsulta (L->info);
-//        L = L->sig;
-//    }
-//}
-//
-//void InsBackIter(Lista &L, Consulta c)
-//{
-//    Lista nuevo = new nodo2;
-//    nuevo->info = c;
-//    nuevo->sig = NULL;
-//    if (L == NULL)
-//        L = nuevo;
-//    else {
-//        Lista aux = L;
-//        while (aux->sig != NULL)
-//            aux = aux->sig;
-//        aux->sig = nuevo;
-//    }
-//}
-//
+
+
+
 //
 //void registrarConsulta (Lista &L, Consulta c)
 //{
