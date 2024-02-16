@@ -69,21 +69,21 @@ void DesplegarIter(ListaStrings L)
 }
 
 int PosicionListaString (String s, ListaStrings L) {
-int contador = 0;
-int posicion;
+int posicion = 1;
 boolean encontre = FALSE;
 
 while (L!= NULL && !encontre) {
-    if (s == (L -> palabra)) {
+    if (streq(s,L->palabra)) {
         encontre = TRUE;
-        posicion = contador;
     }
-    contador++;
+    else {
+    posicion++;
     L = L -> sig;
-
+    }
 }
 return posicion;
 }
+
 
 
 String UltimoIter (ListaStrings L) {
@@ -96,12 +96,12 @@ return L->palabra;
 }
 
 
-boolean PerteneceIter (ListaStrings L, String s) {
+boolean PerteneceIter (String s, ListaStrings L) {
 
 boolean pertenece = FALSE;
 
 while (L!=NULL && !pertenece) {
-    if (s == L -> palabra) {
+    if (streq(s, L->palabra)) {
         pertenece = TRUE;
     }
     else {
@@ -124,7 +124,23 @@ partirStrings(r, L->sig);
 
 }
 
+String obtenerPalabraDeListaStrings (String s, int posicion, ListaStrings L) {
 
+String p;
+boolean encontre = FALSE;
+
+while (L!=NULL && !encontre) {
+    if (PosicionListaString(s,L) == posicion) {
+        encontre = TRUE;
+        p = L->palabra;
+    }
+    else {
+        L = L -> sig;
+    }
+}
+return p;
+
+}
 
 
 //String obtenerPalabraDeListaStringsPorPosicion (ListaStrings L) {

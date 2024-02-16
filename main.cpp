@@ -4,7 +4,8 @@
 
 int main()
 {
-String c, d, e, f;
+String c, d;
+int i;
 ListaStrings L;
 
 printf("\nIngrese cadena de caracteres con blancos al principio ");
@@ -16,19 +17,15 @@ Crear (L);
 
 partirStrings(c, L);
 DesplegarIter(L);
-printf("El largo de la lista es: %d", largoListaStrings(L));
+printf("\nEl largo de la lista es: %d", largoListaStrings(L));
 
-//
-//if (!esVacio(c)) {
-//eliminarBlancosPrincipio(c, d);
-//dividirString(d, e, f);
-//Crear (L);
-//InsBackIter(e, L);
-//DesplegarIter(L);
-//printf("El largo de la lista es: %d", largoListaStrings(L));
-//
-//}
-
+printf("\nIngrese palabra que se quiere devoler ");
+strcrear(d);
+scan(d);
+printf("\nIngrese posicion ");
+scanf("%d", &i);
+printf("\n");
+print(obtenerPalabraDeListaStrings (d, i, L));
 
 
 }

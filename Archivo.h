@@ -4,10 +4,9 @@
 #include "ListaExpresiones.h"
 #include "ListaStrings.h"
 
-// cambiar
 
-////Saber si existe un archivo
-//boolean ExisteArchivo (String nomArch);
+//Saber si existe un archivo
+boolean ExisteArchivo (String nombrearchivo);
 //
 ////Bajar String a archivo
 //void Bajar_String (String s, FILE * f);
@@ -15,13 +14,13 @@
 ////Levantar String a memoria
 //void Levantar_String (String &s, FILE * f);
 //
-////CONSULTAS
+//// Expresion
 //
-////Bajar consulta a un archivo
-//void Bajar_Consulta (Consulta c, FILE * f);
-//
-////Levantar Consulta a memoria
-//void Levantar_Consulta (Consulta &c, FILE * f);
+////Bajar Expresion a un archivo
+//void bajarEvaluacion (String nombrearchivo, file *f);
+////
+//////Levantar Expresión a memoria
+//void levantarEvaluacion (String &nombrearchivo, file *f);
 //
 ////Bajar lista a un archivo
 //void Bajar_Consultas (Lista L , String nomArchConsultas);

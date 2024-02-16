@@ -1,17 +1,17 @@
 #include "Archivo.h"
 
-// Agregar cosas requeridas
 
-//boolean ExisteArchivo (String nomArch)
-//{
-//boolean existeArchivo = TRUE;
-//FILE * f = fopen (nomArch, "rb");
-//if (f == NULL)
-//existeArchivo = FALSE;
-//else
-//fclose (f);
-//return existeArchivo;
-//}
+
+boolean ExisteArchivo (String nombrearchivo){
+
+boolean existeArchivo = TRUE;
+FILE * f = fopen (nombrearchivo, "rb");
+if (f == NULL)
+existeArchivo = FALSE;
+else
+fclose (f);
+return existeArchivo;
+}
 //
 //void Bajar_String (String s, FILE * f){
 //int i =0;
@@ -39,18 +39,18 @@
 //delete []aux;
 //}
 //
-////CONSULTAS
+//// Expresión
 //
-//void Bajar_Consulta (Consulta c, FILE * f) {
+//void bajarEvaluacion (String nombrearchivo, file *f {
 //
-//    fwrite (&c.fec, sizeof(fecha), 1, f);
-//    fwrite (&c.cedulaEnConsulta, sizeof(long int), 1, f);
+//    fwrite (&expre.num, sizeof(int), 1, f);
+//    fwrite (&expre.cedulaEnConsulta, sizeof(long int), 1, f);
 //    Bajar_String (c.motivo, f);
 //    fwrite (&c.evaluacion, sizeof(Evaluacion), 1, f);
 //
 //}
 //
-//void Levantar_Consulta (Consulta &c, FILE * f) {
+//levantarEvaluacion (String &nombrearchivo, file *f) {
 //
 //    fread (&c.fec, sizeof(fecha), 1, f);
 //    fread(&c.cedulaEnConsulta, sizeof(long int), 1, f);
