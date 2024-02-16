@@ -1,6 +1,6 @@
 #include "Boolean.h"
 
-void imprimirBoolean (boolean valor) {
+void desplegarBoolean (boolean valor) {
 
     switch (valor) {
             case FALSE: printf("false");
@@ -8,5 +8,11 @@ void imprimirBoolean (boolean valor) {
             case TRUE: printf("true");
             break;
     }
+
+}
+
+boolean darBoolean (boolean valor) {
+
+return valor;
 
 }

@@ -1,19 +1,21 @@
 # depslib dependency file v1.0
-1708010747 source:c:\users\sabth\ude (licenciatura en informática)\1°\taller i\tiponodo.cpp
+1708013143 source:c:\users\sabth\ude (licenciatura en informática)\1°\taller i\tiponodo.cpp
 	"TipoNodo.h"
 
-1708010822 c:\users\sabth\ude (licenciatura en informática)\1°\taller i\tiponodo.h
-
-1700257643 source:c:\users\sabth\ude (licenciatura en informática)\1°\taller i\boolean.cpp
-	"Boolean.h"
-
-1708012528 c:\users\sabth\ude (licenciatura en informática)\1°\taller i\boolean.h
+1708013127 c:\users\sabth\ude (licenciatura en informática)\1°\taller i\tiponodo.h
 	<stdio.h>
 
-1700679195 source:c:\users\sabth\ude (licenciatura en informática)\1°\taller i\string.cpp
+1708013097 source:c:\users\sabth\ude (licenciatura en informática)\1°\taller i\boolean.cpp
+	"Boolean.h"
+
+1708012897 c:\users\sabth\ude (licenciatura en informática)\1°\taller i\boolean.h
+	<stdio.h>
+
+1708043069 source:c:\users\sabth\ude (licenciatura en informática)\1°\taller i\string.cpp
 	"String.h"
 
-1700839927 c:\users\sabth\ude (licenciatura en informática)\1°\taller i\string.h
+1708039723 c:\users\sabth\ude (licenciatura en informática)\1°\taller i\string.h
+	<stdlib.h>
 	"Boolean.h"
 
 1708012303 source:c:\users\sabth\ude (licenciatura en informática)\1°\taller i\arbolexpre.cpp
@@ -46,7 +48,7 @@
 1708012469 c:\users\sabth\ude (licenciatura en informática)\1°\taller i\listastrings.h
 	"String.h"
 
-1708011742 source:c:\users\sabth\ude (licenciatura en informática)\1°\taller i\main.cpp
+1708043086 source:c:\users\sabth\ude (licenciatura en informática)\1°\taller i\main.cpp
 	"ListaExpresiones.h"
 	"ListaStrings.h"
 	"Archivo.h"

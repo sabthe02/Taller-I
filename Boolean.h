@@ -6,6 +6,9 @@
 typedef enum {FALSE, TRUE} boolean;
 
 //Mostrar por pantalla el booleano
-void imprimirBoolean (boolean valor);
+void desplegarBoolean (boolean valor);
+
+//Devolver booleano
+boolean darBoolean (boolean valor);
 
 #endif // BOOLEAN_H_INCLUDED

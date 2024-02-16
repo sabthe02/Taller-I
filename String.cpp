@@ -34,13 +34,15 @@ void print (String s)
 
 void scan (String &s){
     String aux = new char[MAX];
-    int i=0; char c;
+    int i=0;
+    char c;
     fflush (stdin);
     scanf ("%c", &c);
 
     while (c!= '\n' && i < MAX-1) {
         aux[i] = c;
-        i++; scanf ("%c", &c);
+        i++;
+        scanf ("%c", &c);
     }
     aux[i] = '\0';
     strcop (s,aux);
@@ -133,3 +135,69 @@ void strswp (String &s1,String &s2)
  s2 = aux;
 
 }
+
+int transformarANatural (String s) {
+
+int num;
+num = atoi(s);
+return num;
+
+}
+boolean transformarStringABoolean (String s) {
+boolean Bool;
+
+if (s[0] == 't' && s[1] == 'r' && s[2] == 'u' && s[3] == 'e') {
+    Bool = TRUE;
+}
+else {
+    if (s[0] == 'f' && s[1] == 'a' && s[2] == 'l' && s[3] == 's' && s[4] == 'e') {
+        Bool = FALSE;
+    }
+}
+return Bool;
+
+}
+
+boolean esVacio (String s) {
+boolean es;
+
+if (s[0] =='\0') {
+    es = TRUE;
+}
+else {
+    es = FALSE;
+}
+return es;
+
+}
+
+void eliminarBlancosPrincipio (String s, String &sb) {
+
+int i = 0;
+int j = 0;
+boolean encontre = FALSE;
+
+int largo = strlar(s) + 1;
+
+delete [] sb;
+sb = new char[largo];
+
+while (s[i] != '\0') {
+    while (!encontre) {
+        if (s[i] ==' ') {
+            i++;
+        }
+        else {
+        encontre = TRUE;
+        }
+    }
+
+        sb[j] = s[i];
+        j++;
+        i++;
+
+}
+sb[j] = '\0';
+
+}
+
