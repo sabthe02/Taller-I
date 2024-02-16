@@ -142,6 +142,17 @@ return p;
 
 }
 
+ void liberarMemoriaListaS(ListaStrings &L)
+{
+    while (L != NULL)
+    {
+        ListaStrings lista = L;
+        L = L->sig;
+        delete lista;
+    }
+}
+
+
 
 //String obtenerPalabraDeListaStringsPorPosicion (ListaStrings L) {
 //
@@ -330,12 +341,3 @@ return p;
 //    }
 //}
 //
-//void liberarMemoriaLista(Lista &L)
-//{
-//    while (L != NULL)
-//    {
-//        Lista lista = L;
-//        L = L->sig;
-//        delete lista;
-//    }
-//}

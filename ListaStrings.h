@@ -58,7 +58,8 @@ void partirStrings (String s, ListaStrings &L);
 //Precondicion: Palabra pertenece a la lista
 String obtenerPalabraDeListaStrings (String s, int posicion, ListaStrings L);
 
-
+// liberar memoria ListaString
+void liberarMemoriaListaS(ListaStrings &L);
 
 
 ////////////////////////////
@@ -92,7 +93,6 @@ String obtenerPalabraDeListaStrings (String s, int posicion, ListaStrings L);
 ////PRECONDICIÓN: la cédula debe existir
 //void desplegarConsultaPorFecha(Lista L, fecha f);
 //
-//// liberar memoria lista
-//void liberarMemoriaLista(Lista &L);
+
 
 #endif // LISTASTRINGS_H_INCLUDED
