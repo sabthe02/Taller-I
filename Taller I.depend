@@ -14,7 +14,7 @@
 1708043069 source:c:\users\sabth\ude (licenciatura en informática)\1°\taller i\string.cpp
 	"String.h"
 
-1708039723 c:\users\sabth\ude (licenciatura en informática)\1°\taller i\string.h
+1708094720 c:\users\sabth\ude (licenciatura en informática)\1°\taller i\string.h
 	<stdlib.h>
 	"Boolean.h"
 
@@ -48,7 +48,7 @@
 1708012469 c:\users\sabth\ude (licenciatura en informática)\1°\taller i\listastrings.h
 	"String.h"
 
-1708043086 source:c:\users\sabth\ude (licenciatura en informática)\1°\taller i\main.cpp
+1708094719 source:c:\users\sabth\ude (licenciatura en informática)\1°\taller i\main.cpp
 	"ListaExpresiones.h"
 	"ListaStrings.h"
 	"Archivo.h"

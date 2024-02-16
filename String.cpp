@@ -201,3 +201,38 @@ sb[j] = '\0';
 
 }
 
+void dividirString (String s, String &primero, String &resto) {
+
+int i = 0;
+int j = 0;
+boolean fin = FALSE;
+
+int largo = strlar(s) + 1;
+
+primero = new char[largo];
+resto = new char[largo];
+
+
+while (s[i] != '\0' && !fin) {
+
+    if (s[i] == ' ') {
+        fin = TRUE;
+    }
+    else {
+    primero[i] = s[i];
+    i++;
+    }
+}
+primero[i] = '\0';
+
+while (s[i] != '\0') {
+    resto[j] = s[i];
+    i++;
+    j++;
+}
+resto[j] = '\0';
+}
+
+
+
+

@@ -51,4 +51,9 @@ boolean esVacio (String s);
 //Precondición: s no es vacío
 void eliminarBlancosPrincipio (String s, String &sb);
 
+//Divide el string s en otros dos; en primero guarda
+//la primera palabra del s y en el resto todo lo demás
+// Precondición: s no es vacío
+void dividirString (String s, String &primero, String &resto);
+
 #endif // STRING_H_INCLUDED
