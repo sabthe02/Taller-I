@@ -161,7 +161,7 @@ return Bool;
 boolean esVacio (String s) {
 boolean es;
 
-if (s[0] =='\0') {
+if (strlar(s) == 0) {
     es = TRUE;
 }
 else {
@@ -190,13 +190,13 @@ while (s[i] != '\0') {
         encontre = TRUE;
         }
     }
-
         sb[j] = s[i];
         j++;
         i++;
 
 }
 sb[j] = '\0';
+strdestruir(s);
 
 }
 
@@ -230,6 +230,7 @@ while (s[i] != '\0') {
     j++;
 }
 resto[j] = '\0';
+strdestruir(s);
 }
 
 

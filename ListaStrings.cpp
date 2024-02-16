@@ -114,6 +114,7 @@ return pertenece;
 
 void partirStrings (String s, ListaStrings &L) {
 String s2, p, r;
+
 if (!esVacio(s)) {
 eliminarBlancosPrincipio (s, s2);
 dividirString(s2, p, r);
@@ -122,6 +123,9 @@ partirStrings(r, L->sig);
 }
 
 }
+
+
+
 
 //String obtenerPalabraDeListaStringsPorPosicion (ListaStrings L) {
 //
