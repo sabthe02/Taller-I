@@ -1,20 +1,20 @@
 # depslib dependency file v1.0
-1708013143 source:c:\users\sabth\ude (licenciatura en informática)\1°\taller i\tiponodo.cpp
+1708182301 source:c:\users\sabth\ude (licenciatura en informática)\1°\taller i\tiponodo.cpp
 	"TipoNodo.h"
 
 1708013127 c:\users\sabth\ude (licenciatura en informática)\1°\taller i\tiponodo.h
 	<stdio.h>
 
-1708013097 source:c:\users\sabth\ude (licenciatura en informática)\1°\taller i\boolean.cpp
+1708193707 source:c:\users\sabth\ude (licenciatura en informática)\1°\taller i\boolean.cpp
 	"Boolean.h"
 
 1708012897 c:\users\sabth\ude (licenciatura en informática)\1°\taller i\boolean.h
 	<stdio.h>
 
-1708120719 source:c:\users\sabth\ude (licenciatura en informática)\1°\taller i\string.cpp
+1708193707 source:c:\users\sabth\ude (licenciatura en informática)\1°\taller i\string.cpp
 	"String.h"
 
-1708094720 c:\users\sabth\ude (licenciatura en informática)\1°\taller i\string.h
+1708193706 c:\users\sabth\ude (licenciatura en informática)\1°\taller i\string.h
 	<stdlib.h>
 	"Boolean.h"
 
@@ -24,8 +24,9 @@
 1708012445 c:\users\sabth\ude (licenciatura en informática)\1°\taller i\arbolexpre.h
 	"ValorNodo.h"
 
-1708012441 c:\users\sabth\ude (licenciatura en informática)\1°\taller i\valornodo.h
+1708194693 c:\users\sabth\ude (licenciatura en informática)\1°\taller i\valornodo.h
 	"TipoNodo.h"
+	"Boolean.h"
 
 1708012445 source:c:\users\sabth\ude (licenciatura en informática)\1°\taller i\expresion.cpp
 	"Expresion.h"
@@ -39,16 +40,16 @@
 1708098407 c:\users\sabth\ude (licenciatura en informática)\1°\taller i\listaexpresiones.h
 	"Expresion.h"
 
-1708012445 source:c:\users\sabth\ude (licenciatura en informática)\1°\taller i\valornodo.cpp
+1708195580 source:c:\users\sabth\ude (licenciatura en informática)\1°\taller i\valornodo.cpp
 	"ValorNodo.h"
 
-1708123109 source:c:\users\sabth\ude (licenciatura en informática)\1°\taller i\listastrings.cpp
+1708124047 source:c:\users\sabth\ude (licenciatura en informática)\1°\taller i\listastrings.cpp
 	"ListaStrings.h"
 
-1708123964 c:\users\sabth\ude (licenciatura en informática)\1°\taller i\listastrings.h
+1708193707 c:\users\sabth\ude (licenciatura en informática)\1°\taller i\listastrings.h
 	"String.h"
 
-1708123283 source:c:\users\sabth\ude (licenciatura en informática)\1°\taller i\main.cpp
+1708195808 source:c:\users\sabth\ude (licenciatura en informática)\1°\taller i\main.cpp
 	"ListaExpresiones.h"
 	"ListaStrings.h"
 	"Archivo.h"

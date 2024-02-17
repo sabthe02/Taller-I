@@ -43,6 +43,9 @@ int transformarANatural (String s);
 // Transformar un String a Boolean
 boolean transformarStringABoolean (String s);
 
+//Transformar AND u OR en 'A' u 'O'
+char transformarStringOperadorAChar (String s);
+
 // Determinar si un String es vacío
 boolean esVacio (String s);
 

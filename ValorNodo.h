@@ -2,32 +2,51 @@
 #define VALORNODO_H_INCLUDED
 
 #include "TipoNodo.h"
+#include "Boolean.h"
 
-// A cambiar
-//typedef struct {
-//                fecha fec;
-//                long int cedulaEnConsulta;
-//                String motivo;
-//                Evaluacion evaluacion;
-//                } Consulta;
-//
-////Desplegar Consulta
-//void desplegarConsulta (Consulta c);
-//
-////Cargar consulta
-//void cargarConsulta (Consulta &c);
-//
-//// Selectora fecha
-//fecha seleccionarFecha (Consulta c);
-//
-//// Selectora cédula COnsulta
-//long int seleccionarCedulaConsulta (Consulta c);
-//
-//// Selectora motivo
-//String seleccionarMotivo (Consulta c);
-//
-//// Selectora Evaluación
-//Evaluacion seleccionarEvaluacion (Consulta c);
-//
+
+typedef struct {int indice;
+TipoNodo discriminante;
+				union 	{boolean valor;
+						char operador;
+						char parentesis;
+						} dato;
+			}ValorNodo;
+
+
+// Desplegar operador
+void desplegarOperador (ValorNodo valor);
+
+// Desplegar parentesis
+void desplegarParentesis (ValorNodo valor);
+
+//Desplegar dato Nodo Arbol
+void desplegarDatoNodoArbol (ValorNodo valor);
+
+// Selectora indice
+int darIndiceNodoArbol (ValorNodo valor);
+
+// Selectora discriminante
+TipoNodo darDiscriminante (ValorNodo valor);
+
+// Selectora Valor Booleano
+boolean darBooleanoArbol (ValorNodo valor);
+
+// Selectora Operador
+char darOperadorArbol (ValorNodo valor);
+
+// Selectora Parentesis
+char darParentesisArbol (ValorNodo valor);
+
+// Insertar valor atómico a nodo
+// Precondición: Valor a insertar convertido a booleano
+void insertarValorNodo (boolean v, ValorNodo &valor);
+
+// Insertar operador a nodo
+// Precondición: String "AND" u "OR" convertido a 'A' u 'O'
+void insertarOperadorNodo (char o, ValorNodo &valor);
+
+// Insertar paréntesis a nodo
+void insertarParentesisNodo (char p, ValorNodo &valor);
 
 #endif // VALORNODO_H_INCLUDED

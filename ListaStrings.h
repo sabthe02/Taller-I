@@ -54,7 +54,7 @@ boolean PerteneceIter(String s,ListaStrings L);
 //Precondición: Crear Lista en main
 void partirStrings (String s, ListaStrings &L);
 //
-// Obtener una palabra de la Lista de Strings
+// Dada su posición, obtener una palabra de la Lista de Strings
 //Precondicion: Palabra pertenece a la lista
 String obtenerPalabraDeListaStrings (String s, int posicion, ListaStrings L);
 

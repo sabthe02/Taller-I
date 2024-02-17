@@ -4,29 +4,26 @@
 
 int main()
 {
-String c, d;
-int i;
-ListaStrings L;
+boolean b = TRUE;
+ValorNodo V, V2, V3, V4, V5;
+char a = 'A';
+char o = 'O';
+char n = 'N';
+char p = '(';
+char p2 = ')';
 
-printf("\nIngrese cadena de caracteres con blancos al principio ");
-strcrear(c);
-scan(c);
-printf("\n");
+insertarParentesisNodo(p, V);
+desplegarDatoNodoArbol(V);
 
-Crear (L);
+insertarOperadorNodo(n, V3);
+desplegarDatoNodoArbol(V3);
 
-partirStrings(c, L);
-DesplegarIter(L);
-printf("\nEl largo de la lista es: %d", largoListaStrings(L));
+insertarValorNodo(b, V2);
+desplegarDatoNodoArbol(V2);
 
-printf("\nIngrese palabra que se quiere devoler ");
-strcrear(d);
-scan(d);
-printf("\nIngrese posicion ");
-scanf("%d", &i);
-printf("\n");
-print(obtenerPalabraDeListaStrings (d, i, L));
 
+insertarParentesisNodo(p2,V5);
+desplegarDatoNodoArbol(V5);
 
 }
 

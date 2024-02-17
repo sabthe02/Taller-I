@@ -2,11 +2,11 @@
 
 void desplegarTipo (TipoNodo tipo) {
  switch (tipo) {
-            case VALOR: printf("true o false");
+            case VALOR: printf("VALOR");
             break;
-            case OPERADOR: printf("AND, OR o NOT");
+            case OPERADOR: printf("OPERADOR");
             break;
-            case PARENTESIS: printf("( o )");
+            case PARENTESIS: printf("PARENTESIS");
             break;
     }
 }

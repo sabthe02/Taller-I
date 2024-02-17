@@ -158,6 +158,20 @@ return Bool;
 
 }
 
+char transformarStringOperadorAChar (String s) {
+char c;
+if (s[0] == 'A' && s[1] == 'N' && s[2] == 'D') {
+    c = 'A';
+}
+else {
+    if (s[0] == 'O' && s[1] == 'R') {
+    c = 'O';
+    }
+}
+}
+
+
+
 boolean esVacio (String s) {
 boolean es;
 

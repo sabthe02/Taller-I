@@ -1,42 +1,97 @@
 #include "ValorNodo.h"
 
-// Contenido a cambiar
-//void desplegarConsulta(Consulta c) {
-//    printf("Fecha: ");
-//    desplegarFecha(c.fec);
-//    printf(" | Cedula de la consulta: %ld | ", c.cedulaEnConsulta);
-//    printf("Motivo de la consulta: ");
-//    print(c.motivo);
-//    printf(" | Evaluacion: ");
-//    desplegarEvaluacion(c.evaluacion);
-//    printf("\n");
-//}
-//
-//void cargarConsulta(Consulta &c) {
-//    cargarFecha(c.fec);
-//    printf("\nIngrese cedula de la consulta: ");
-//    scanf("%ld", &c.cedulaEnConsulta);
-//    fflush(stdin);
-//    printf("\nIngrese el motivo de la consulta: ");
-//    fflush (stdin);
-//    strcrear(c.motivo);
-//    scan(c.motivo);
-//    printf("\nIngrese la evaluacion de la consulta: ");
-//    cargarEvaluacion(c.evaluacion);
-//}
-//
-//fecha seleccionarFecha(Consulta c) {
-//    return c.fec;
-//}
-//
-//long int seleccionarCedulaConsulta(Consulta c) {
-//    return c.cedulaEnConsulta;
-//}
-//
-//String seleccionarMotivo(Consulta c) {
-//    return c.motivo;
-//}
-//
-//Evaluacion seleccionarEvaluacion(Consulta c) {
-//    return c.evaluacion;
-//}
+
+void desplegarOperador (ValorNodo valor) {
+switch(valor.dato.operador) {
+    case 'A': printf(" AND ");
+    break;
+    case 'O': printf(" OR ");
+    break;
+    case 'N': printf("NOT ");
+    break;
+}
+}
+
+void desplegarParentesis (ValorNodo valor) {
+switch(valor.dato.parentesis) {
+    case '(': printf("(");
+    break;
+    case ')': printf(")");
+    break;
+}
+}
+
+
+void desplegarDatoNodoArbol (ValorNodo valor) {
+    switch(darTipo(valor.discriminante)) {
+        case VALOR: desplegarBoolean(valor.dato.valor);
+        break;
+        case OPERADOR: desplegarOperador(valor);
+        break;
+        case PARENTESIS: desplegarParentesis(valor);
+        break;
+    }
+}
+
+
+int darIndiceNodoArbol (ValorNodo valor) {
+    return valor.indice;
+}
+
+TipoNodo darDiscriminante (ValorNodo valor) {
+    return valor.discriminante;
+}
+
+boolean darBooleanoArbol (ValorNodo valor) {
+return valor.dato.valor;
+}
+
+char darOperadorArbol (ValorNodo valor) {
+    return valor.dato.operador;
+}
+
+char darParentesisArbol (ValorNodo valor) {
+    return valor.dato.parentesis;
+}
+
+void insertarValorNodo (boolean v, ValorNodo &valor) {
+switch(v) {
+        case TRUE:  valor.dato.valor = TRUE;
+                    valor.discriminante = VALOR;
+        break;
+        case FALSE: valor.dato.valor = FALSE;
+                    valor.discriminante = VALOR;
+        break;
+    }
+
+}
+
+void insertarOperadorNodo (char o, ValorNodo &valor) {
+
+switch(o) {
+        case 'O':   valor.dato.operador = 'O';
+                    valor.discriminante = OPERADOR;
+        break;
+        case 'A':   valor.dato.operador = 'A';
+                    valor.discriminante = OPERADOR;
+        break;
+        case 'N':   valor.dato.operador = 'N';
+                    valor.discriminante = OPERADOR;
+    }
+
+}
+
+
+void insertarParentesisNodo (char p, ValorNodo &valor) {
+    switch(p) {
+        case '(':   valor.dato.operador = '(';
+                    valor.discriminante = PARENTESIS;
+        break;
+        case ')':   valor.dato.operador = ')';
+                    valor.discriminante = PARENTESIS;
+        break;
+    }
+}
+
+
+
