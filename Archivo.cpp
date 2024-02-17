@@ -39,27 +39,66 @@ return existeArchivo;
 //delete []aux;
 //}
 //
-//// Expresión
+//// ValorNodo
 //
-//void bajarEvaluacion (String nombrearchivo, file *f {
-//
-//    fwrite (&expre.num, sizeof(int), 1, f);
-//    fwrite (&expre.cedulaEnConsulta, sizeof(long int), 1, f);
-//    Bajar_String (c.motivo, f);
-//    fwrite (&c.evaluacion, sizeof(Evaluacion), 1, f);
-//
-//}
-//
-//levantarEvaluacion (String &nombrearchivo, file *f) {
-//
-//    fread (&c.fec, sizeof(fecha), 1, f);
-//    fread(&c.cedulaEnConsulta, sizeof(long int), 1, f);
-//    strcrear (c.motivo);
-//    Levantar_String (c.motivo, f);
-//    fread (&c.evaluacion, sizeof(Evaluacion), 1, f);
-//
-//}
-//
+void bajarValorNodo (ValorNodo v, FILE *f) {
+
+    fwrite (&v.indice, sizeof(int), 1, f);
+    fwrite (&v.discriminante, sizeof(TipoNodo), 1, f);
+    switch (darTipo(v.discriminante)) {
+        case VALOR: fwrite(&v.dato.valor, sizeof(boolean), 1, f);
+        break;
+        case OPERADOR: fwrite(&v.dato.operador, sizeof(char), 1, f);
+        break;
+        case PARENTESIS: fwrite(&v.dato.parentesis, sizeof(char), 1, f);
+        break;
+    }
+}
+
+void levantarValorNodo (ValorNodo &v, FILE *f) {
+
+fread(&v.indice, sizeof(int), 1, f);
+fread(&v.discriminante, sizeof(TipoNodo), 1, f);
+switch (darTipo(v.discriminante)) {
+        case VALOR: fread(&v.dato.valor, sizeof(boolean), 1, f);
+        break;
+        case OPERADOR: fread(&v.dato.operador, sizeof(char), 1, f);
+        break;
+        case PARENTESIS: fread(&v.dato.parentesis, sizeof(char), 1, f);
+        break;
+    }
+}
+
+// ÁrbolExpre
+void BajarArbolExpre (ArbolExpre a, FILE *f) {
+
+if (a != NULL) {
+
+bajarValorNodo(a->info, f);
+BajarArbolExpre (a->hizq, f);
+BajarArbolExpre (a->hder, f);
+}
+
+}
+
+void LevantarArbolExpre (ArbolExpre &a, String nombrearchivo) {
+FILE *f = fopen(nombrearchivo, "rb");
+ValorNodo buffer;
+crearArbol(a);
+
+levantarValorNodo (buffer, f);
+while (!feof(f)) {
+    insertarValorEnOrden(buffer, a);
+    levantarValorNodo(buffer, f);
+
+}
+
+fclose (f);
+
+}
+
+
+
 //void Bajar_Consultas (Lista L , String nomArchConsultas) {
 //FILE * f = fopen("Consultas.txt", "wb");
 //while (L != NULL){
@@ -73,63 +112,7 @@ return existeArchivo;
 //FILE * f = fopen("Consultas.txt", "rb");
 //Consulta buffer;
 //Crear (L);
-//
-//Levantar_Consulta (buffer, f);
-//
-//while (!feof(f)) {
-//    InsBackIter (L, buffer);
-//    Levantar_Consulta (buffer, f);
 //}
 //
-//fclose (f);
-//}
-//
-////PACIENTES
-//
-//void BajarPaciente (paciente p, FILE * f) {
-//
-//fwrite(&p.cedula, sizeof(long int), 1, f);
-//Bajar_String (p.nombre, f);
-//Bajar_String (p.apellido, f);
-//fwrite(&p.telefono, sizeof(long int), 1, f);
-//fwrite(&p.cantConsultas, sizeof(int), 1, f);
-//}
-//
-//void LevantarPaciente (paciente &p, FILE * f) {
-//
-//fread(&p.cedula, sizeof(long int), 1, f);
-//strcrear (p.nombre);
-//Levantar_String (p.nombre, f);
-//strcrear (p.apellido);
-//Levantar_String (p.apellido, f);
-//fread(&p.telefono, sizeof(long int), 1, f);
-//fread(&p.cantConsultas, sizeof(int), 1, f);
-//
-//}
-//
-//void BajarPacientes (ABB a, FILE *f) {
-//
-//if (a != NULL) {
-//
-//BajarPaciente(a->info, f);
-//BajarPacientes (a->hizq, f);
-//BajarPacientes (a->hder, f);
-//}
-//
-//}
-//
-//void LevantarPacientes (ABB &a, String nomArchPacientes) {
-//FILE *f2 = fopen("Pacientes.txt", "rb");
-//paciente buffer;
-//Crear(a);
-//
-//LevantarPaciente (buffer, f2);
-//while (!feof(f2)) {
-//    Insert(a, buffer);
-//    LevantarPaciente(buffer, f2);
-//
-//}
-//
-//fclose (f2);
-//
-//}
+
+

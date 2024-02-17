@@ -3,55 +3,57 @@
 
 #include "ValorNodo.h"
 
-// A cambiar
+
+typedef struct nodoA 	{ValorNodo info;
+                        nodoA *hizq;
+                        nodoA *hder;
+                        } NodoA;
+
+typedef NodoA *ArbolExpre;
+
+
+//Crear un árbol
+void crearArbol (ArbolExpre &a);
+
+// Saber si el árbol está vacío
+boolean ArbolEsVacio (ArbolExpre a);
+
+// Devolver raiz
+//Precondición: Árbol no vacío
+ValorNodo darRaiz (ArbolExpre a);
+
+// Obtener subárbol izquierdo
+//Precondición: Árbol no vacío
+ArbolExpre HijoIzq (ArbolExpre a);
+
+// Obtener subárbol derecho
+//Precondición: Árbol no vacío
+ArbolExpre HijoDer (ArbolExpre a);
+
+// Dados dos árboles y un valor, devolver un nuevo árbol, colocando el valor como raíz y los dos árboles como subárboles
+//Precondición: el valor no existía previamente en el árbol
+// Procedimiento para subir a memoria los nodos según su índice.
+void insertarValorEnOrden (ValorNodo valor, ArbolExpre &a);
+
+// liberar memoria arbol
+void liberarMemoriaArbol(ArbolExpre &a);
+
+// Listar todos los nodos del árbol en pantalla, recorriéndolo en órden
+void desplegarNodosArbolOrden (ArbolExpre a);
+////Revisa si existe el índice en el árbol
+//boolean existeEnArbol (ArbolExpre a, int indice);
 //
-//typedef struct nodoA    {paciente info;
-//                        nodoA *hizq;
-//                        nodoA *hder;
-//                        }nodo;
-//typedef nodo *ABB;
+////Determina nodo con menor índice
+//ValorNodo Minimo (ArbolExpre a);
 //
-////Crear un árbol
-//void Crear (ABB &a);
+////Borra del árbol nodo con menor índice
+//void Borrar_Minimo (ArbolExpre &a);
 //
-//// Saber si el árbol está vacío
-//boolean Vacio (ABB a);
+////Dado el índice, eliminar dicho nodo del sistema.
+//// Precondición, índice existe en el sistema.
+//void eliminarConIndice (int indice, ArbolExpre &a);
 //
-//// Devolver raiz
-////Precondición: Árbol no vacío
-//paciente darRaiz (ABB a);
-//
-//// Obtener subárbol izquierdo
-////Precondición: Árbol no vacío
-//ABB HijoIzq (ABB a);
-//
-//// Obtener subárbol derecho
-////Precondición: Árbol no vacío
-//ABB HijoDer (ABB a);
-//
-//// Dados dos árboles y un valor, devolver un nuevo árbol, colocando el valor como raíz y los dos árboles como subárboles
-////Precondición: el valor no existía previamente en el ABB
-//void Insert (ABB &a, paciente valor);
-//
-////Revisa si existe la cédula del paciente en el ABB
-//boolean existe (ABB a, long int cedula);
-//
-////Determina paciente con menor cédula
-//paciente Minimo (ABB a);
-//
-////Borra del ABB paciente con menor cédula
-//void Borrar_Minimo (ABB &a);
-//
-////Dada la cédula que identifica a un paciente, eliminar dicho paciente del sistema.
-////Se debe verificar previamente que dicha cédula exista en el sistema.
-////También se deben eliminar del sistema todas las consultas realizadas por dicho paciente.
-//// Precondición, cédula del paciente existe en el sistema.
-//void eliminarConCedula (long int cedula, ABB &a);
-//
-//// Listar todos los pacientes registrados en el sistema, ordenados por cédula de identidad de menor a mayor.
-////Los datos de cada paciente (cédula, nombre, apellido, teléfono y cantidad de consultas realizadas hasta el momento)
-////deben listarse todos en una misma línea.
-//void listarPacientes (ABB a);
+
 //
 //// Listar aquellos pacientes registrados en el sistema que aún no han realizado ninguna consulta al dentista.
 //// Los datos de cada paciente (cédula, nombre, apellido, teléfono y cantidad de consultas realizadas hasta el momento)
@@ -65,7 +67,6 @@
 ////hasta el momento.
 //int obtenerPacientesConCantidadDeConsultas (ABB a, int CaConsultas);
 //
-//// liberar memoria arbol
-//void liberarArbol(ABB &a);
+
 
 #endif // ARBOLEXPRE_H_INCLUDED

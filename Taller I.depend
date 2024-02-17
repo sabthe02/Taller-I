@@ -18,20 +18,20 @@
 	<stdlib.h>
 	"Boolean.h"
 
-1708012303 source:c:\users\sabth\ude (licenciatura en informática)\1°\taller i\arbolexpre.cpp
+1708207092 source:c:\users\sabth\ude (licenciatura en informática)\1°\taller i\arbolexpre.cpp
 	"ArbolExpre.h"
 
-1708012445 c:\users\sabth\ude (licenciatura en informática)\1°\taller i\arbolexpre.h
+1708206572 c:\users\sabth\ude (licenciatura en informática)\1°\taller i\arbolexpre.h
 	"ValorNodo.h"
 
-1708194693 c:\users\sabth\ude (licenciatura en informática)\1°\taller i\valornodo.h
+1708201688 c:\users\sabth\ude (licenciatura en informática)\1°\taller i\valornodo.h
 	"TipoNodo.h"
 	"Boolean.h"
 
 1708012445 source:c:\users\sabth\ude (licenciatura en informática)\1°\taller i\expresion.cpp
 	"Expresion.h"
 
-1708012445 c:\users\sabth\ude (licenciatura en informática)\1°\taller i\expresion.h
+1708203174 c:\users\sabth\ude (licenciatura en informática)\1°\taller i\expresion.h
 	"ArbolExpre.h"
 
 1708098404 source:c:\users\sabth\ude (licenciatura en informática)\1°\taller i\listaexpresiones.cpp
@@ -40,7 +40,7 @@
 1708098407 c:\users\sabth\ude (licenciatura en informática)\1°\taller i\listaexpresiones.h
 	"Expresion.h"
 
-1708195580 source:c:\users\sabth\ude (licenciatura en informática)\1°\taller i\valornodo.cpp
+1708201676 source:c:\users\sabth\ude (licenciatura en informática)\1°\taller i\valornodo.cpp
 	"ValorNodo.h"
 
 1708124047 source:c:\users\sabth\ude (licenciatura en informática)\1°\taller i\listastrings.cpp
@@ -49,15 +49,15 @@
 1708193707 c:\users\sabth\ude (licenciatura en informática)\1°\taller i\listastrings.h
 	"String.h"
 
-1708195808 source:c:\users\sabth\ude (licenciatura en informática)\1°\taller i\main.cpp
+1708202914 source:c:\users\sabth\ude (licenciatura en informática)\1°\taller i\main.cpp
 	"ListaExpresiones.h"
 	"ListaStrings.h"
 	"Archivo.h"
 
-1708118081 c:\users\sabth\ude (licenciatura en informática)\1°\taller i\archivo.h
+1708206908 c:\users\sabth\ude (licenciatura en informática)\1°\taller i\archivo.h
 	"ListaExpresiones.h"
 	"ListaStrings.h"
 
-1708118014 source:c:\users\sabth\ude (licenciatura en informática)\1°\taller i\archivo.cpp
+1708206797 source:c:\users\sabth\ude (licenciatura en informática)\1°\taller i\archivo.cpp
 	"Archivo.h"
 

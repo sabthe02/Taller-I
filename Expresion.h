@@ -3,13 +3,9 @@
 
 #include "ArbolExpre.h"
 
-// A cambiar
-//typedef struct {long int cedula;
-//         String nombre;
-//         String apellido;
-//         long int telefono;
-//         int cantConsultas;
-//        }paciente;
+typedef struct 	{int numero;
+                ArbolExpre arbol;
+                } Expresion;
 //
 //void desplegarPaciente (paciente p);
 //

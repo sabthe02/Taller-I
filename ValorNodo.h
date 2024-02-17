@@ -49,4 +49,7 @@ void insertarOperadorNodo (char o, ValorNodo &valor);
 // Insertar paréntesis a nodo
 void insertarParentesisNodo (char p, ValorNodo &valor);
 
+// Asignar índice a nodo (cuando se bajará a archivo)
+void asignarIndiceNodo (int indice, ValorNodo &valor);
+
 #endif // VALORNODO_H_INCLUDED

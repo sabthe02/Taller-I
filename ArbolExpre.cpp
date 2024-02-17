@@ -1,45 +1,84 @@
 #include "ArbolExpre.h"
-// A cambiar
-//
-//void Crear (ABB &a) {
-//
-//a = NULL;
-//
-//}
-//
-//boolean Vacio (ABB a) {
-//boolean es;
+
+
+void crearArbol (ArbolExpre &a) {
+
+a = NULL;
+
+}
+
+boolean ArbolEsVacio (ArbolExpre a) {
+boolean es;
+
+if (a == NULL) {
+    es = TRUE;
+}
+else {
+    es = FALSE;
+}
+return es;
+}
+
+ValorNodo darRaiz (ArbolExpre a) {
+return a->info;
+
+}
+
+ArbolExpre HijoIzq (ArbolExpre a) {
+
+return a->hizq;
+
+}
+
+
+ArbolExpre HijoDer (ArbolExpre a) {
+
+return a->hder;
+}
+
+void insertarValorEnOrden (ValorNodo valor, ArbolExpre &a) {
+
+if (a == NULL) {
+    a = new NodoA;
+    a->info = valor;
+    a->hizq = NULL;
+    a->hder = NULL;
+    }
+    else {
+        if (darIndiceNodoArbol(valor)< darIndiceNodoArbol(a->info)) {
+            insertarValorEnOrden (valor, a->hizq);
+        }
+        else {
+            insertarValorEnOrden (valor, a->hder);
+        }
+    }
+
+}
+
+void liberarMemoriaArbol(ArbolExpre &a)
+{
+    if (a != NULL)
+    {
+        liberarMemoriaArbol(a->hizq);
+        liberarMemoriaArbol(a->hder);
+        delete a;
+    }
+}
+
+
+void desplegarNodosArbolOrden (ArbolExpre a) {
+ if (a != NULL) {
+    desplegarNodosArbolOrden (a->hizq);
+    desplegarDatoNodoArbol (a->info);
+    desplegarNodosArbolOrden (a->hder);
+ }
+}
+
+
+//void insertarValor (ArbolExpre &a, ValorNodo valor {
 //
 //if (a == NULL) {
-//    es = TRUE;
-//}
-//else {
-//    es = FALSE;
-//}
-//return es;
-//}
-//
-//paciente darRaiz (ABB a) {
-//return a->info;
-//
-//}
-//
-//ABB HijoIzq (ABB a) {
-//
-//return a->hizq;
-//
-//}
-//
-//
-//ABB HijoDer (ABB a) {
-//
-//return a->hder;
-//}
-//
-//void Insert (ABB &a, paciente valor) {
-//
-//if (a == NULL) {
-//    a = new nodo;
+//    a = new NodoA;
 //    a->info = valor;
 //    a->hizq = NULL;
 //    a->hder = NULL;
@@ -132,12 +171,7 @@
 //
 //}
 //
-//void listarPacientes (ABB a) {
-// if (a != NULL) {
-//    listarPacientes (a->hizq);
-//    desplegarPaciente (a->info);
-//    listarPacientes (a->hder);
-// }
+
 //
 //
 //}
@@ -191,12 +225,3 @@
 //
 //}
 //
-//void liberarArbol(ABB &a)
-//{
-//    if (a != NULL)
-//    {
-//        liberarArbol(a->hizq);
-//        liberarArbol(a->hder);
-//        delete a;
-//    }
-//}

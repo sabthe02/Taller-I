@@ -4,38 +4,31 @@
 #include "ListaExpresiones.h"
 #include "ListaStrings.h"
 
-
 //Saber si existe un archivo
 boolean ExisteArchivo (String nombrearchivo);
+
+// ValorNodo
+//Bajar el estructurado ValorNodo a Archivo
+// Precondición: El archivo viene abierto para escritura.
+void bajarValorNodo (ValorNodo v, FILE *f);
+
+// Levantar el estructurado ValorNodo a memoria
+// Precondición: El archivo viene abierto para escritura.
+void levantarValorNodo (ValorNodo &v, FILE *f);
+
+// ArbolExpre
+////Baja árbol a un archivo en preorden
+////Precondición: El archivo viene abierto para escritura
+void BajarArbolExpre (ArbolExpre a, FILE *f);
 //
-////Bajar String a archivo
-//void Bajar_String (String s, FILE * f);
-//
-////Levantar String a memoria
-//void Levantar_String (String &s, FILE * f);
-//
-//// Expresion
-//
-////Bajar Expresion a un archivo
-//void bajarEvaluacion (String nombrearchivo, file *f);
-////
-//////Levantar Expresión a memoria
-//void levantarEvaluacion (String &nombrearchivo, file *f);
-//
+////Levanta árbol a memoria (órden)
+void LevantarArbolExpre (ArbolExpre &a, String nombrearchivo);
+
 ////Bajar lista a un archivo
 //void Bajar_Consultas (Lista L , String nomArchConsultas);
 //
 ////Levantar lista a memoria
 //void Levantar_Consultas (Lista &L, String nomArchConsultas);
-//
-////PACIENTES
-//// Escribe en el archivo los datos del paciente p.
-//// Precondición: El archivo viene abierto para escritura.
-//void BajarPaciente (paciente p, FILE * f);
-//
-//// Levanta Paciente de memoria
-//// Precondición: El archivo viene abierto para escritura
-//void LevantarPaciente (paciente &p, FILE * f);
 //
 ////Baja ABB a un archivo
 ////Precondición: El archivo viene abierto para escritura
