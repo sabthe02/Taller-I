@@ -54,13 +54,15 @@ boolean PerteneceIter(String s,ListaStrings L);
 //Precondición: Crear Lista en main
 void partirStrings (String s, ListaStrings &L);
 //
-// Dada su posición, obtener una palabra de la Lista de Strings
+// Dada su posición y un String, obtener esa palabra de la Lista de Strings
 //Precondicion: Palabra pertenece a la lista
 String obtenerPalabraDeListaStrings (String s, int posicion, ListaStrings L);
 
 // liberar memoria ListaString
 void liberarMemoriaListaS(ListaStrings &L);
 
+// Ejecuta comando atomic
+void atomic ();
 
 ////////////////////////////
 ////Registrar la realización de una nueva consulta hecha por un paciente.

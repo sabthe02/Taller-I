@@ -6,18 +6,20 @@
 typedef struct 	{int numero;
                 ArbolExpre arbol;
                 } Expresion;
+
+
+void asignarNumeroExpresion (Expresion &e, int num);
+
+int seleccionarNumeroExpresion (Expresion e);
+
+ArbolExpre seleccionarArbolExpre (Expresion e);
+
 //
-//void desplegarPaciente (paciente p);
+//void desplegarExpresion (Expresion e);
 //
-//void cargarPaciente (paciente &p);
-//
-//long int seleccionarCedulaPaciente (paciente p);
-//
-//String seleccionarNombre (paciente p);
-//
-//String seleccionarApellido (paciente p);
-//
-//long int seleccionarTelefono (paciente p);
+//void cargarExpresion (Expresion &e);
+
+
 //
 //int seleccionarCantConsultas (paciente p);
 //

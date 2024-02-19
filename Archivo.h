@@ -30,12 +30,5 @@ void LevantarArbolExpre (ArbolExpre &a, String nombrearchivo);
 ////Levantar lista a memoria
 //void Levantar_Consultas (Lista &L, String nomArchConsultas);
 //
-////Baja ABB a un archivo
-////Precondición: El archivo viene abierto para escritura
-//void BajarPacientes (ABB a, FILE *f);
-//
-////Levanta ABB a memoria
-//void LevantarPacientes (ABB &a, String nomArchPacientes);
-//
 
 #endif // ARCHIVO_H_INCLUDED

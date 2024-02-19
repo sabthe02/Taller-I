@@ -35,6 +35,7 @@ ArbolExpre HijoDer (ArbolExpre a) {
 
 return a->hder;
 }
+// Solo sirve para insertar desde archivo porque tiene que venir con el índice seteado, no sirve si el índice no está definido
 
 void insertarValorEnOrden (ValorNodo valor, ArbolExpre &a) {
 
@@ -55,6 +56,17 @@ if (a == NULL) {
 
 }
 
+void insertarValorArbol (boolean v, ArbolExpre &a) {
+
+    a = new NodoA;
+    insertarValorNodo(v, a->info);
+    a->hizq = NULL;
+    a->hder = NULL;
+    }
+
+
+
+
 void liberarMemoriaArbol(ArbolExpre &a)
 {
     if (a != NULL)
@@ -68,34 +80,14 @@ void liberarMemoriaArbol(ArbolExpre &a)
 
 void desplegarNodosArbolOrden (ArbolExpre a) {
  if (a != NULL) {
-    desplegarNodosArbolOrden (a->hizq);
+    desplegarNodosArbolOrden (a->hizq); // Se rompe acá, no llega a hacerlo cuando viene de la lista, pero si lo ejecuto solo en el árbol funciona
     desplegarDatoNodoArbol (a->info);
     desplegarNodosArbolOrden (a->hder);
  }
 }
 
 
-//void insertarValor (ArbolExpre &a, ValorNodo valor {
-//
-//if (a == NULL) {
-//    a = new NodoA;
-//    a->info = valor;
-//    a->hizq = NULL;
-//    a->hder = NULL;
-//    }
-//    else {
-//        if (seleccionarCedulaPaciente(valor)< seleccionarCedulaPaciente(a->info)) {
-//            Insert (a->hizq, valor);
-//        }
-//        else {
-//            Insert (a->hder, valor);
-//        }
-//    }
-//
-//}
-//
-//
-//
+
 //boolean existe (ABB a, long int cedula) {
 //if (a == NULL) {
 //    return FALSE;

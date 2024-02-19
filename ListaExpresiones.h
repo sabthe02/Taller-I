@@ -3,49 +3,55 @@
 
 #include "Expresion.h"
 
-// cambiar a requerimiento
-//typedef struct nodoB {
-//                        Consulta info;
-//                        nodoB *sig;
-//                     } nodo2;
+
+typedef struct nodoL {Expresion expre;
+                        nodoL *sig;
+                        } NodoL;
+
+typedef NodoL *ListaExpresiones;
+
+//Crea una lista
+void crearLista (ListaExpresiones &LE);
 //
-//typedef nodo2 *Lista;
-//
-////Crea una lista
-//void CrearExpre (Lista &L);
-//
-////Verifica si la lista esta vacia
-//boolean VaciaExpre(Lista L);
-//
+//Verifica si la lista esta vacia
+boolean VaciaExpre(ListaExpresiones LE);
+
+//Obtiene el primer elemento de la lista
 ///* Precondición: lista NO vacía */
-//Consulta PrimeroExpre(Lista L);
-//
+Expresion PrimeroExpre(ListaExpresiones LE);
+
+// Obtiene el resto de la lista
 ///* Precondición: lista NO vacía */
-//void RestoExpre(Lista &L);
+void RestoExpre(ListaExpresiones &LE);
+
+
+////Dada una lista y una expresión, agrega dicha expresión al final de la lista.
+void insertarNodoEnlista (Expresion e, ListaExpresiones &LE);
+//
+//Dada una lista, devuelve su largo (la cantidad de elementos de la lista)
+int largoListaExpresiones (ListaExpresiones LE);
+//
+////Dada una lista y un número de lista, despliega la expresión en ese lugar.
+void desplegarPorNumero (ListaExpresiones LE, int numero);
+//
+
+
+
+
 //
 // Dada una lista, insertar al principio de la lista un nuevo estructurado
-//void InsFrontExpre(Lista &L, Consulta e);
+//void InsFrontExpre(Expresion e, Lista &L);
 
-////Dada una lista y un número entero, agrega dicho entero al final de la lista.
-//void InsBackIterExpre(Lista &L, Consulta c);
-//
-////Dada una lista, devuelve su largo (la cantidad de elementos de la lista)
-//int LargoIterExpre(Lista L);
-//
-////Dada una lista, despliega sus valores por pantalla.
-//void DesplegarIterExpre(Lista L);
-//
 ////Dada una lista, devuelve su último elemento
 //// Precondición: L no está vacía
-//Consulta UltimoIterExpre(Lista L);
+//Expresion mayorIndiceLista (ListaExpresion L);
 //
-///*Dada una lista y un número entero, devuelve la cantidad de veces que dicho
-//entero aparece en la lista.*/
-//int ContarIterExpre(int e, Lista L);
-//
-///*Dada una lista y un número entero, devuelve TRUE si dicho entero
-//pertenece a la lista y FALSE en caso contrario.*/
-//boolean PerteneceIterExpre(Lista L, int e);
+
+// liberar memoria lista
+void liberarMemoriaListaE (ListaExpresiones &LE);
+
+///*Dada una lista y una expresion, devuelve TRUE si dicha expresión pertenece a la lista y FALSE en caso contrario.*/
+boolean PerteneceIterExpre(ListaExpresiones LE, Expresion e);
 //
 ///*Dada una lista y dos números enteros, sustituye cada ocurrencia del
 //primer entero en la lista por el segundo entero.*/
@@ -75,23 +81,10 @@
 //
 //// desplegar consultas por cedula
 //void desplegarporcedula (Lista L, long int cedula);
-//
-//// Obtener la cedula del paciente que ha realizado la mayor cantidad de consultas hasta el momento, junto con la cantidad de consultas correspondiente
-////PRECONDICION - inicializar variables
-//void mayorcantidadconsultas (Lista L, long int &cedula, int &mayor);
-//
-///*Dada una lista y un número de cedula, devuelve la cantidad de veces que dicho
-//cedula aparece en la lista.*/
-//int ContarCedulas (long int e, Lista L);
-//
-////elimina consulta
-//void eliminarConsulta(Lista &L, long int cedula);
-//
+
 ////desplegar consulta por fecha
 ////PRECONDICIÓN: la cédula debe existir
 //void desplegarConsultaPorFecha(Lista L, fecha f);
 //
-//// liberar memoria lista
-//void liberarMemoriaLista(Lista &L);
 
 #endif // LISTAEXPRESIONES_H_INCLUDED

@@ -154,15 +154,6 @@ return p;
 
 
 
-//String obtenerPalabraDeListaStringsPorPosicion (ListaStrings L) {
-//
-//if (L!=NULL) {
-//    if ()
-//}
-//
-//}
-
-
 
 //
 //void registrarConsulta (Lista &L, Consulta c)

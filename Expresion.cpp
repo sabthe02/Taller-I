@@ -1,7 +1,7 @@
 #include "Expresion.h"
 
-// Cambiar a contenido
-//void desplegarPaciente (paciente p) {
+//
+//void desplegarExpresion (Expresion p) {
 //printf("\n Cedula: %ld ", p.cedula);
 //printf("Nombre: ");
 //print(p.nombre);
@@ -11,7 +11,7 @@
 //printf("Cantidad de consultas: %d ", p.cantConsultas);
 //}
 //
-//void cargarPaciente (paciente &p) {
+//void cargarExpresion (Expresion &e) {
 //printf("\nIngresar cedula del paciente: ");
 //scanf("%ld",&p.cedula);
 //fflush(stdin);
@@ -26,21 +26,22 @@
 //p.cantConsultas = 0;
 //}
 //
-//long int seleccionarCedulaPaciente (paciente p) {
-//return p.cedula;
-//}
-//
-//String seleccionarNombre (paciente p) {
-//return p.nombre;
-//}
-//
-//String seleccionarApellido (paciente p) {
-//return p.apellido;
-//}
-//
-//long int seleccionarTelefono (paciente p) {
-//return p.telefono;
-//}
+int seleccionarNumeroExpresion (Expresion e) {
+return e.numero;
+}
+
+void asignarNumeroExpresion (Expresion &e, int num) {
+
+e.numero = num;
+
+}
+
+
+ArbolExpre seleccionarArbolExpre (Expresion e) {
+return e.arbol;
+}
+
+
 //
 //int seleccionarCantConsultas (paciente p) {
 //return p.cantConsultas;

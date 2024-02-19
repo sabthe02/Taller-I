@@ -143,6 +143,21 @@ num = atoi(s);
 return num;
 
 }
+
+boolean esNatural (String s) {
+boolean es;
+int num;
+num = atoi(s);
+
+if (num == 0) {
+    es = FALSE;
+}
+else {
+    es = TRUE;
+}
+return es;
+
+}
 boolean transformarStringABoolean (String s) {
 boolean Bool;
 
@@ -246,7 +261,5 @@ while (s[i] != '\0') {
 resto[j] = '\0';
 strdestruir(s);
 }
-
-
 
 

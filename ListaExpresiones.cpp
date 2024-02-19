@@ -1,27 +1,27 @@
 #include "ListaExpresiones.h"
 
-//void CrearExpre (Lista &L) {
-//    L = NULL;
-//}
-//
-//boolean VaciaExpre(Lista L) {
-//    boolean es = FALSE;
-//    if (L == NULL)
-//        es = TRUE;
-//    return es;
-//}
-//
-//
-//Consulta PrimeroExpre(Lista L) {
-//    return L->info;
-//}
-//
-//
-//void RestoExpre(Lista &L) {
-//    Lista aux = L;
-//    L = L->sig;
-//    delete aux;
-//}
+void crearLista  (ListaExpresiones &LE) {
+    LE = NULL;
+}
+
+boolean VaciaExpre(ListaExpresiones LE) {
+    boolean es = FALSE;
+    if (LE == NULL)
+        es = TRUE;
+    return es;
+}
+
+
+Expresion PrimeroExpre(ListaExpresiones LE) {
+    return LE->expre;
+}
+
+
+void RestoExpre(ListaExpresiones &LE) {
+    ListaExpresiones aux = LE;
+    LE = LE->sig;
+    delete aux;
+}
 //
 //void InsFrontExpre(Lista &L, Consulta e) {
 //    Lista aux = new nodo2;
@@ -32,82 +32,76 @@
 //
 //
 
-//void InsBackIterExpre(Lista &L, Consulta c)
-//{
-//    Lista nuevo = new nodo2;
-//    nuevo->info = c;
-//    nuevo->sig = NULL;
-//    if (L == NULL)
-//        L = nuevo;
-//    else {
-//        Lista aux = L;
-//        while (aux->sig != NULL)
-//            aux = aux->sig;
-//        aux->sig = nuevo;
-//    }
-//}
-//
-//void DesplegarIterExpre(Lista L)
-//{
-//    while (L != NULL)
-//    {
-//        desplegarConsulta (L->info);
-//        L = L->sig;
-//    }
-//}
-//
+void insertarNodoEnlista (Expresion e, ListaExpresiones &LE)
+{
+    ListaExpresiones nuevo = new NodoL;
+    nuevo->expre = e;
+    nuevo->sig = NULL;
+    if (LE == NULL)
+        LE = nuevo;
+    else {
+        ListaExpresiones aux = LE;
+        while (aux->sig != NULL) {
+            aux = aux->sig;
+        }
+        aux->sig = nuevo;
+    }
+//    asignarNumeroExpresion (nuevo->expre, largoListaExpresiones (LE));
+}
 
-//int LargoIterExpre (Lista L) {
-//int contador = 0;
-//
-//while (L!= NULL) {
-//        contador++;
-//        L = L -> sig;
-//}
-//
-//return contador;
-//
-//}
+int largoListaExpresiones (ListaExpresiones LE) {
+int contador = 0;
 
-//int UltimoIterExpre (Lista L) {
-//
-//while ((L-> sig) != NULL) {
-//        L = L -> sig;
-//}
-//
-//return L->info;
-//}
-//
-//
-//
-//int ContarIterExpre (Lista L, int numero) {
-//int contador = 0;
-//
-//while (L!= NULL) {
-//    if (numero == (L -> info)) {
-//        contador++;
-//    }
-//    L = L -> sig;
-//}
-//return contador;
-//
-//}
-//
-//boolean PerteneceIterExpre (Lista L, int numero) {
-//
-//boolean pertenece = FALSE;
-//
-//while (L!=NULL && !pertenece) {
-//    if (numero == L -> info) {
-//        pertenece = TRUE;
-//    }
-//    else {
-//        L = L -> sig;
-//    }
-//}
-//return pertenece;
-//
-//}
+while (LE!= NULL) {
+        contador++;
+        LE = LE -> sig;
+}
+
+return contador;
+
+}
+
+void desplegarPorNumero (ListaExpresiones LE, int numero){
+    if (LE != NULL)
+    {
+        if (seleccionarNumeroExpresion (LE->expre) == numero) {
+        printf("\nexpresion %d: ", seleccionarNumeroExpresion(LE->expre));
+        desplegarNodosArbolOrden (seleccionarArbolExpre(LE->expre)); // Se me rompe acá, no sé por qué :-(
+        desplegarPorNumero (LE, numero);
+        }
+        else
+            {
+                desplegarPorNumero (LE->sig, numero);
+                }
+    }
+}
+
+
+void liberarMemoriaListaE (ListaExpresiones &LE) {
+    while (LE != NULL)
+    {
+        ListaExpresiones lista = LE;
+        LE = LE->sig;
+        delete lista;
+    }
+}
+
+
+boolean PerteneceIterExpre (ListaExpresiones LE, Expresion e) {
+
+boolean pertenece = FALSE;
+
+while (LE!=NULL && !pertenece) {
+    if (seleccionarArbolExpre(e) == seleccionarArbolExpre(LE -> expre)) {
+        pertenece = TRUE;
+    }
+    else {
+        LE = LE -> sig;
+    }
+}
+return pertenece;
+
+}
 
 //
 //void registrarConsulta (Lista &L, Consulta c)
@@ -193,19 +187,6 @@
 //}
 //
 //
-//void desplegarporcedula (Lista L, long int cedula)
-//{
-//    if (L != NULL)
-//    {
-//        if (seleccionarCedulaConsulta (L->info) == cedula)
-//        {
-//        desplegarConsulta (L->info);
-//        desplegarporcedula (L->sig, cedula);
-//        }
-//        else
-//            {desplegarporcedula (L->sig, cedula);}
-//    }
-//}
 //
 //
 //int ContarCedulas(long int e, Lista L) {
@@ -286,12 +267,4 @@
 //    }
 //}
 //
-//void liberarMemoriaLista(Lista &L)
-//{
-//    while (L != NULL)
-//    {
-//        Lista lista = L;
-//        L = L->sig;
-//        delete lista;
-//    }
-//}
+

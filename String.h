@@ -40,6 +40,9 @@ void strswp (String &s1,String &s2);
 // Transformar un String a un natural
 int transformarANatural (String s);
 
+// Determinar si un String es un natural
+boolean esNatural (String s);
+
 // Transformar un String a Boolean
 boolean transformarStringABoolean (String s);
 
@@ -58,5 +61,6 @@ void eliminarBlancosPrincipio (String s, String &sb);
 //la primera palabra del s y en el resto todo lo demás
 // Precondición: s no es vacío
 void dividirString (String s, String &primero, String &resto);
+
 
 #endif // STRING_H_INCLUDED
