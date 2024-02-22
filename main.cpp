@@ -6,14 +6,14 @@ int main()
 {
 
 ListaStrings L;
-boolean b = TRUE;
-ValorNodo V, V2, V3, V4, V5;
-char a = 'A';
-char o = 'O';
-char n = 'N';
-char p = '(';
-char p2 = ')';
-int indice;
+//boolean b = TRUE;
+//ValorNodo V, V2, V3, V4, V5;
+//char a = 'A';
+//char o = 'O';
+//char n = 'N';
+//char p = '(';
+//char p2 = ')';
+//int indice;
 ArbolExpre ar;
 ListaExpresiones LE;
 Expresion e;
@@ -29,41 +29,18 @@ partirStrings(s, L);
 
 if (!Vacia(L)){
         if (PerteneceIter("atomic", L)) {
-            if (PosicionListaString("atomic", L) == 1) {
-                if (largoListaStrings(L) != 2) {
-                    printf("\nCantidad de parámetros incorrecta, deben ser 2");
-                }
-                else {
-                        if (((PerteneceIter("true", L)) && (PosicionListaString("true", L) == 2)) || ((PerteneceIter("false", L)) && (PosicionListaString("false", L) == 2))) {
-                            if ((PerteneceIter("true", L)) && (PosicionListaString("true", L) == 2)) {
-                                crearArbol(ar);
-                                insertarValorArbol ((transformarStringABoolean ("true")), ar);
-                                asignarNumeroExpresion (e, largoListaExpresiones(LE)+1);
-                                insertarNodoEnlista(e, LE);
-                                }
-                                else {
-                                    crearArbol(ar);
-                                    insertarValorArbol ((transformarStringABoolean ("false")), ar);
-                                    asignarNumeroExpresion (e, largoListaExpresiones(LE)+1);
-                                    insertarNodoEnlista(e, LE);
-                                }
-
-                        }
-                        else {
-                            printf("\nDebe ingresar 'true' o 'false' como segunda palabra");
-                        }
-                }
-            }
-            else {
-                printf("\nLa palabra 'atomic' debe ir en primer lugar y en segundo 'true' o 'false'");
-            }
+            atomic(L, LE, e, ar);
         }
+//        else {
+//            // En el caso de  otros comandos
+//        }
+}
+// si no se ha ingresado nada
 else {
     printf("\nNo se ha ingresado ningún comando");
  }
-desplegarPorNumero (LE, 1); // a modo de testeo con 1
 
-}
+
 
 //
 //String nombrearchivo = "test.dat";

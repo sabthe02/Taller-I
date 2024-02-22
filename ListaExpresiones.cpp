@@ -46,7 +46,6 @@ void insertarNodoEnlista (Expresion e, ListaExpresiones &LE)
         }
         aux->sig = nuevo;
     }
-//    asignarNumeroExpresion (nuevo->expre, largoListaExpresiones (LE));
 }
 
 int largoListaExpresiones (ListaExpresiones LE) {
@@ -62,11 +61,10 @@ return contador;
 }
 
 void desplegarPorNumero (ListaExpresiones LE, int numero){
-    if (LE != NULL)
-    {
-        if (seleccionarNumeroExpresion (LE->expre) == numero) {
-        printf("\nexpresion %d: ", seleccionarNumeroExpresion(LE->expre));
-        desplegarNodosArbolOrden (seleccionarArbolExpre(LE->expre)); // Se me rompe acá, no sé por qué :-(
+    if (LE != NULL){
+//        if (seleccionarNumeroExpresion (LE->expre) == numero) {
+//        printf("\nexpresion %d: ", seleccionarNumeroExpresion(LE->expre));
+//        desplegarNodosArbolOrden (seleccionarArbolExpre(LE->expre));
         desplegarPorNumero (LE, numero);
         }
         else
@@ -74,7 +72,6 @@ void desplegarPorNumero (ListaExpresiones LE, int numero){
                 desplegarPorNumero (LE->sig, numero);
                 }
     }
-}
 
 
 void liberarMemoriaListaE (ListaExpresiones &LE) {

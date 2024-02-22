@@ -2,7 +2,7 @@
 #define LISTASTRINGS_H_INCLUDED
 
 #include "String.h"
-
+#include "ListaExpresiones.h"
 
 
 typedef struct nodoS {String palabra;
@@ -56,13 +56,13 @@ void partirStrings (String s, ListaStrings &L);
 //
 // Dada su posición y un String, obtener esa palabra de la Lista de Strings
 //Precondicion: Palabra pertenece a la lista
-String obtenerPalabraDeListaStrings (String s, int posicion, ListaStrings L);
+//String obtenerPalabraDeListaStrings (int posicion, ListaStrings L); En Re-construcción
 
 // liberar memoria ListaString
 void liberarMemoriaListaS(ListaStrings &L);
 
 // Ejecuta comando atomic
-void atomic ();
+void atomic (ListaStrings L, ListaExpresiones &LE, Expresion &e, ArbolExpre &ar);
 
 ////////////////////////////
 ////Registrar la realización de una nueva consulta hecha por un paciente.

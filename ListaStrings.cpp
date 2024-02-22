@@ -123,24 +123,27 @@ partirStrings(r, L->sig);
 }
 
 }
-
-String obtenerPalabraDeListaStrings (String s, int posicion, ListaStrings L) {
-
-String p;
-boolean encontre = FALSE;
-
-while (L!=NULL && !encontre) {
-    if (PosicionListaString(s,L) == posicion) {
-        encontre = TRUE;
-        p = L->palabra;
-    }
-    else {
-        L = L -> sig;
-    }
-}
-return p;
-
-}
+//
+//String obtenerPalabraDeListaStrings (int posicion, ListaStrings L) {
+//
+//String p;
+//strcrear(p);
+//boolean encontre = FALSE;
+//
+//while (L!=NULL && !encontre) {
+//    if ((PosicionListaString(L->palabra,L)) == posicion) {
+//        if (streq(, L->palabra)) {
+//        encontre = TRUE;
+//        }
+//    }
+//    else {
+//        L = L -> sig;
+//    }
+//    p = L->palabra;
+//}
+//return p;
+//
+//}
 
  void liberarMemoriaListaS(ListaStrings &L)
 {
@@ -152,7 +155,42 @@ return p;
     }
 }
 
+void atomic (ListaStrings L, ListaExpresiones &LE, Expresion &e, ArbolExpre &ar) {
 
+if (PerteneceIter("atomic", L)) {
+            if (PosicionListaString("atomic", L) == 1) {
+                if (largoListaStrings(L) != 2) {
+                    printf("\nCantidad de parámetros incorrecta, deben ser 2");
+                }
+                else {
+                        if (((PerteneceIter("true", L)) && (PosicionListaString("true", L) == 2)) || ((PerteneceIter("false", L)) && (PosicionListaString("false", L) == 2))) {
+                            if ((PerteneceIter("true", L)) && (PosicionListaString("true", L) == 2)) {
+                                crearArbol(ar);
+                                insertarValorArbol ((transformarStringABoolean ("true")), ar);
+                                asignarNumeroExpresion (e, largoListaExpresiones(LE)+1);
+                                desplegarNodosArbolOrden(ar);
+                                insertarNodoEnlista(e, LE);
+                                }
+                                else {
+                                    crearArbol(ar);
+                                    insertarValorArbol ((transformarStringABoolean ("false")), ar);
+                                    asignarNumeroExpresion (e, largoListaExpresiones(LE)+1);
+                                    desplegarNodosArbolOrden(ar);
+                                    insertarNodoEnlista(e, LE);
+                                }
+
+                        }
+                        else {
+                            printf("\nDebe ingresar 'true' o 'false' como segunda palabra");
+                        }
+                }
+            }
+            else {
+                printf("\nLa palabra 'atomic' debe ir en primer lugar y en segundo 'true' o 'false'");
+            }
+        }
+
+}
 
 
 //
@@ -320,15 +358,5 @@ return p;
 //            eliminarConsulta(L -> sig, cedula);
 //    }
 //
-//}
-//
-//void desplegarConsultaPorFecha(Lista L, fecha f){
-//    if (L != NULL) {
-//        if (darDia(seleccionarFecha(L->info)) >= darDia(f) && darMes(seleccionarFecha(L->info)) >= darMes(f) &&
-//            darAnio(seleccionarFecha(L->info)) >= darAnio(f)){
-//            desplegarConsulta(L->info);
-//            desplegarConsultaPorFecha(L->sig, f);
-//        } else desplegarConsultaPorFecha(L->sig, f);
-//    }
 //}
 //

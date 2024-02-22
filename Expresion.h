@@ -14,6 +14,9 @@ int seleccionarNumeroExpresion (Expresion e);
 
 ArbolExpre seleccionarArbolExpre (Expresion e);
 
+/*precondicion: e no es vacio*/
+void desplegarExpresion (Expresion e);
+
 //
 //void desplegarExpresion (Expresion e);
 //
