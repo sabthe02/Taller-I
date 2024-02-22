@@ -1,7 +1,6 @@
 #include "Boolean.h"
 
 void desplegarBoolean (boolean valor) {
-
     switch (valor) {
             case FALSE: printf("false");
             break;

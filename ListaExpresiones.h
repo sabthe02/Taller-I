@@ -24,7 +24,6 @@ Expresion PrimeroExpre(ListaExpresiones LE);
 ///* Precondición: lista NO vacía */
 void RestoExpre(ListaExpresiones &LE);
 
-
 ////Dada una lista y una expresión, agrega dicha expresión al final de la lista.
 void insertarNodoEnlista (Expresion e, ListaExpresiones &LE);
 //
@@ -35,9 +34,11 @@ int largoListaExpresiones (ListaExpresiones LE);
 void desplegarPorNumero (ListaExpresiones LE, int numero);
 //
 
+//Dado un ID, revisa si existe en ListaExpresiones
+boolean PerteneceAListaExpreConID (int Id, ListaExpresiones LE);
 
-
-
+//Dado un ID, devuelve la Expresión correspondiente de ListaExpresiones
+Expresion darExpresionConID (int Id, ListaExpresiones LE);
 //
 // Dada una lista, insertar al principio de la lista un nuevo estructurado
 //void InsFrontExpre(Expresion e, Lista &L);

@@ -27,13 +27,23 @@ crearLista(LE);
 
 partirStrings(s, L);
 
+print(obtenerPalabraporPosicion(3,L));
+
 if (!Vacia(L)){
         if (PerteneceIter("atomic", L)) {
             atomic(L, LE, e, ar);
         }
-//        else {
+        else {
+                if (PerteneceIter("compound", L)) {
+                    compound (L, LE, e, ar);
+                }
 //            // En el caso de  otros comandos
-//        }
+
+            // Si no se ingresó ningún comando
+                else {
+                    printf("\nPor favor ingrese un comando valido (atomic, compound, evaluate, show, save, load, exit");
+                }
+        }
 }
 // si no se ha ingresado nada
 else {

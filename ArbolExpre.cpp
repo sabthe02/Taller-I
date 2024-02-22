@@ -71,6 +71,25 @@ void insertarValorArbol(boolean v, ArbolExpre &a)
     a->hder = NULL;
 }
 
+//void InsertarOperador (char o, ArbolExpre &a) {
+//
+//if (a == NULL) {
+//    a = new NodoA;
+//    insertarOperadorNodo(v, a->info);
+//    a->hizq = NULL;
+//    a->hder = NULL;
+//    }
+//    else {
+//        if (????) {
+//            Insert (a->hizq, valor);
+//        }
+//        else {
+//            Insert (a->hder, valor);
+//        }
+//    }
+//
+//}
+
 void liberarMemoriaArbol(ArbolExpre &a)
 {
     if (a != NULL)

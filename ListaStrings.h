@@ -53,16 +53,23 @@ boolean PerteneceIter(String s,ListaStrings L);
 // Partir Strings en palabras
 //Precondición: Crear Lista en main
 void partirStrings (String s, ListaStrings &L);
-//
-// Dada su posición y un String, obtener esa palabra de la Lista de Strings
+
+//Dado un String y una Lista de Strings, devuelve la palabra de la lista
+//Precondición: La Palabra pertenece al String
+String darPalabraDeLista (String s, ListaStrings L); // no funciona
+
+// Dada su posición, obtener esa palabra de la Lista de Strings
 //Precondicion: Palabra pertenece a la lista
-//String obtenerPalabraDeListaStrings (int posicion, ListaStrings L); En Re-construcción
+String obtenerPalabraporPosicion (int posicion, ListaStrings L); // no funciona
 
 // liberar memoria ListaString
 void liberarMemoriaListaS(ListaStrings &L);
 
 // Ejecuta comando atomic
 void atomic (ListaStrings L, ListaExpresiones &LE, Expresion &e, ArbolExpre &ar);
+
+// Ejecuta comando compund
+void compound (ListaStrings L, ListaExpresiones &LE, Expresion &e, ArbolExpre &ar);
 
 ////////////////////////////
 ////Registrar la realización de una nueva consulta hecha por un paciente.

@@ -34,18 +34,14 @@ void RestoExpre(ListaExpresiones &LE) {
 
 void insertarNodoEnlista (Expresion e, ListaExpresiones &LE)
 {
-    ListaExpresiones nuevo = new NodoL;
-    nuevo->expre = e;
-    nuevo->sig = NULL;
     if (LE == NULL)
-        LE = nuevo;
-    else {
-        ListaExpresiones aux = LE;
-        while (aux->sig != NULL) {
-            aux = aux->sig;
-        }
-        aux->sig = nuevo;
+    {
+        LE = new NodoL;
+        LE -> expre = e;
+        LE -> sig = NULL;
     }
+    else
+        insertarNodoEnlista(e,LE->sig);
 }
 
 int largoListaExpresiones (ListaExpresiones LE) {
@@ -62,17 +58,16 @@ return contador;
 
 void desplegarPorNumero (ListaExpresiones LE, int numero){
     if (LE != NULL){
-//        if (seleccionarNumeroExpresion (LE->expre) == numero) {
+        if (seleccionarNumeroExpresion (LE->expre) == numero) {
 //        printf("\nexpresion %d: ", seleccionarNumeroExpresion(LE->expre));
 //        desplegarNodosArbolOrden (seleccionarArbolExpre(LE->expre));
-        desplegarPorNumero (LE, numero);
+        desplegarExpresion(LE->expre);
         }
-        else
-            {
-                desplegarPorNumero (LE->sig, numero);
-                }
+        else {
+            desplegarPorNumero (LE->sig, numero);
+        }
     }
-
+}
 
 void liberarMemoriaListaE (ListaExpresiones &LE) {
     while (LE != NULL)
@@ -97,6 +92,42 @@ while (LE!=NULL && !pertenece) {
     }
 }
 return pertenece;
+
+}
+
+boolean PerteneceAListaExpreConID (int Id, ListaExpresiones LE) {
+
+boolean encontre = FALSE;
+
+while (LE!=NULL && !encontre) {
+    if (seleccionarNumeroExpresion (LE->expre) == Id) {
+        if (PerteneceIterExpre(LE, LE->expre)) {
+        encontre = TRUE;
+        }
+    }
+    else {
+        LE = LE -> sig;
+    }
+}
+return encontre;
+
+}
+
+Expresion darExpresionConID (int Id, ListaExpresiones LE) {
+
+boolean encontre = FALSE;
+
+while (LE!=NULL && !encontre) {
+    if (seleccionarNumeroExpresion (LE->expre) == Id) {
+        if (PerteneceIterExpre(LE, LE->expre)) {
+        encontre = TRUE;
+        return LE->expre;
+        }
+    }
+    else {
+        LE = LE -> sig;
+    }
+}
 
 }
 

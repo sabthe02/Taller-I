@@ -56,6 +56,7 @@ char darParentesisArbol (ValorNodo valor) {
 
 void insertarValorNodo (boolean v, ValorNodo &valor) {
 
+
 switch(v) {
         case TRUE:  valor.dato.valor = TRUE;
                     valor.discriminante = VALOR;
