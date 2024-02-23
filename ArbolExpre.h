@@ -56,6 +56,34 @@ void liberarMemoriaArbol(ArbolExpre &a);
 // Listar todos los nodos del árbol en pantalla, recorriéndolo en órden
 void desplegarNodosArbolOrden (ArbolExpre a);
 
+//Obtiene el valor almacenado en el Máximo (hijo más derecho del árbol)
+ValorNodo Maximo (ArbolExpre a);
+
+//Obtiene el valor almacenado en el Mínimo (hijo más iqzuierdo del árbol)
+ValorNodo Minimo (ArbolExpre a);
+
+//Retorna el puntero hijo más izquierdo de toda la rama izquierda
+ArbolExpre MinimoPuntero (ArbolExpre a);
+
+//Retorna el puntero hijo más derecho de toda la rama derecha
+ArbolExpre MaximoPuntero (ArbolExpre a);
+
+//Copio un árbol a otro
+void copiarArbolAOtro(ArbolExpre ar, ArbolExpre &a);
+
+//carga Paréntesis cierre o apertura a árbol
+void cargarParentesis(ArbolExpre &a, char parentesis);
+
+// carga Operador (NOT, AND, OR) a árbol
+void cargarOperadorNOT(ArbolExpre &a, ArbolExpre ar, char operador);
+
+//carga paréntesis en el hizo más izquierdo
+void InsertarParentesisEnMinimo(char parentesis, ArbolExpre &a);
+
+//carga paréntesis en el hizo más derecho
+void InsertarParentesisEnMaximo(char parentesis, ArbolExpre &a);
+
+
 ////Revisa si existe el índice en el árbol
 //boolean existeEnArbol (ArbolExpre a, int indice);
 //

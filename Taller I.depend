@@ -71,13 +71,13 @@
 1708629638 c:\users\sabth\ude licenciatura en informática\1°\taller i\listaexpresiones.h
 	"Expresion.h"
 
-1708561942 c:\users\sabth\ude licenciatura en informática\1°\taller i\expresion.h
+1708651611 c:\users\sabth\ude licenciatura en informática\1°\taller i\expresion.h
 	"ArbolExpre.h"
 
-1708471810 c:\users\sabth\ude licenciatura en informática\1°\taller i\arbolexpre.h
+1708704582 c:\users\sabth\ude licenciatura en informática\1°\taller i\arbolexpre.h
 	"ValorNodo.h"
 
-1708201688 c:\users\sabth\ude licenciatura en informática\1°\taller i\valornodo.h
+1708704582 c:\users\sabth\ude licenciatura en informática\1°\taller i\valornodo.h
 	"TipoNodo.h"
 	"Boolean.h"
 
@@ -98,13 +98,13 @@
 1708626158 source:c:\users\sabth\ude licenciatura en informática\1°\taller i\boolean.cpp
 	"Boolean.h"
 
-1708631171 source:c:\users\sabth\ude licenciatura en informática\1°\taller i\expresion.cpp
+1708646322 source:c:\users\sabth\ude licenciatura en informática\1°\taller i\expresion.cpp
 	"Expresion.h"
 
-1708629453 source:c:\users\sabth\ude licenciatura en informática\1°\taller i\listaexpresiones.cpp
+1708646358 source:c:\users\sabth\ude licenciatura en informática\1°\taller i\listaexpresiones.cpp
 	"ListaExpresiones.h"
 
-1708639164 source:c:\users\sabth\ude licenciatura en informática\1°\taller i\main.cpp
+1708640433 source:c:\users\sabth\ude licenciatura en informática\1°\taller i\main.cpp
 	"ListaExpresiones.h"
 	"ListaStrings.h"
 	"Archivo.h"
@@ -115,12 +115,12 @@
 1708182301 source:c:\users\sabth\ude licenciatura en informática\1°\taller i\tiponodo.cpp
 	"TipoNodo.h"
 
-1708626226 source:c:\users\sabth\ude licenciatura en informática\1°\taller i\valornodo.cpp
+1708704581 source:c:\users\sabth\ude licenciatura en informática\1°\taller i\valornodo.cpp
 	"ValorNodo.h"
 
-1708633825 source:c:\users\sabth\ude licenciatura en informática\1°\taller i\arbolexpre.cpp
+1708705145 source:c:\users\sabth\ude licenciatura en informática\1°\taller i\arbolexpre.cpp
 	"ArbolExpre.h"
 
-1708638902 source:c:\users\sabth\ude licenciatura en informática\1°\taller i\listastrings.cpp
+1708642447 source:c:\users\sabth\ude licenciatura en informática\1°\taller i\listastrings.cpp
 	"ListaStrings.h"
 

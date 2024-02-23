@@ -68,6 +68,7 @@ switch(v) {
 
 }
 
+
 void insertarOperadorNodo (char o, ValorNodo &valor) {
 
 switch(o) {
@@ -100,4 +101,16 @@ void asignarIndiceNodo (int indice, ValorNodo &valor) {
 valor.indice = indice;
 
 }
+
+boolean transformarBoolEnBoolean (bool b) {
+  switch(b) {
+        case true:   return TRUE;
+        break;
+        case false:  return FALSE;
+        break;
+    }
+
+}
+
+
 

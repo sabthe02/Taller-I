@@ -59,8 +59,6 @@ return contador;
 void desplegarPorNumero (ListaExpresiones LE, int numero){
     if (LE != NULL){
         if (seleccionarNumeroExpresion (LE->expre) == numero) {
-//        printf("\nexpresion %d: ", seleccionarNumeroExpresion(LE->expre));
-//        desplegarNodosArbolOrden (seleccionarArbolExpre(LE->expre));
         desplegarExpresion(LE->expre);
         }
         else {

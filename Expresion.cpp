@@ -1,36 +1,33 @@
 #include "Expresion.h"
 
-void desplegarExpresion (Expresion e) {
-   int id;
-   ArbolExpre arbol;
-    id = seleccionarNumeroExpresion(e);
-    arbol = seleccionarArbolExpre(e);
-    printf("\nexpresion %d: ", id);
-    desplegarNodosArbolOrden (arbol);
-}
-
-
-int seleccionarNumeroExpresion (Expresion e) {
-return e.numero;
-}
-
 void asignarNumeroExpresion (Expresion &e, int num) {
 
 e.numero = num;
 
 }
 
+void asignarArbolExpresion (Expresion &e, ArbolExpre ar) {
+e.arbol = ar;
+
+}
+
+int seleccionarNumeroExpresion (Expresion e) {
+return e.numero;
+}
+
+
 
 ArbolExpre seleccionarArbolExpre (Expresion e) {
 return e.arbol;
 }
 
+void desplegarExpresion (Expresion e) {
+   int id;
+   ArbolExpre arbol;
+   arbol = seleccionarArbolExpre(e);
+   asignarArbolExpresion (e, arbol);
+    id = seleccionarNumeroExpresion(e);
+    printf("\nexpresion %d: ", id);
+    desplegarNodosArbolOrden (arbol);
+}
 
-//
-//int seleccionarCantConsultas (paciente p) {
-//return p.cantConsultas;
-//}
-//
-//void sumarConsulta (paciente &p) {
-//p.cantConsultas = p.cantConsultas + 1;
-//}

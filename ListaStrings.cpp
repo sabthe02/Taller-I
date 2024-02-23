@@ -113,6 +113,9 @@ return pertenece;
 
 void partirStrings (String s, ListaStrings &L) {
 String s2, p, r;
+strcrear(s2);
+strcrear(p);
+strcrear(r);
 
 if (!esVacio(s)) {
 eliminarBlancosPrincipio (s, s2);
@@ -178,21 +181,20 @@ void atomic (ListaStrings L, ListaExpresiones &LE, Expresion &e, ArbolExpre &ar)
                     else {
                             if (((PerteneceIter("true", L)) && (PosicionListaString("true", L) == 2)) || ((PerteneceIter("false", L)) && (PosicionListaString("false", L) == 2))) {
                                 if ((PerteneceIter("true", L)) && (PosicionListaString("true", L) == 2)) {
-                                    crearArbol(ar);
-                                    insertarValorArbol ((transformarStringABoolean ("true")), ar);
+                                    boolean test = transformarStringABoolean ("true");
+                                    insertarValorArbol (test, ar);
                                     asignarNumeroExpresion (e, largoListaExpresiones(LE)+1);
+                                    asignarArbolExpresion(e, ar);
                                     insertarNodoEnlista(e, LE);
-                                    desplegarNodosArbolOrden(ar); // a modo de prueba
-//                                    desplegarPorNumero(LE, 1); // no funciona
+                                    desplegarPorNumero(LE, seleccionarNumeroExpresion(e));
 
                                     }
                                     else {
-                                        crearArbol(ar);
                                         insertarValorArbol ((transformarStringABoolean ("false")), ar);
                                         asignarNumeroExpresion (e, largoListaExpresiones(LE)+1);
+                                        asignarArbolExpresion(e, ar);
                                         insertarNodoEnlista(e, LE);
-                                        desplegarNodosArbolOrden(ar); // a modo de prueba
-//                                        desplegarPorNumero(LE, 1);
+                                        desplegarPorNumero (LE, seleccionarNumeroExpresion(e));
                                     }
 
                             }
@@ -207,10 +209,11 @@ void atomic (ListaStrings L, ListaExpresiones &LE, Expresion &e, ArbolExpre &ar)
 void compound (ListaStrings L, ListaExpresiones &LE, Expresion &e, ArbolExpre &ar) {
 int Id1, Id2;
 ArbolExpre a, a2;
+crearArbol(a);
 
             if (PosicionListaString("compound", L) == 1) {
                 if ((largoListaStrings(L) != 3) && (largoListaStrings(L) != 4) ) {
-                    printf("\nCantidad de parámetros incorrecta, deben ser 3 ó 4");
+                    printf("\nCantidad de parámetros incorrecta, deben ser 3 o 4");
                 }
                 else {
                         if ((largoListaStrings(L) == 3) && (PerteneceIter("NOT", L)) && (PosicionListaString("NOT", L) != 2)) {
@@ -227,14 +230,12 @@ ArbolExpre a, a2;
                                                 printf("\nNo existe la expresion correspondiente en Lista Expresiones");
                                                 }
                                                 else {
-        //                                            copiarArbol (seleccionarArbolExpre (darExpresionConID(Id1,LE)),a); // falta procedimiento
-                                                    crearArbol(ar);
-        //                                            cargarOperadorNOT(ar,a,//?? de dónde sacar el operador (char)?) // falta el procedimiento
-        //                                            // se supone que este procedimiento ya te carga los paréntesis y el operador (?)
+                                                    copiarArbolAOtro (seleccionarArbolExpre (darExpresionConID(Id1,LE)),a);
+//                                                    cargarOperadorNOT(ar,a,//?? de dónde sacar el operador (char)?) // falta el procedimiento
+                                                    // se supone que este procedimiento ya te carga los paréntesis y el operador (?)
                                                     asignarNumeroExpresion (e, largoListaExpresiones(LE)+1);
                                                     insertarNodoEnlista(e, LE);
-                                                    desplegarNodosArbolOrden(ar); // a modo de prueba
-        //                                          desplegarPorNumero(LE, 1); // no funciona
+                                                    desplegarPorNumero(LE, seleccionarNumeroExpresion(e));
                                                 }
 
                                         }
@@ -254,8 +255,8 @@ ArbolExpre a, a2;
                                         printf("\nNo existe la expresion correspondiente a al menos uno de los numeros");
                                     }
                                         else {
-//                                          copiarArbol (seleccionarArbolExpre (darExpresionConID(Id1,LE)),a); // falta procedimiento
-//                                            copiarArbol (seleccionarArbolExpre (darExpresionConID(Id2,LE)),a2); // falta procedimiento
+//                                          copiarArbolAOtro (seleccionarArbolExpre (darExpresionConID(Id1,LE)),a);
+//                                          copiarArbolAOtro  (seleccionarArbolExpre (darExpresionConID(Id2,LE)),a2);
                                             crearArbol(ar);
 //                                            cargarOperadorAndOr(ar,a,//?? de dónde sacar el operador (char)?) // falta el procedimiento
 //                                            // se supone que este procedimiento ya te carga los paréntesis y el operador (?)
@@ -271,7 +272,7 @@ ArbolExpre a, a2;
                     }
                 }
                 else {
-                    printf("\nLa palabra 'compund' debe ir en primer lugar");
+                    printf("\nLa palabra 'compound' debe ir en primer lugar");
                 }
 }
 

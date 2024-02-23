@@ -10,6 +10,8 @@ typedef struct 	{int numero;
 
 void asignarNumeroExpresion (Expresion &e, int num);
 
+void asignarArbolExpresion (Expresion &e, ArbolExpre ar);
+
 int seleccionarNumeroExpresion (Expresion e);
 
 ArbolExpre seleccionarArbolExpre (Expresion e);
@@ -17,18 +19,8 @@ ArbolExpre seleccionarArbolExpre (Expresion e);
 /*precondicion: e no es vacio*/
 void desplegarExpresion (Expresion e);
 
-//
-//void desplegarExpresion (Expresion e);
-//
-//void cargarExpresion (Expresion &e);
+//// Implementar
+//void crearExpresion (ArbolExpre arbol, int indice, Expresion &expre);
 
-
-//
-//int seleccionarCantConsultas (paciente p);
-//
-//Lista seleccionarConsultas (paciente p);
-//
-////Precondición: Paciente existe
-//void sumarConsulta (paciente &p);
 
 #endif // EXPRESION_H_INCLUDED

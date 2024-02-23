@@ -52,4 +52,6 @@ void insertarParentesisNodo (char p, ValorNodo &valor);
 // Asignar índice a nodo (cuando se bajará a archivo)
 void asignarIndiceNodo (int indice, ValorNodo &valor);
 
+boolean transformarBoolEnBoolean (bool b);
+
 #endif // VALORNODO_H_INCLUDED

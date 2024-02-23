@@ -24,10 +24,10 @@ strcrear(s);
 scan(s);
 Crear(L);
 crearLista(LE);
+crearArbol(ar);
 
 partirStrings(s, L);
 
-print(obtenerPalabraporPosicion(3,L));
 
 if (!Vacia(L)){
         if (PerteneceIter("atomic", L)) {
