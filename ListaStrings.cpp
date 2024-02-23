@@ -140,24 +140,55 @@ while (L!= NULL && !encontre) {
 }
 }
 
+void vaciarListaStrings (ListaStrings &L) {
 
-String obtenerPalabraporPosicion (int posicion, ListaStrings L) {
+while (L != NULL)
+    {
+        ListaStrings lista = L;
+        strdestruir(L->palabra);
+        L = L->sig;
+        delete lista;
+    }
+}
+
+
+
+String darPalabraporPosicion (int posicion, ListaStrings L) { // no funciona, salvo la posición 1
 
 boolean encontre = FALSE;
 
 while (L!=NULL && !encontre) {
-
-    if ((PosicionListaString(L->palabra,L)) == posicion) {
-//        if (streq(darPalabraDeLista(L->palabra,L), L->palabra)) {
+    if (PosicionListaString (L->palabra,L) == posicion) {
+        if (PerteneceIter(L->palabra,L)) {
         encontre = TRUE;
         return L->palabra;
-//        }
+        }
     }
     else {
         L = L -> sig;
     }
 }
 }
+
+
+void obtenerPalabraporPosicion (int posicion, ListaStrings L, String &s) { // tampoco funciona
+
+boolean encontre = FALSE;
+
+while (L!=NULL && !encontre) {
+    if (PosicionListaString (L->palabra,L) == posicion) {
+        if (PerteneceIter(L->palabra,L)) {
+        encontre = TRUE;
+        strcop(s, L->palabra);
+        }
+    }
+    else {
+        L = L -> sig;
+    }
+}
+}
+
+
 
  void liberarMemoriaListaS(ListaStrings &L)
 {
@@ -181,8 +212,7 @@ void atomic (ListaStrings L, ListaExpresiones &LE, Expresion &e, ArbolExpre &ar)
                     else {
                             if (((PerteneceIter("true", L)) && (PosicionListaString("true", L) == 2)) || ((PerteneceIter("false", L)) && (PosicionListaString("false", L) == 2))) {
                                 if ((PerteneceIter("true", L)) && (PosicionListaString("true", L) == 2)) {
-                                    boolean test = transformarStringABoolean ("true");
-                                    insertarValorArbol (test, ar);
+                                    insertarValorArbol ((transformarStringABoolean ("true")), ar);
                                     asignarNumeroExpresion (e, largoListaExpresiones(LE)+1);
                                     asignarArbolExpresion(e, ar);
                                     insertarNodoEnlista(e, LE);
@@ -206,75 +236,99 @@ void atomic (ListaStrings L, ListaExpresiones &LE, Expresion &e, ArbolExpre &ar)
 
 }
 
-void compound (ListaStrings L, ListaExpresiones &LE, Expresion &e, ArbolExpre &ar) {
-int Id1, Id2;
-ArbolExpre a, a2;
-crearArbol(a);
-
-            if (PosicionListaString("compound", L) == 1) {
-                if ((largoListaStrings(L) != 3) && (largoListaStrings(L) != 4) ) {
-                    printf("\nCantidad de parámetros incorrecta, deben ser 3 o 4");
-                }
-                else {
-                        if ((largoListaStrings(L) == 3) && (PerteneceIter("NOT", L)) && (PosicionListaString("NOT", L) != 2)) {
-                            printf("\NOT debe ser la segunda palabra");
-                        }
-                        else {
-                                if ((largoListaStrings(L) == 3) && (PerteneceIter("NOT", L))) {
-                                    if (!(esNatural(obtenerPalabraporPosicion(3, L)))) {
-                                            printf("\nEl tercer numero no es un natural");
-                                    }
-                                        else {
-                                            Id1 = transformarANatural((obtenerPalabraporPosicion(3, L)));
-                                            if (!(PerteneceAListaExpreConID(Id1, LE))) {
-                                                printf("\nNo existe la expresion correspondiente en Lista Expresiones");
-                                                }
-                                                else {
-                                                    copiarArbolAOtro (seleccionarArbolExpre (darExpresionConID(Id1,LE)),a);
-//                                                    cargarOperadorNOT(ar,a,//?? de dónde sacar el operador (char)?) // falta el procedimiento
-                                                    // se supone que este procedimiento ya te carga los paréntesis y el operador (?)
-                                                    asignarNumeroExpresion (e, largoListaExpresiones(LE)+1);
-                                                    insertarNodoEnlista(e, LE);
-                                                    desplegarPorNumero(LE, seleccionarNumeroExpresion(e));
-                                                }
-
-                                        }
-                                    }
-                        }
-                        if (((largoListaStrings(L) == 4) && ((PerteneceIter("AND", L)) || (PerteneceIter("OR", L)))) && ((PosicionListaString("AND", L) !=3) || (PosicionListaString("AND", L) !=3))) {
-                                printf("\n'AND' u 'OR' deben ser la tercer palabra");
-                        }
-                        else {
-                            if ((!(esNatural(obtenerPalabraporPosicion(2, L)))) && (!(esNatural(obtenerPalabraporPosicion(4, L))))) {
-                                    printf("\nLa segunda y la cuarta palabra deben ser naturales");
-                            }
-                                else {
-                                    Id1 = transformarANatural((obtenerPalabraporPosicion(2, L)));
-                                    Id2 = transformarANatural((obtenerPalabraporPosicion(4, L)));
-                                    if ((!(PerteneceAListaExpreConID(Id1, LE)))|| (!(PerteneceAListaExpreConID(Id2, LE)))) {
-                                        printf("\nNo existe la expresion correspondiente a al menos uno de los numeros");
-                                    }
-                                        else {
-//                                          copiarArbolAOtro (seleccionarArbolExpre (darExpresionConID(Id1,LE)),a);
-//                                          copiarArbolAOtro  (seleccionarArbolExpre (darExpresionConID(Id2,LE)),a2);
-                                            crearArbol(ar);
-//                                            cargarOperadorAndOr(ar,a,//?? de dónde sacar el operador (char)?) // falta el procedimiento
-//                                            // se supone que este procedimiento ya te carga los paréntesis y el operador (?)
-                                            asignarNumeroExpresion (e, largoListaExpresiones(LE)+1);
-                                            insertarNodoEnlista(e, LE);
-                                            desplegarNodosArbolOrden(ar); // a modo de prueba
-//                                          desplegarPorNumero(LE, 1); // no funciona
-                                        }
-
-                                }
-                        }
-
-                    }
-                }
-                else {
-                    printf("\nLa palabra 'compound' debe ir en primer lugar");
-                }
-}
+//void compound (ListaStrings L, ListaExpresiones &LE, Expresion &e, ArbolExpre &ar) {
+//int Id1, Id2;
+//ArbolExpre a, a2;
+//String q;
+//crearArbol(a);
+//
+//            if (PosicionListaString("compound", L) == 1) {
+//                if ((largoListaStrings(L) != 3) && (largoListaStrings(L) != 4) ) {
+//                    printf("\nCantidad de parámetros incorrecta, deben ser 3 o 4");
+//                }
+//                else {
+//                        if ((largoListaStrings(L) == 3) && (PerteneceIter("NOT", L)) && (PosicionListaString("NOT", L) != 2)) {
+//                            printf("\NOT debe ser la segunda palabra");
+//                        }
+//                        else {
+////                                if ((largoListaStrings(L) == 3) && (PerteneceIter("NOT", L))) {
+//                                    if (!(esNatural(obtenerPalabraporPosicion(3, L, q)))) { //
+//                                            printf("\nEl tercer numero no es un natural");
+//                                    }
+//                                        else {
+//                                            Id1 = transformarANatural(obtenerPalabraporPosicion(3, L));// obtenerPalabraporPosicion(3, L)
+//                                            if (!(PerteneceAListaExpreConID(Id1, LE))) {
+//                                                printf("\nNo existe la expresion correspondiente en Lista Expresiones");
+//                                                }
+//                                                else {
+//                                                    cargarOperadorNOT(a,(seleccionarArbolExpre (darExpresionConID(Id1,LE))),(transformarStringOperadorAChar(darPalabraDeLista("NOT", L))));
+//                                                    copiarArbolAOtro (seleccionarArbolExpre(darExpresionConID(Id1,LE)),a);
+//                                                    asignarArbolExpresion(e, a);
+//                                                    asignarNumeroExpresion (e, largoListaExpresiones(LE)+1);
+//                                                    insertarNodoEnlista(e, LE);
+//                                                    desplegarPorNumero(LE, seleccionarNumeroExpresion(e));
+//                                                }
+//
+//                                        }
+////                                    }
+//                        }
+//                        if (((largoListaStrings(L) == 4) && (((PerteneceIter("AND", L)) || (PerteneceIter("OR", L)))) && (((PosicionListaString("AND", L) !=3) || (PosicionListaString("OR", L) !=3))))) {
+//                                printf("\n'AND' u 'OR' deben ser la tercer palabra");
+//                        }
+//                        else {
+//                            if ((largoListaStrings(L) == 4) && (((PerteneceIter("AND", L)) || (PerteneceIter("OR", L))))) {
+//                                    if (!(esNatural(obtenerPalabraporPosicion(2, L))) && (!(esNatural(obtenerPalabraporPosicion(4, L))))) {//
+//                                        printf("\nLa segunda y la cuarta palabra deben ser naturales");
+//                                        }
+//
+//                                else {
+//                                        Id1 = transformarANatural((obtenerPalabraporPosicion(2, L)));
+//                                        Id2 = transformarANatural((obtenerPalabraporPosicion(4, L)));
+//                                        if ((!PerteneceAListaExpreConID(Id1, LE)) || (!PerteneceAListaExpreConID(Id2, LE))) {
+//                                                if ((!PerteneceAListaExpreConID(Id1, LE))) {
+//                                                     printf("\nNumero uno no pertenece a Lista de Expresiones");
+//                                                }
+//                                                else {
+//                                                    if ((!PerteneceAListaExpreConID(Id2, LE))) {
+//                                                         printf("\nNumero dos no pertenece a Lista de Expresiones");
+//                                                    }
+//                                                else {
+//                                                    if ((!(PerteneceAListaExpreConID(Id1, LE)))&& (!(PerteneceAListaExpreConID(Id2, LE)))) {
+//                                                        printf("\nNi numero uno ni numero dos pertenece a Lista Expresiones");
+//                                                    }
+//                                                }
+//                                            }
+//
+//                                        }
+//                                            else {
+//                                                if (PosicionListaString("AND", L) == 3) {
+//                                                    cargarOperadorAndOr(a,(seleccionarArbolExpre (darExpresionConID(Id1,LE))),(seleccionarArbolExpre(darExpresionConID(Id2,LE))),(transformarStringOperadorAChar(darPalabraDeLista("AND", L))));
+//                                                }
+//
+//                                                    else {
+//                                                        if (PosicionListaString("OR", L) == 3) {
+//                                                            cargarOperadorAndOr(a,(seleccionarArbolExpre (darExpresionConID(Id1,LE))),(seleccionarArbolExpre(darExpresionConID(Id2,LE))),(transformarStringOperadorAChar(darPalabraDeLista("OR", L))));
+//                                                        }
+//                                                    }
+//                                                    copiarArbolAOtro (seleccionarArbolExpre(darExpresionConID(Id1,LE)),a);
+//                                                    asignarArbolExpresion(e, a);
+//                                                    asignarNumeroExpresion (e, largoListaExpresiones(LE)+1);
+//                                                    insertarNodoEnlista(e, LE);
+//                                                    desplegarPorNumero(LE, seleccionarNumeroExpresion(e));
+//                                            }
+//
+//                                    }
+//                                }
+//
+//                            }
+//                        }
+//
+//                    }
+//
+//                else {
+//                    printf("\nLa palabra 'compound' debe ir en primer lugar");
+//                }
+//}
 
 
 //

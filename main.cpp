@@ -18,39 +18,55 @@ ArbolExpre ar;
 ListaExpresiones LE;
 Expresion e;
 String s, q;
+Crear(L);
+crearLista(LE);
+crearArbol(ar);
+strcrear(q);
+
+while (!PerteneceIter("exit", L)) {
 
 printf("\nIngrese comando: ");
 strcrear(s);
 scan(s);
-Crear(L);
-crearLista(LE);
-crearArbol(ar);
+
 
 partirStrings(s, L);
+
+
+obtenerPalabraporPosicion(1, L,q);
+printf("%d", PosicionListaString(q, L));
+//printf("%d", largoListaStrings(L));
+//desplegarBoolean(esNatural(darPalabraDeLista("2",L)));
+print (q);
+
+//DesplegarIter(L);
 
 
 if (!Vacia(L)){
         if (PerteneceIter("atomic", L)) {
             atomic(L, LE, e, ar);
         }
-        else {
-                if (PerteneceIter("compound", L)) {
-                    compound (L, LE, e, ar);
-                }
-//            // En el caso de  otros comandos
+//        else {
+//                if (PerteneceIter("compound", L)) {
+//                    compound (L, LE, e, ar);
+//                }
 
-            // Si no se ingresó ningún comando
+////            // En el caso de  otros comandos
+//
+//            // Si no se ingresó ningún comando
                 else {
-                    printf("\nPor favor ingrese un comando valido (atomic, compound, evaluate, show, save, load, exit");
+                    printf("\nPor favor ingrese un comando valido (atomic, compound, evaluate, show, save, load, exit)");
                 }
-        }
+//        }
+vaciarListaStrings(L);
+
 }
 // si no se ha ingresado nada
 else {
     printf("\nNo se ha ingresado ningún comando");
  }
 
-
+}
 
 //
 //String nombrearchivo = "test.dat";

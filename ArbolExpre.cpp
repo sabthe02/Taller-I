@@ -184,6 +184,12 @@ void cargarOperadorNOT(ArbolExpre &a, ArbolExpre ar, char operador)
 
 void cargarOperadorAndOr(ArbolExpre &a, ArbolExpre ar, ArbolExpre arb, char operador) {
 
+   a = new NodoA;
+   insertarOperadorNodo(operador, a->info);
+   copiarArbolAOtro(ar, a->hder);
+   copiarArbolAOtro(arb, a->hder);
+   InsertarParentesisEnMinimo('(',a);
+   InsertarParentesisEnMaximo(')',a);
 
 }
 // ar copiar a otro arbol como hizq,

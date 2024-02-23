@@ -56,11 +56,17 @@ void partirStrings (String s, ListaStrings &L);
 
 //Dado un String y una Lista de Strings, devuelve la palabra de la lista
 //Precondición: La Palabra pertenece al String
-String darPalabraDeLista (String s, ListaStrings L); // no funciona
+String darPalabraDeLista (String s, ListaStrings L);
+
+//Borra contenido y strings dinámicos de la lista
+void vaciarListaStrings (ListaStrings &L);
 
 // Dada su posición, obtener esa palabra de la Lista de Strings
 //Precondicion: Palabra pertenece a la lista
-String obtenerPalabraporPosicion (int posicion, ListaStrings L); // no funciona
+String darPalabraporPosicion (int posicion, ListaStrings L); // no funciona
+
+//obtener palabra dada una Lista y su posición
+void obtenerPalabraporPosicion (int posicion, ListaStrings L, String &s);
 
 // liberar memoria ListaString
 void liberarMemoriaListaS(ListaStrings &L);

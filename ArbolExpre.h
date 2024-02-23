@@ -74,8 +74,11 @@ void copiarArbolAOtro(ArbolExpre ar, ArbolExpre &a);
 //carga Paréntesis cierre o apertura a árbol
 void cargarParentesis(ArbolExpre &a, char parentesis);
 
-// carga Operador (NOT, AND, OR) a árbol
+// carga Operador (NOT) a árbol
 void cargarOperadorNOT(ArbolExpre &a, ArbolExpre ar, char operador);
+
+// carga Operador (AND u OR) a árbol
+void cargarOperadorAndOr(ArbolExpre &a, ArbolExpre ar, ArbolExpre arb, char operador);
 
 //carga paréntesis en el hizo más izquierdo
 void InsertarParentesisEnMinimo(char parentesis, ArbolExpre &a);
