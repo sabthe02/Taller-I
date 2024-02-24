@@ -74,7 +74,7 @@
 1708651611 c:\users\sabth\ude licenciatura en informática\1°\taller i\expresion.h
 	"ArbolExpre.h"
 
-1708713176 c:\users\sabth\ude licenciatura en informática\1°\taller i\arbolexpre.h
+1708737572 c:\users\sabth\ude licenciatura en informática\1°\taller i\arbolexpre.h
 	"ValorNodo.h"
 
 1708704582 c:\users\sabth\ude licenciatura en informática\1°\taller i\valornodo.h
@@ -87,7 +87,7 @@
 1708542041 c:\users\sabth\ude licenciatura en informática\1°\taller i\boolean.h
 	<stdio.h>
 
-1708734570 c:\users\sabth\ude licenciatura en informática\1°\taller i\listastrings.h
+1708736466 c:\users\sabth\ude licenciatura en informática\1°\taller i\listastrings.h
 	"String.h"
 	"ListaExpresiones.h"
 
@@ -104,7 +104,7 @@
 1708646358 source:c:\users\sabth\ude licenciatura en informática\1°\taller i\listaexpresiones.cpp
 	"ListaExpresiones.h"
 
-1708735030 source:c:\users\sabth\ude licenciatura en informática\1°\taller i\main.cpp
+1708736692 source:c:\users\sabth\ude licenciatura en informática\1°\taller i\main.cpp
 	"ListaExpresiones.h"
 	"ListaStrings.h"
 	"Archivo.h"

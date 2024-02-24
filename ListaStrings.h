@@ -80,6 +80,8 @@ void compound (ListaStrings L, ListaExpresiones &LE, Expresion &e, ArbolExpre &a
 //Ejecuta comando show
 void show (ListaStrings L, ListaExpresiones &LE, Expresion &e, ArbolExpre &ar);
 
+//Ejecuta comando evaluate
+void evaluate (ListaStrings L, ListaExpresiones &LE, Expresion &e, ArbolExpre &ar);
 ////////////////////////////
 ////Registrar la realización de una nueva consulta hecha por un paciente.
 //// Se debe verificar previamente que la cédula de dicho paciente exista en el sistema y que la fecha de la nueva consulta sea válida

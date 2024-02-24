@@ -86,6 +86,9 @@ void InsertarParentesisEnMinimo(char parentesis, ArbolExpre &a);
 //carga paréntesis en el hizo más derecho
 void InsertarParentesisEnMaximo(char parentesis, ArbolExpre &a);
 
+//evaluar expresión
+boolean evaluarExpresion(ArbolExpre a);
+
 
 ////Revisa si existe el índice en el árbol
 //boolean existeEnArbol (ArbolExpre a, int indice);
