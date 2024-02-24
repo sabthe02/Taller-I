@@ -63,10 +63,8 @@ void vaciarListaStrings (ListaStrings &L);
 
 // Dada su posición, obtener esa palabra de la Lista de Strings
 //Precondicion: Palabra pertenece a la lista
-String darPalabraporPosicion (int posicion, ListaStrings L); // no funciona
-
-//obtener palabra dada una Lista y su posición
-void obtenerPalabraporPosicion (int posicion, ListaStrings L, String &s);
+// Precondición: La posición es una posición válida
+String darPalabraporPosicion (int posicion, ListaStrings L);
 
 // liberar memoria ListaString
 void liberarMemoriaListaS(ListaStrings &L);

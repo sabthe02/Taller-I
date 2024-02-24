@@ -21,8 +21,7 @@ ArbolExpre seleccionarArbolExpre (Expresion e) {
 return e.arbol;
 }
 
-void crearExpresion(ArbolExpre a, int indice, Expresion &expre)
-{
+void crearExpresion(ArbolExpre a, int indice, Expresion &expre){
     expre.numero = indice;
     expre.arbol = a;
 }

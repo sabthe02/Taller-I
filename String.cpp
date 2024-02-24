@@ -161,11 +161,11 @@ return es;
 boolean transformarStringABoolean (String s) {
 boolean Bool;
 
-if (s[0] == 't' && s[1] == 'r' && s[2] == 'u' && s[3] == 'e') {
+if (streq(s, "true")) {
     Bool = TRUE;
 }
 else {
-    if (s[0] == 'f' && s[1] == 'a' && s[2] == 'l' && s[3] == 's' && s[4] == 'e') {
+    if (streq(s, "false")) {
         Bool = FALSE;
     }
 }
@@ -175,15 +175,23 @@ return Bool;
 
 char transformarStringOperadorAChar (String s) {
 char c;
-if (s[0] == 'A' && s[1] == 'N' && s[2] == 'D') {
+if (streq(s, "AND")) {
     c = 'A';
 }
-else {
-    if (s[0] == 'O' && s[1] == 'R') {
-    c = 'O';
+    else {
+        if (streq(s, "OR")) {
+            c = 'O';
+        }
+
+        else {
+            if (streq(s, "NOT")) {
+                    c = 'N';
+            }
+        }
     }
+return c;
 }
-}
+
 
 
 

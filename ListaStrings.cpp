@@ -68,8 +68,8 @@ void DesplegarIter(ListaStrings L)
     }
 }
 
-int PosicionListaString (String s, ListaStrings L) { // ver si anda bien
-int posicion = 0;
+int PosicionListaString (String s, ListaStrings L) {
+int posicion = 1;
 boolean encontre = FALSE;
 
 while (L!= NULL && !encontre) {
@@ -79,8 +79,9 @@ while (L!= NULL && !encontre) {
     else {
 
     L = L -> sig;
-    }
     posicion++;
+    }
+
 }
 return posicion;
 }
@@ -154,39 +155,15 @@ while (L != NULL)
 
 
 
-String darPalabraporPosicion (int posicion, ListaStrings L) { // no funciona, salvo la posición 1
+String darPalabraporPosicion (int posicion, ListaStrings L) {
 
-boolean encontre = FALSE;
+int aux = 1;
 
-while (L!=NULL && !encontre) {
-    if (PosicionListaString (L->palabra,L) == posicion) {
-        if (PerteneceIter(L->palabra,L)) {
-        encontre = TRUE;
-        return L->palabra;
-        }
-    }
-    else {
-        L = L -> sig;
-    }
+while (aux != posicion) {
+    L = L->sig;
+    aux++;
 }
-}
-
-
-void obtenerPalabraporPosicion (int posicion, ListaStrings L, String &s) { // no funciona, salvo la posición 1
-
-boolean encontre = FALSE;
-
-while (L!=NULL && !encontre) {
-    if (PosicionListaString (L->palabra,L) == posicion) {
-        if (PerteneceIter(L->palabra,L)) {
-        encontre = TRUE;
-        strcop(s, L->palabra);
-        }
-    }
-    else {
-        L = L -> sig;
-    }
-}
+return L->palabra;
 }
 
 
@@ -252,18 +229,17 @@ crearArbol(a);
                             printf("\nNOT debe ser la segunda palabra");
                         }
                         else {
-//                                if ((largoListaStrings(L) == 3) && (PerteneceIter("NOT", L))) {
-                                    if (!(esNatural(darPalabraporPosicion(3,L)))) { //
+                                if ((largoListaStrings(L) == 3) && (PerteneceIter("NOT", L))) {
+                                    if (!(esNatural(darPalabraporPosicion(3,L)))) {
                                             printf("\nLa tercer palabra no es un natural");
                                     }
                                         else {
-                                            Id1 = transformarANatural(darPalabraporPosicion(3, L));//
+                                            Id1 = transformarANatural(darPalabraporPosicion(3, L));
                                             if (!(PerteneceAListaExpreConID(Id1, LE))) {
                                                 printf("\nNo existe la expresion correspondiente en Lista Expresiones");
                                                 }
                                                 else {
                                                     cargarOperadorNOT(a,(seleccionarArbolExpre (darExpresionConID(Id1,LE))),(transformarStringOperadorAChar(darPalabraDeLista("NOT", L))));
-                                                    copiarArbolAOtro (seleccionarArbolExpre(darExpresionConID(Id1,LE)),a);
                                                     asignarArbolExpresion(e, a);
                                                     asignarNumeroExpresion (e, largoListaExpresiones(LE)+1);
                                                     insertarNodoEnlista(e, LE);
@@ -272,13 +248,14 @@ crearArbol(a);
 
                                         }
 //                                    }
+                                }
                         }
-                        if (((largoListaStrings(L) == 4) && (((PerteneceIter("AND", L)) || (PerteneceIter("OR", L)))) && (((PosicionListaString("AND", L) !=3) || (PosicionListaString("OR", L) !=3))))) {
+                        if (((largoListaStrings(L) == 4) && (((PerteneceIter("AND", L)) || (PerteneceIter("OR", L)))) && (((PosicionListaString("AND", L) !=3) && (PosicionListaString("OR", L) !=3))))) {
                                 printf("\n'AND' u 'OR' deben ser la tercer palabra");
                         }
                         else {
                             if ((largoListaStrings(L) == 4) && (((PerteneceIter("AND", L)) || (PerteneceIter("OR", L))))) {
-                                    if (!(esNatural(darPalabraporPosicion(2, L))) && (!(esNatural(darPalabraporPosicion(4, L))))) {//
+                                    if (!(esNatural(darPalabraporPosicion(2, L))) && (!(esNatural(darPalabraporPosicion(4, L))))) {
                                         printf("\nLa segunda y la cuarta palabra deben ser naturales");
                                         }
 
@@ -311,7 +288,6 @@ crearArbol(a);
                                                             cargarOperadorAndOr(a,(seleccionarArbolExpre (darExpresionConID(Id1,LE))),(seleccionarArbolExpre(darExpresionConID(Id2,LE))),(transformarStringOperadorAChar(darPalabraDeLista("OR", L))));
                                                         }
                                                     }
-                                                    copiarArbolAOtro (seleccionarArbolExpre(darExpresionConID(Id1,LE)),a);
                                                     asignarArbolExpresion(e, a);
                                                     asignarNumeroExpresion (e, largoListaExpresiones(LE)+1);
                                                     insertarNodoEnlista(e, LE);

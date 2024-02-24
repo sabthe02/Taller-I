@@ -68,6 +68,10 @@ ArbolExpre MinimoPuntero (ArbolExpre a);
 //Retorna el puntero hijo más derecho de toda la rama derecha
 ArbolExpre MaximoPuntero (ArbolExpre a);
 
+void insertarValorNodoArbol(ValorNodo vn, ArbolExpre &a); // NUEVO
+
+void copiarArbolAOtro(ArbolExpre b, ArbolExpre &a); // NUEVO
+
 //Copio un árbol a otro
 void copiarArbolAOtro(ArbolExpre ar, ArbolExpre &a);
 

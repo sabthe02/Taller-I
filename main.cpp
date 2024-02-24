@@ -35,32 +35,33 @@ partirStrings(s, L);
 //printf("\n%d", PosicionListaString("2", L));
 //
 //obtenerPalabraporPosicion(1, L,q);
-//printf("%d", PosicionListaString(q, L));
-////printf("%d", largoListaStrings(L));
-////desplegarBoolean(esNatural(darPalabraDeLista("2",L)));
+//printf("\n%d", PosicionListaString(q, L));
+//printf("\n%d", largoListaStrings(L));
+//desplegarBoolean(esNatural(darPalabraDeLista("2",L)));
 //print (q);
 
-//DesplegarIter(L);
 
 
 if (!Vacia(L)){
         if (PerteneceIter("atomic", L)) {
             atomic(L, LE, e, ar);
         }
-        else {
-                if (PerteneceIter("compound", L)) {
-                    compound (L, LE, e, ar);
+        else
+            if (PerteneceIter("compound", L)) {
+                compound (L, LE, e, ar);
+            }
+            else
+                if (PerteneceIter("show", L)) {
+                    show (L, LE, e, ar);
                 }
-                    if (PerteneceIter("show", L)) {
-                        show (L, LE, e, ar);
+                else
+                    if (PerteneceIter("evaluate", L)) {
+                        evaluate (L, LE, e, ar);
                     }
-                        if (PerteneceIter("evaluate", L)) {
-                            evaluate (L, LE, e, ar);
-                        }
-        }
-//        else {
-//        printf("\nPor favor ingrese un comando valido (atomic, compound, evaluate, show, save, load, exit)");
-//        }
+                    else {
+                    printf("\nPor favor ingrese un comando valido (atomic, compound, evaluate, show, save, load, exit)");
+                    }
+
 //////            // En el caso de  otros comandos
 //
 //            // Si no se ingresó ningún comando
