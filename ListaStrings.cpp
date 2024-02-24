@@ -69,7 +69,7 @@ void DesplegarIter(ListaStrings L)
 }
 
 int PosicionListaString (String s, ListaStrings L) { // ver si anda bien
-int posicion = 1;
+int posicion = 0;
 boolean encontre = FALSE;
 
 while (L!= NULL && !encontre) {
@@ -77,9 +77,10 @@ while (L!= NULL && !encontre) {
         encontre = TRUE;
     }
     else {
-    posicion++;
+
     L = L -> sig;
     }
+    posicion++;
 }
 return posicion;
 }
@@ -253,7 +254,7 @@ crearArbol(a);
                         else {
 //                                if ((largoListaStrings(L) == 3) && (PerteneceIter("NOT", L))) {
                                     if (!(esNatural(darPalabraporPosicion(3,L)))) { //
-                                            printf("\nEl numero no es un natural");
+                                            printf("\nLa tercer palabra no es un natural");
                                     }
                                         else {
                                             Id1 = transformarANatural(darPalabraporPosicion(3, L));//

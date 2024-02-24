@@ -16,6 +16,7 @@ int seleccionarNumeroExpresion (Expresion e);
 
 ArbolExpre seleccionarArbolExpre (Expresion e);
 
+void crearExpresion(ArbolExpre a, int indice, Expresion &expre);
 /*precondicion: e no es vacio*/
 void desplegarExpresion (Expresion e);
 

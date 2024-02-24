@@ -32,12 +32,13 @@ scan(s);
 
 partirStrings(s, L);
 
-
-obtenerPalabraporPosicion(1, L,q);
-printf("%d", PosicionListaString(q, L));
-//printf("%d", largoListaStrings(L));
-//desplegarBoolean(esNatural(darPalabraDeLista("2",L)));
-print (q);
+//printf("\n%d", PosicionListaString("2", L));
+//
+//obtenerPalabraporPosicion(1, L,q);
+//printf("%d", PosicionListaString(q, L));
+////printf("%d", largoListaStrings(L));
+////desplegarBoolean(esNatural(darPalabraDeLista("2",L)));
+//print (q);
 
 //DesplegarIter(L);
 
@@ -57,9 +58,10 @@ if (!Vacia(L)){
                             evaluate (L, LE, e, ar);
                         }
         }
+//        else {
+//        printf("\nPor favor ingrese un comando valido (atomic, compound, evaluate, show, save, load, exit)");
 //        }
-        printf("\nPor favor ingrese un comando valido (atomic, compound, evaluate, show, save, load, exit)");
-////            // En el caso de  otros comandos
+//////            // En el caso de  otros comandos
 //
 //            // Si no se ingresó ningún comando
 
