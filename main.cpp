@@ -50,14 +50,18 @@ if (!Vacia(L)){
 //                if (PerteneceIter("compound", L)) {
 //                    compound (L, LE, e, ar);
 //                }
+                    else {
+                        if (PerteneceIter("show", L)) {
+                            show (L, LE, e, ar);
+                        }
 
+                    }
+//        }
+        printf("\nPor favor ingrese un comando valido (atomic, compound, evaluate, show, save, load, exit)");
 ////            // En el caso de  otros comandos
 //
 //            // Si no se ingresó ningún comando
-                else {
-                    printf("\nPor favor ingrese un comando valido (atomic, compound, evaluate, show, save, load, exit)");
-                }
-//        }
+
 vaciarListaStrings(L);
 
 }

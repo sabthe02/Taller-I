@@ -74,8 +74,11 @@ void liberarMemoriaListaS(ListaStrings &L);
 // Ejecuta comando atomic
 void atomic (ListaStrings L, ListaExpresiones &LE, Expresion &e, ArbolExpre &ar);
 
-// Ejecuta comando compund
+// Ejecuta comando compound
 void compound (ListaStrings L, ListaExpresiones &LE, Expresion &e, ArbolExpre &ar);
+
+//Ejecuta comando show
+void show (ListaStrings L, ListaExpresiones &LE, Expresion &e, ArbolExpre &ar);
 
 ////////////////////////////
 ////Registrar la realización de una nueva consulta hecha por un paciente.

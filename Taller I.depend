@@ -87,7 +87,7 @@
 1708542041 c:\users\sabth\ude licenciatura en informática\1°\taller i\boolean.h
 	<stdio.h>
 
-1708724624 c:\users\sabth\ude licenciatura en informática\1°\taller i\listastrings.h
+1708734570 c:\users\sabth\ude licenciatura en informática\1°\taller i\listastrings.h
 	"String.h"
 	"ListaExpresiones.h"
 
@@ -104,7 +104,7 @@
 1708646358 source:c:\users\sabth\ude licenciatura en informática\1°\taller i\listaexpresiones.cpp
 	"ListaExpresiones.h"
 
-1708727704 source:c:\users\sabth\ude licenciatura en informática\1°\taller i\main.cpp
+1708735030 source:c:\users\sabth\ude licenciatura en informática\1°\taller i\main.cpp
 	"ListaExpresiones.h"
 	"ListaStrings.h"
 	"Archivo.h"
@@ -121,6 +121,6 @@
 1708713124 source:c:\users\sabth\ude licenciatura en informática\1°\taller i\arbolexpre.cpp
 	"ArbolExpre.h"
 
-1708727712 source:c:\users\sabth\ude licenciatura en informática\1°\taller i\listastrings.cpp
+1708735139 source:c:\users\sabth\ude licenciatura en informática\1°\taller i\listastrings.cpp
 	"ListaStrings.h"
 

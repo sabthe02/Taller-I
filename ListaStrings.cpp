@@ -68,7 +68,7 @@ void DesplegarIter(ListaStrings L)
     }
 }
 
-int PosicionListaString (String s, ListaStrings L) {
+int PosicionListaString (String s, ListaStrings L) { // ver si anda bien
 int posicion = 1;
 boolean encontre = FALSE;
 
@@ -171,7 +171,7 @@ while (L!=NULL && !encontre) {
 }
 
 
-void obtenerPalabraporPosicion (int posicion, ListaStrings L, String &s) { // tampoco funciona
+void obtenerPalabraporPosicion (int posicion, ListaStrings L, String &s) { // no funciona, salvo la posición 1
 
 boolean encontre = FALSE;
 
@@ -252,11 +252,11 @@ void atomic (ListaStrings L, ListaExpresiones &LE, Expresion &e, ArbolExpre &ar)
 //                        }
 //                        else {
 ////                                if ((largoListaStrings(L) == 3) && (PerteneceIter("NOT", L))) {
-//                                    if (!(esNatural(obtenerPalabraporPosicion(3, L, q)))) { //
+//                                    if (!(esNatural(darPalabraporPosicion(3,L)))) { //
 //                                            printf("\nEl tercer numero no es un natural");
 //                                    }
 //                                        else {
-//                                            Id1 = transformarANatural(obtenerPalabraporPosicion(3, L));// obtenerPalabraporPosicion(3, L)
+//                                            Id1 = transformarANatural(darPalabraporPosicion(3, L));//
 //                                            if (!(PerteneceAListaExpreConID(Id1, LE))) {
 //                                                printf("\nNo existe la expresion correspondiente en Lista Expresiones");
 //                                                }
@@ -277,7 +277,7 @@ void atomic (ListaStrings L, ListaExpresiones &LE, Expresion &e, ArbolExpre &ar)
 //                        }
 //                        else {
 //                            if ((largoListaStrings(L) == 4) && (((PerteneceIter("AND", L)) || (PerteneceIter("OR", L))))) {
-//                                    if (!(esNatural(obtenerPalabraporPosicion(2, L))) && (!(esNatural(obtenerPalabraporPosicion(4, L))))) {//
+//                                    if (!(esNatural(darPalabraporPosicion(2, L))) && (!(esNatural(darPalabraporPosicion(4, L))))) {//
 //                                        printf("\nLa segunda y la cuarta palabra deben ser naturales");
 //                                        }
 //
@@ -330,6 +330,32 @@ void atomic (ListaStrings L, ListaExpresiones &LE, Expresion &e, ArbolExpre &ar)
 //                }
 //}
 
+void show (ListaStrings L, ListaExpresiones &LE, Expresion &e, ArbolExpre &ar) {
+int Id1;
+            if (PosicionListaString("show", L) != 1) {
+                   printf("\nLa palabra 'show' debe ir en primer lugar y luego el numero de la expresion a mostrar");
+            }
+            else {
+                    if (largoListaStrings(L) != 2) {
+                        printf("\nCantidad de parametros incorrecta, deben ser 2");
+                    }
+                    else {
+                        if (!(esNatural(darPalabraporPosicion(2,L)))) { //
+                            printf("\nEl tercer numero no es un natural");
+                        }
+                        else {
+                            Id1 = transformarANatural(darPalabraporPosicion(2, L)); //
+                            if (!(PerteneceAListaExpreConID(Id1, LE))) {
+                            printf("\nNo existe la expresion correspondiente en Lista Expresiones");
+                          }
+                          else {
+                            desplegarPorNumero(LE, Id1);
+                          }
+                        }
+                    }
+
+            }
+}
 
 //
 //void registrarConsulta (Lista &L, Consulta c)
