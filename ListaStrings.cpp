@@ -249,7 +249,7 @@ crearArbol(a);
                 }
                 else {
                         if ((largoListaStrings(L) == 3) && (PerteneceIter("NOT", L)) && (PosicionListaString("NOT", L) != 2)) {
-                            printf("\NOT debe ser la segunda palabra");
+                            printf("\nNOT debe ser la segunda palabra");
                         }
                         else {
 //                                if ((largoListaStrings(L) == 3) && (PerteneceIter("NOT", L))) {
