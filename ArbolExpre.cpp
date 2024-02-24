@@ -152,17 +152,17 @@ if(b != NULL)
 
 
 
-
-void cargarParentesis(char parentesis, ArbolExpre &a )
-{
-   if (a == NULL)
-   {
-       a = new NodoA;
-        insertarParentesisNodo(parentesis, a->info);
-       a->hizq = NULL;
-       a->hder = NULL;
-   }
-}
+//
+//void cargarParentesis(char parentesis, ArbolExpre &a )
+//{
+//   if (a == NULL)
+//   {
+//       a = new NodoA;
+//        insertarParentesisNodo(parentesis, a->info);
+//       a->hizq = NULL;
+//       a->hder = NULL;
+//   }
+//}
 
 
 void cargarOperadorNOT(ArbolExpre &a, ArbolExpre ar, char operador)

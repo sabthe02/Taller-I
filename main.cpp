@@ -23,7 +23,7 @@ crearLista(LE);
 crearArbol(ar);
 strcrear(q);
 
-while (!PerteneceIter("exit", L)) {
+do {
 
 printf("\nIngrese comando: ");
 strcrear(s);
@@ -58,6 +58,14 @@ if (!Vacia(L)){
                     if (PerteneceIter("evaluate", L)) {
                         evaluate (L, LE, e, ar);
                     }
+                    else
+                        if (PerteneceIter("save"), L); {
+                            exit (L, LE, e, ar);
+                        }
+                    else
+                        if (PerteneceIter("exit"), L); {
+                            exit (L, LE, e, ar);
+                        }
                     else {
                     printf("\nPor favor ingrese un comando valido (atomic, compound, evaluate, show, save, load, exit)");
                     }
@@ -67,6 +75,7 @@ if (!Vacia(L)){
 //            // Si no se ingresó ningún comando
 
 vaciarListaStrings(L);
+printf("\n");
 
 }
 // si no se ha ingresado nada
@@ -74,7 +83,7 @@ else {
     printf("\nNo se ha ingresado ningún comando");
  }
 
-}
+}(!PerteneceIter("exit", L));
 
 //
 //String nombrearchivo = "test.dat";

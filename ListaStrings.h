@@ -76,10 +76,18 @@ void atomic (ListaStrings L, ListaExpresiones &LE, Expresion &e, ArbolExpre &ar)
 void compound (ListaStrings L, ListaExpresiones &LE, Expresion &e, ArbolExpre &ar);
 
 //Ejecuta comando show
-void show (ListaStrings L, ListaExpresiones &LE, Expresion &e, ArbolExpre &ar);
+void show (ListaStrings L, ListaExpresiones LE, Expresion e, ArbolExpre ar);
 
 //Ejecuta comando evaluate
-void evaluate (ListaStrings L, ListaExpresiones &LE, Expresion &e, ArbolExpre &ar);
+void evaluate (ListaStrings L, ListaExpresiones LE, Expresion e, ArbolExpre ar);
+
+//Ejecuta comando save
+void save (ListaStrings L, ListaExpresiones LE, Expresion e, ArbolExpre ar);
+
+//Ejecuta comando exit
+void exit (ListaStrings &L, ListaExpresiones &LE, Expresion &e, ArbolExpre &ar); ///// preguntar por cabezal y si procedimiento es correcto
+
+
 ////////////////////////////
 ////Registrar la realización de una nueva consulta hecha por un paciente.
 //// Se debe verificar previamente que la cédula de dicho paciente exista en el sistema y que la fecha de la nueva consulta sea válida

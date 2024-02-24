@@ -22,15 +22,6 @@ void RestoExpre(ListaExpresiones &LE) {
     LE = LE->sig;
     delete aux;
 }
-//
-//void InsFrontExpre(Lista &L, Consulta e) {
-//    Lista aux = new nodo2;
-//    aux->info = e;
-//    aux->sig = L;
-//    L = aux;
-//}
-//
-//
 
 void insertarNodoEnlista (Expresion e, ListaExpresiones &LE)
 {
@@ -75,6 +66,7 @@ void liberarMemoriaListaE (ListaExpresiones &LE) {
         delete lista;
     }
 }
+
 
 
 boolean PerteneceIterExpre (ListaExpresiones LE, Expresion e) {
