@@ -197,8 +197,7 @@ void atomic (ListaStrings L, ListaExpresiones &LE, Expresion &e, ArbolExpre &ar)
                                     asignarArbolExpresion(e, ar);
                                     insertarNodoEnlista(e, LE);
                                     desplegarPorNumero(LE, seleccionarNumeroExpresion(e));
-
-                                    }
+                                }
                                     else {
                                         insertarValorArbol ((transformarStringABoolean ("false")), ar);
                                         asignarNumeroExpresion (e, largoListaExpresiones(LE)+1);
@@ -410,7 +409,7 @@ String entrada;
                                             FILE * f = fopen (darPalabraporPosicion(3,L), "wb");
                                             BajarArbolExpre(seleccionarArbolExpre(darExpresionConID(Id1,LE)), f);
                                             fclose(f);
-                                            printf("\nexpresion %d respaldada correctamente en ", Id1);
+                                            printf("expresion %d respaldada correctamente en ", Id1);
                                             print(darPalabraporPosicion(3,L));
                                         }
                                         else {
@@ -419,14 +418,14 @@ String entrada;
                                             scan (entrada);
 
                                             while (!(streq(entrada,"S")) && !(streq(entrada, "N"))){
-                                               printf("\nSolo se admite 'S' o 'N' como respuesta");
+                                               printf("\nSolo se admite 'S' o 'N' como respuesta\n");
                                                scan (entrada);
                                             }
                                             if (streq(entrada,"S")) {
                                                 FILE * f = fopen (darPalabraporPosicion(3,L), "wb");
                                                 BajarArbolExpre(seleccionarArbolExpre(darExpresionConID(Id1,LE)), f);
                                                 fclose(f);
-                                                printf("\nexpresion %d respaldada correctamente en ", Id1);
+                                                printf("expresion %d respaldada correctamente en ", Id1);
                                                 print(darPalabraporPosicion(3,L));
                                             }
                                         }
@@ -438,6 +437,40 @@ String entrada;
 
 }
 
+void load (ListaStrings L, ListaExpresiones &LE, Expresion &e, ArbolExpre &ar) {
+if (PosicionListaString("load", L) != 1) {
+                   printf("\nLa palabra 'load' debe ir en primer lugar y en segundo 'true' o 'false'");
+            }
+            else {
+                    if (largoListaStrings(L) != 2) {
+                        printf("\nCantidad de parametros incorrecta, deben ser 2");
+                    }
+                    else {
+                            if (!esNombreArchivo(darPalabraporPosicion(2,L))) {
+                                    if (esAlfabetico(darPalabraporPosicion(2,L))) {
+                                        printf("\nDebe terminar en .dat el nombre del archivo");
+                                    }
+                                    else {
+                                        printf("\nLa segunda palabra debe ser alfabetica");
+                                    }
+                            }
+                            else {
+                                if (!(ExisteArchivo(darPalabraporPosicion(2,L)))) {
+                                        printf("\Archivo no existe, no es posible cargarlo");
+                                }
+                                else {
+                                    LevantarArbolExpre(ar, darPalabraporPosicion(2,L));
+                                    asignarNumeroExpresion (e, largoListaExpresiones(LE)+1);
+                                    asignarArbolExpresion(e, ar);
+                                    insertarNodoEnlista(e, LE);
+                                    desplegarPorNumero(LE, seleccionarNumeroExpresion(e));
+                                }
+                            }
+                    }
+
+            }
+
+}
 
 void exit (ListaStrings &L, ListaExpresiones &LE, Expresion &e, ArbolExpre &ar) {
 

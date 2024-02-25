@@ -33,7 +33,7 @@ void desplegarExpresion (Expresion e) {
    arbol = seleccionarArbolExpre(e);
    asignarArbolExpresion (e, arbol);
     id = seleccionarNumeroExpresion(e);
-    printf("\nexpresion %d: ", id);
+    printf("expresion %d: ", id);
     desplegarNodosArbolOrden (arbol);
 }
 

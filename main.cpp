@@ -29,7 +29,6 @@ printf("\nIngrese comando: ");
 strcrear(s);
 scan(s);
 
-
 partirStrings(s, L);
 
 
@@ -52,6 +51,10 @@ if (!Vacia(L)){
                     else
                         if (PerteneceIter("save", L)) {
                             save (L, LE, e, ar);
+                        }
+                        else
+                        if (PerteneceIter("load", L)) {
+                            load (L, LE, e, ar);
                         }
                     else
                         if (PerteneceIter("exit", L)) {

@@ -84,6 +84,9 @@ void evaluate (ListaStrings L, ListaExpresiones LE, Expresion e, ArbolExpre ar);
 //Ejecuta comando save
 void save (ListaStrings L, ListaExpresiones LE, Expresion e, ArbolExpre ar);
 
+//Ejecuta comando load
+void load (ListaStrings L, ListaExpresiones &LE, Expresion &e, ArbolExpre &ar);
+
 //Ejecuta comando exit
 void exit (ListaStrings &L, ListaExpresiones &LE, Expresion &e, ArbolExpre &ar); ///// preguntar por cabezal y si procedimiento es correcto
 
