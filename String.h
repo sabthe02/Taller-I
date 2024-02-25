@@ -3,6 +3,7 @@
 
 #include <stdlib.h>
 #include "Boolean.h"
+#include "ValorNodo.h"
 
 const int MAX = 80;
 typedef char *String;
@@ -63,7 +64,7 @@ void eliminarBlancosPrincipio (String s, String &sb);
 void dividirString (String s, String &primero, String &resto);
 
 //Revisa si un string consiste solo en letras
-boolean esAlfanumerico (String s);
+boolean esAlfabetico(String s);
 
 // Verifica si el nombre del archivo termina en .dat y es alfanumerico
 boolean esNombreArchivo (String s);

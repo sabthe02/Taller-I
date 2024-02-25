@@ -233,7 +233,7 @@ while (s[i] != '\0') {
 
 }
 sb[j] = '\0';
-strdestruir(s);
+//strdestruir(s);
 
 }
 
@@ -267,7 +267,7 @@ while (s[i] != '\0') {
     j++;
 }
 resto[j] = '\0';
-strdestruir(s);
+//strdestruir(s);
 }
 
 void dividirStringDeArchivo (String s, String &primero, String &resto) {
@@ -300,10 +300,10 @@ while (s[i] != '\0') {
     j++;
 }
 resto[j] = '\0';
-strdestruir(s);
+//strdestruir(s);
 }
 
-boolean esAlfanumerico (String s) {
+boolean esAlfabetico (String s) {
 
 boolean es = TRUE;
 int i = 0;
@@ -312,7 +312,9 @@ while (es && (s[i] != '\0'))
 {
  if (!((s[i] >=  'a' && s[i] <= 'z') || ((s[i] >=  'A' && s[i] <= 'Z')))) {
     es = FALSE;
-    i++;
+    }
+    else{
+        i++;
     }
 }
  if ((s[i] != '\0')){
@@ -338,7 +340,7 @@ dividirStringDeArchivo(s, p, r);
         es = FALSE;
     }
     else {
-        if (!streq(r,"dat") || !esAlfanumerico(p)){
+        if (!streq(r,".dat") || !esAlfabetico(p)){
                 es = FALSE;
             }
     }
@@ -349,6 +351,9 @@ else {
 }
 
 return es;
+
+strdestruir(p);
+strdestruir(r);
 
 }
 

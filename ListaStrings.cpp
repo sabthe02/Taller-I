@@ -120,12 +120,11 @@ strcrear(s2);
 strcrear(p);
 strcrear(r);
 
-while (!esVacio(s)) {
+if (!esVacio(s)) { // hacer con while
 eliminarBlancosPrincipio (s, s2);
 dividirString(s2, p, r);
 InsBackIter(p, L);
-strcop(s,r);
-//partirStrings(r, L->sig);
+partirStrings(r, L->sig);
 }
 
 }
@@ -257,10 +256,18 @@ crearArbol(a);
                                 printf("\n'AND' u 'OR' deben ser la tercer palabra");
                         }
                         else {
-                            if ((largoListaStrings(L) == 4) && (((PerteneceIter("AND", L)) || (PerteneceIter("OR", L))))) {
-                                    if (!(esNatural(darPalabraporPosicion(2, L))) && (!(esNatural(darPalabraporPosicion(4, L))))) {
-                                        printf("\nLa segunda y la cuarta palabra deben ser naturales");
-                                        }
+                                if ((largoListaStrings(L) == 4) && (!(streq(darPalabraporPosicion(3,L), "AND"))) && (!(streq(darPalabraporPosicion(3,L), "OR")))) {
+                                        printf("\nEn la tercer posicion puede unicamente ir 'AND' u 'OR");
+                                    }
+
+                                if ((largoListaStrings(L) == 4) && ((streq(darPalabraporPosicion(3,L),"AND")) || (streq(darPalabraporPosicion(3,L),"OR")))) {
+                                        if (!(esNatural(darPalabraporPosicion(2, L)))) {
+                                            printf("\nLa segunda palabra debe ser natural");
+                                            }
+
+                                        if (!(esNatural(darPalabraporPosicion(4, L)))) {
+                                            printf("\nLa cuarta palabra debe ser natural");
+                                            }
 
                                 else {
                                         Id1 = transformarANatural((darPalabraporPosicion(2, L)));
@@ -320,11 +327,11 @@ int Id1;
                         printf("\nCantidad de parametros incorrecta, deben ser 2");
                     }
                     else {
-                        if (!(esNatural(darPalabraporPosicion(2,L)))) { //
+                        if (!(esNatural(darPalabraporPosicion(2,L)))) {
                             printf("\nEl numero no es un natural");
                         }
                         else {
-                            Id1 = transformarANatural(darPalabraporPosicion(2, L)); //
+                            Id1 = transformarANatural(darPalabraporPosicion(2, L));
                             if (!(PerteneceAListaExpreConID(Id1, LE))) {
                             printf("\nNo existe la expresion correspondiente en Lista Expresiones");
                           }
@@ -386,16 +393,19 @@ String entrada;
                         }
                         else {
                             if (!esNombreArchivo(darPalabraporPosicion(3,L))) {
-                               printf("\nLa tercera palabra debe ser un string, y el tipo de archivo debe ser .dat");
+                                    if (esAlfabetico(darPalabraporPosicion(3,L))) {
+                                        printf("\nDebe terminar en .dat el nombre del archivo");
+                                    }
+                                    else {
+                                        printf("\nLa tercer palabra debe ser alfabetica");
+                                    }
                             }
                             else {
-
                                 Id1 = transformarANatural(darPalabraporPosicion(2, L));
                                 if (!(PerteneceAListaExpreConID(Id1, LE))) {
                                     printf("\nNo existe la expresion correspondiente en Lista Expresiones");
                                 }
                                 else {
-
                                         if (!ExisteArchivo(darPalabraporPosicion(3,L))) {
                                             FILE * f = fopen (darPalabraporPosicion(3,L), "wb");
                                             BajarArbolExpre(seleccionarArbolExpre(darExpresionConID(Id1,LE)), f);
@@ -404,7 +414,7 @@ String entrada;
                                             print(darPalabraporPosicion(3,L));
                                         }
                                         else {
-                                            printf("\nArchivo ya existe, desea sobreescribirlo? S = si, N = no");
+                                            printf("\nArchivo ya existe, desea sobreescribirlo? S = si, N = no \n");
                                             strcrear(entrada);
                                             scan (entrada);
 
@@ -442,7 +452,7 @@ void exit (ListaStrings &L, ListaExpresiones &LE, Expresion &e, ArbolExpre &ar) 
 //                          vaciarListaStrings(L);
 //                          liberarMemoriaListaE(LE);
 //                          liberarMemoriaArbol(ar);
-//                          strdestruir(nombrearchivo);
+//                          strdestruir(nombrearchivo); // no lo creamos nunca, entonces no se debería tener que destruir
                             printf("hasta la proxima");
                         }
                     }

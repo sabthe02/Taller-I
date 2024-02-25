@@ -32,15 +32,6 @@ scan(s);
 
 partirStrings(s, L);
 
-//printf("\n%d", PosicionListaString("2", L));
-//
-//obtenerPalabraporPosicion(1, L,q);
-//printf("\n%d", PosicionListaString(q, L));
-//printf("\n%d", largoListaStrings(L));
-//desplegarBoolean(esNatural(darPalabraDeLista("2",L)));
-//print (q);
-
-
 
 if (!Vacia(L)){
         if (PerteneceIter("atomic", L)) {
