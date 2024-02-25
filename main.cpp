@@ -59,11 +59,11 @@ if (!Vacia(L)){
                         evaluate (L, LE, e, ar);
                     }
                     else
-                        if (PerteneceIter("save"), L); {
-                            exit (L, LE, e, ar);
+                        if (PerteneceIter("save", L)) {
+                            save (L, LE, e, ar);
                         }
                     else
-                        if (PerteneceIter("exit"), L); {
+                        if (PerteneceIter("exit", L)) {
                             exit (L, LE, e, ar);
                         }
                     else {
@@ -83,7 +83,7 @@ else {
     printf("\nNo se ha ingresado ningún comando");
  }
 
-}(!PerteneceIter("exit", L));
+}while(!PerteneceIter("exit", L));
 
 //
 //String nombrearchivo = "test.dat";

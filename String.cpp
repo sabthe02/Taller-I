@@ -270,4 +270,85 @@ resto[j] = '\0';
 strdestruir(s);
 }
 
+void dividirStringDeArchivo (String s, String &primero, String &resto) {
+
+int i = 0;
+int j = 0;
+boolean fin = FALSE;
+
+int largo = strlar(s) + 1;
+
+primero = new char[largo];
+resto = new char[largo];
+
+
+while (s[i] != '\0' && !fin) {
+
+    if (s[i] == '.') {
+        fin = TRUE;
+    }
+    else {
+    primero[i] = s[i];
+    i++;
+    }
+}
+primero[i] = '\0';
+
+while (s[i] != '\0') {
+    resto[j] = s[i];
+    i++;
+    j++;
+}
+resto[j] = '\0';
+strdestruir(s);
+}
+
+boolean esAlfanumerico (String s) {
+
+boolean es = TRUE;
+int i = 0;
+
+while (es && (s[i] != '\0'))
+{
+ if (!((s[i] >=  'a' && s[i] <= 'z') || ((s[i] >=  'A' && s[i] <= 'Z')))) {
+    es = FALSE;
+    i++;
+    }
+}
+ if ((s[i] != '\0')){
+ es = FALSE;
+}
+
+return es;
+}
+
+
+
+boolean esNombreArchivo (String s){
+boolean es = TRUE;
+int largo = strlar(s);
+String p, r;
+strcrear(p);
+strcrear(r);
+
+ if (!esVacio(s)) {
+
+dividirStringDeArchivo(s, p, r);
+    if (esVacio (r) || esVacio (p)) {
+        es = FALSE;
+    }
+    else {
+        if (!streq(r,"dat") || !esAlfanumerico(p)){
+                es = FALSE;
+            }
+    }
+}
+
+else {
+    es = FALSE;
+}
+
+return es;
+
+}
 

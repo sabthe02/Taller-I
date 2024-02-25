@@ -62,5 +62,11 @@ void eliminarBlancosPrincipio (String s, String &sb);
 // Precondición: s no es vacío
 void dividirString (String s, String &primero, String &resto);
 
+//Revisa si un string consiste solo en letras
+boolean esAlfanumerico (String s);
+
+// Verifica si el nombre del archivo termina en .dat y es alfanumerico
+boolean esNombreArchivo (String s);
+
 
 #endif // STRING_H_INCLUDED

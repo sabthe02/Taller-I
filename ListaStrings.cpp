@@ -1,4 +1,5 @@
 #include "ListaStrings.h"
+#include "Archivo.h"
 
 
 void Crear (ListaStrings &L) {
@@ -119,14 +120,16 @@ strcrear(s2);
 strcrear(p);
 strcrear(r);
 
-if (!esVacio(s)) {
+while (!esVacio(s)) {
 eliminarBlancosPrincipio (s, s2);
 dividirString(s2, p, r);
 InsBackIter(p, L);
-partirStrings(r, L->sig);
+strcop(s,r);
+//partirStrings(r, L->sig);
 }
 
 }
+
 
 String darPalabraDeLista (String s, ListaStrings L) {
 boolean encontre = FALSE;
@@ -247,7 +250,7 @@ crearArbol(a);
                                                 }
 
                                         }
-//                                    }
+
                                 }
                         }
                         if (((largoListaStrings(L) == 4) && (((PerteneceIter("AND", L)) || (PerteneceIter("OR", L)))) && (((PosicionListaString("AND", L) !=3) && (PosicionListaString("OR", L) !=3))))) {
@@ -369,6 +372,7 @@ int Id1;
 
 void save (ListaStrings L, ListaExpresiones LE, Expresion e, ArbolExpre ar) {
 int Id1;
+String entrada;
             if (PosicionListaString("save", L) != 1) {
                    printf("\nLa palabra 'save' debe ir en primer lugar, luego el numero de la expresion a guardar y en tercer lugar el nombre del archivo");
             }
@@ -381,53 +385,48 @@ int Id1;
                             printf("\nLa segunda palabra debe ser un natural");
                         }
                         else {
-                            if (!) {// Si la tercera palabra no es un string, y no termina en “.dat”
+                            if (!esNombreArchivo(darPalabraporPosicion(3,L))) {
                                printf("\nLa tercera palabra debe ser un string, y el tipo de archivo debe ser .dat");
                             }
                             else {
 
-                                Id1 = transformarANatural(darPalabraporPosicion(2, L)); //
+                                Id1 = transformarANatural(darPalabraporPosicion(2, L));
                                 if (!(PerteneceAListaExpreConID(Id1, LE))) {
                                     printf("\nNo existe la expresion correspondiente en Lista Expresiones");
                                 }
                                 else {
 
+                                        if (!ExisteArchivo(darPalabraporPosicion(3,L))) {
+                                            FILE * f = fopen (darPalabraporPosicion(3,L), "wb");
+                                            BajarArbolExpre(seleccionarArbolExpre(darExpresionConID(Id1,LE)), f);
+                                            fclose(f);
+                                            printf("\nexpresion %d respaldada correctamente en ", Id1);
+                                            print(darPalabraporPosicion(3,L));
+                                        }
+                                        else {
+                                            printf("\nArchivo ya existe, desea sobreescribirlo? S = si, N = no");
+                                            strcrear(entrada);
+                                            scan (entrada);
+
+                                            while (!(streq(entrada,"S")) && !(streq(entrada, "N"))){
+                                               printf("\nSolo se admite 'S' o 'N' como respuesta");
+                                               scan (entrada);
+                                            }
+                                            if (streq(entrada,"S")) {
+                                                FILE * f = fopen (darPalabraporPosicion(3,L), "wb");
+                                                BajarArbolExpre(seleccionarArbolExpre(darExpresionConID(Id1,LE)), f);
+                                                fclose(f);
+                                                printf("\nexpresion %d respaldada correctamente en ", Id1);
+                                                print(darPalabraporPosicion(3,L));
+                                            }
+                                        }
                                 }
                             }
-                          }
-                          else {
-                            desplegarPorNumero(LE, Id1);
                           }
                         }
                     }
 
-            }
 }
-
-
-//			Verificar si el archivo ya existe, entonces
-//			Si el archivo no existe, entonces
-//Asignar un entero a cada nodo del árbol en órden
-//Abrir archivo
-//Recorrer el árbol en preorden, bajándolo a archivo cada nodo con su respectiva información
-//Cerrar archivo
-//Sino
-//Preguntar al usuario si desea sobreescribirlo. Admitir “S” o “N” como respuesta
-//	Si usuario ingresa “S”, entonces
-//Asignar un entero a cada nodo del árbol en orden.
-//Abrir archivo
-//Recorrer el árbol en preorden, bajándolo a archivo cada nodo con su respectiva información
-//Mostrar en pantalla el siguiente mensaje:
-//“expresión número de expresión  respaldada correctamente en nombrearchivo.dat”
-//Cerrar archivo
-//Sino
-//Si usuario ingresa “N”, entonces
-//			Mensaje apropiado de salida
-//	Sino
-//		Mensaje de error: Por favor ingresar solamente “S” o “N”
-//	Fin
-//Fin
-//				Fin
 
 
 void exit (ListaStrings &L, ListaExpresiones &LE, Expresion &e, ArbolExpre &ar) {
@@ -439,12 +438,13 @@ void exit (ListaStrings &L, ListaExpresiones &LE, Expresion &e, ArbolExpre &ar) 
                     if (largoListaStrings(L) != 1) {
                         printf("\nCantidad de parametros incorrecta, debe ser 1");
                     }
-//                    else {
+                    else {
 //                          vaciarListaStrings(L);
 //                          liberarMemoriaListaE(LE);
 //                          liberarMemoriaArbol(ar);
 //                          strdestruir(nombrearchivo);
-//                        }
+                            printf("hasta la proxima");
+                        }
                     }
 }
 
