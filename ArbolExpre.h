@@ -30,10 +30,10 @@ ArbolExpre HijoIzq (ArbolExpre a);
 //Precondición: Árbol no vacío
 ArbolExpre HijoDer (ArbolExpre a);
 
-// Dados dos árboles y un valor, devolver un nuevo árbol, colocando el valor como raíz y los dos árboles como subárboles
+// Procedimiento para subir a memoria los nodos según su índice
+// Solo sirve para insertar desde archivo porque tiene que venir con el indice seteado, no sirve si el indice no esta definido
 //Precondición: el valor no existía previamente en el árbol
 // Precondición: El índice de ValorNodo tiene que estar asignado
-// Procedimiento para subir a memoria los nodos según su índice.
 void insertarValorEnOrden (ValorNodo valor, ArbolExpre &a);
 
 // Insertar valor atómico
@@ -62,69 +62,39 @@ ValorNodo Maximo (ArbolExpre a);
 //Obtiene el valor almacenado en el Mínimo (hijo más iqzuierdo del árbol)
 ValorNodo Minimo (ArbolExpre a);
 
-//Retorna el puntero hijo más izquierdo de toda la rama izquierda
-ArbolExpre MinimoPuntero (ArbolExpre a);
+//asigna al árbol un nuevo nodo de tipo ValorNodo (no importando qué tiene adentro)
+void insertarValorNodoArbol(ValorNodo vn, ArbolExpre &a);
 
-//Retorna el puntero hijo más derecho de toda la rama derecha
-ArbolExpre MaximoPuntero (ArbolExpre a);
-
-void insertarValorNodoArbol(ValorNodo vn, ArbolExpre &a); // NUEVO
-
-void copiarArbolAOtro(ArbolExpre b, ArbolExpre &a); // NUEVO
-
-//Copio un árbol a otro
-void copiarArbolAOtro(ArbolExpre ar, ArbolExpre &a);
+//Copia un árbol a otro
+void copiarArbolAOtro(ArbolExpre b, ArbolExpre &a);
 
 //carga Paréntesis cierre o apertura a árbol
 void cargarParentesis(ArbolExpre &a, char parentesis);
 
 // carga Operador (NOT) a árbol
+// cargar un arbol en hder, en el min cargar parentesis (hizq), en max cargar parentesis (hder)
 void cargarOperadorNOT(ArbolExpre &a, ArbolExpre ar, char operador);
 
 // carga Operador (AND u OR) a árbol
+// ar copiar a otro arbol como hizq,
+// arb copiar a otro como hder, en el min cargar parentesis (hizq), en max cargar parentesis (hder)
 void cargarOperadorAndOr(ArbolExpre &a, ArbolExpre ar, ArbolExpre arb, char operador);
 
-//carga paréntesis en el hizo más izquierdo
+//carga paréntesis en el hijo más izquierdo
 void InsertarParentesisEnMinimo(char parentesis, ArbolExpre &a);
 
 //carga paréntesis en el hizo más derecho
 void InsertarParentesisEnMaximo(char parentesis, ArbolExpre &a);
 
 //evaluar expresión
+// si en raiz hay un boolean, entonces retornar valor del boolean. PASO BASE,
+// sino, si en raiz hay un NOT, evaluo con ! y llamada recursiva a evaluarExpresion(arbol->hder)
+// sino si en raiz hay AND u OR, llamada recursiva a evaluarExpresion(arbol->hizq), conecto con || u &&, y luego llamada recursiva a evaluar con evaluarExpresion(arbol->hder)
 boolean evaluarExpresion(ArbolExpre a);
 
-//enumerar nodod del árbol
-// precondición: Inizializar índice en 1
+//enumerar nodos del árbol
+// precondición: Inizializar índice en 0
 void enumerarNodos(int &indice, ArbolExpre &a);
-
-
-////Revisa si existe el índice en el árbol
-//boolean existeEnArbol (ArbolExpre a, int indice);
-//
-////Determina nodo con menor índice
-//ValorNodo Minimo (ArbolExpre a);
-//
-////Borra del árbol nodo con menor índice
-//void Borrar_Minimo (ArbolExpre &a);
-//
-////Dado el índice, eliminar dicho nodo del sistema.
-//// Precondición, índice existe en el sistema.
-//void eliminarConIndice (int indice, ArbolExpre &a);
-//
-
-//
-//// Listar aquellos pacientes registrados en el sistema que aún no han realizado ninguna consulta al dentista.
-//// Los datos de cada paciente (cédula, nombre, apellido, teléfono y cantidad de consultas realizadas hasta el momento)
-////deben listarse todos en una misma línea.
-//void listarPacientesSinConsultas (ABB a);
-//
-////Sumarle una consulta al paciente con la cédula que realizó una consulta
-//void sumarConsultaAlABB (ABB &a, long int ced);
-//
-//// Dada una cantidad de consultas, obtener la cantidad de pacientes registrados en el sistema que han realizado al menos dicha cantidad de consultas
-////hasta el momento.
-//int obtenerPacientesConCantidadDeConsultas (ABB a, int CaConsultas);
-//
 
 
 #endif // ARBOLEXPRE_H_INCLUDED

@@ -1,5 +1,4 @@
 #include "ListaStrings.h"
-#include "Archivo.h"
 
 
 void Crear (ListaStrings &L) {
@@ -223,7 +222,7 @@ crearArbol(a);
 
             if (PosicionListaString("compound", L) == 1) {
                 if ((largoListaStrings(L) != 3) && (largoListaStrings(L) != 4) ) {
-                    printf("\nCantidad de parámetros incorrecta, deben ser 3 o 4");
+                    printf("\nCantidad de parametros incorrecta, deben ser 3 o 4");
                 }
                 else {
                         if ((largoListaStrings(L) == 3) && (PerteneceIter("NOT", L)) && (PosicionListaString("NOT", L) != 2)) {
@@ -312,7 +311,7 @@ crearArbol(a);
                     }
 
                 else {
-                    printf("\nLa palabra 'compound' debe ir en primer lugar");
+                    printf("\nLa palabra 'compound' debe ir en primer lugar, seguido de 'NOT' y un numero natural o seguido de un numero natural, 'AND' u 'OR y otro numero natural");
                 }
 }
 
@@ -489,8 +488,6 @@ void exit (ListaStrings &L, ListaExpresiones &LE, Expresion &e, ArbolExpre &ar) 
                     }
                     else {
                           liberarMemoriaListaE(LE);
-                          liberarMemoriaArbol(ar);
-//                          strdestruir(nombrearchivo); // no lo creamos nunca, entonces no se debería tener que destruir
                             printf("hasta la proxima");
                         }
                     }

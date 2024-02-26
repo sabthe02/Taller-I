@@ -233,7 +233,6 @@ while (s[i] != '\0') {
 
 }
 sb[j] = '\0';
-//strdestruir(s);
 
 }
 
@@ -267,7 +266,6 @@ while (s[i] != '\0') {
     j++;
 }
 resto[j] = '\0';
-//strdestruir(s);
 }
 
 void dividirStringDeArchivo (String s, String &primero, String &resto) {
@@ -300,7 +298,6 @@ while (s[i] != '\0') {
     j++;
 }
 resto[j] = '\0';
-//strdestruir(s);
 }
 
 boolean esAlfabetico (String s) {

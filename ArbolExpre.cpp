@@ -36,11 +36,9 @@ ArbolExpre HijoDer(ArbolExpre a)
 
     return a->hder;
 }
-// Solo sirve para insertar desde archivo porque tiene que venir con el �ndice seteado, no sirve si el �ndice no est� definido
 
 void insertarValorEnOrden(ValorNodo valor, ArbolExpre &a)
 {
-
 
     if (a == NULL)
     {
@@ -79,6 +77,7 @@ void liberarMemoriaArbol(ArbolExpre &a)
         liberarMemoriaArbol(a->hizq);
         liberarMemoriaArbol(a->hder);
         delete a;
+        a =NULL;
     }
 }
 
@@ -112,24 +111,6 @@ ValorNodo Minimo (ArbolExpre a) {
          return Minimo (a -> hizq); }
 }
 
-ArbolExpre MinimoPuntero (ArbolExpre a) {
-    if (a -> hizq == NULL)   {
-            return (a->hizq);
-    }
-    else {
-         return MinimoPuntero (a -> hizq);
-         }
-}
-
-
-ArbolExpre MaximoPuntero (ArbolExpre a) {
-    if (a -> hizq == NULL)   {
-            return (a->hder);
-    }
-    else {
-         return MaximoPuntero (a -> hder);
-         }
-}
 
 void insertarValorNodoArbol(ValorNodo vn, ArbolExpre &a){
     if(a==NULL) {
@@ -140,8 +121,8 @@ void insertarValorNodoArbol(ValorNodo vn, ArbolExpre &a){
           }
 }
 
-void copiarArbolAOtro(ArbolExpre b, ArbolExpre &a)
-{
+void copiarArbolAOtro(ArbolExpre b, ArbolExpre &a){
+
 if(b != NULL)
     {
         insertarValorNodoArbol(darRaiz(b),a);
@@ -155,7 +136,6 @@ if(b != NULL)
 
 void cargarOperadorNOT(ArbolExpre &a, ArbolExpre ar, char operador)
 {
-   // cargar un arbol en hder, en el min cargar parentesis (hizq)
     a = new NodoA;
     insertarOperadorNodo(operador, a->info);
     a->hizq = NULL;
@@ -178,13 +158,10 @@ void cargarOperadorAndOr(ArbolExpre &a, ArbolExpre ar, ArbolExpre arb, char oper
     InsertarParentesisEnMaximo(')',a);
 
 }
-// ar copiar a otro arbol como hizq,
-// arb copiar a otro como hder
 
 
 
-void InsertarParentesisEnMinimo(char parentesis, ArbolExpre &a) // PREGUNTAR
-{
+void InsertarParentesisEnMinimo(char parentesis, ArbolExpre &a){
    if (a->hizq == NULL)
    {
        a->hizq = new NodoA;
@@ -235,18 +212,14 @@ boolean evaluarExpresion(ArbolExpre a){
             }
         }
 }
- // si en raiz hay un boolean, entonces retorno valor del boolean. PASO BASE,
-             // sino, si en raiz hay un NOT, evaluo con ! y llamada recursiva a evaluarExpresion(arbol->hder)
-             // sino si en raiz hay AND u OR, llamada recursivs a evaluarExpresion(arbol->hizq), conecto con || u &&, y luego llamada recursiva a evaluar con evaluarExpresion(arbol->hder)
-
 
 void enumerarNodos(int &indice, ArbolExpre &a) {
-if (a->hizq != NULL)
-    {
+if (a->hizq != NULL){
         enumerarNodos (indice, a->hizq);
     }
-        indice++;
-        asignarIndiceNodo(indice, a->info);
+    indice++;
+    asignarIndiceNodo(indice, a->info);
+
     if (a->hder !=NULL) {
         enumerarNodos(indice, a->hder);
     }

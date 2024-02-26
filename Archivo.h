@@ -24,11 +24,4 @@ void BajarArbolExpre (ArbolExpre a, FILE *f);
 ////Levanta árbol a memoria (órden)
 void LevantarArbolExpre (ArbolExpre &a, String nombrearchivo);
 
-////Bajar lista a un archivo
-//void Bajar_Consultas (Lista L , String nomArchConsultas);
-//
-////Levantar lista a memoria
-//void Levantar_Consultas (Lista &L, String nomArchConsultas);
-//
-
 #endif // ARCHIVO_H_INCLUDED

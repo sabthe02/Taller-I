@@ -48,10 +48,10 @@ if (!Vacia(L)){
                         if (PerteneceIter("load", L)) {
                             load (L, LE, e, ar);
                         }
-                    else
-                        if (PerteneceIter("exit", L)) {
-                            exit (L, LE, e, ar);
-                        }
+                        else
+                            if (PerteneceIter("exit", L)) {
+                                exit (L, LE, e, ar);
+                            }
                     else {
                     printf("\nPor favor ingrese un comando valido (atomic, compound, show, evaluate, save, load, exit)");
                     }

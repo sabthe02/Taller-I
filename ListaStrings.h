@@ -3,7 +3,7 @@
 
 #include "String.h"
 #include "ListaExpresiones.h"
-
+#include "Archivo.h"
 
 typedef struct nodoS {String palabra;
                 nodoS *sig;
@@ -90,38 +90,6 @@ void load (ListaStrings L, ListaExpresiones &LE, Expresion &e, ArbolExpre &ar);
 //Ejecuta comando exit
 void exit (ListaStrings &L, ListaExpresiones &LE, Expresion &e, ArbolExpre &ar); ///// preguntar por cabezal y si procedimiento es correcto
 
-
-////////////////////////////
-////Registrar la realización de una nueva consulta hecha por un paciente.
-//// Se debe verificar previamente que la cédula de dicho paciente exista en el sistema y que la fecha de la nueva consulta sea válida
-//// e igual o posterior a la fecha de la última consulta registrada hasta el momento en el sistema.
-//void registrarConsulta (Lista &L, Consulta c);
-//
-////-----
-//// Obtener la cantidad de consultas de cada tipo
-//void cantidadConsultasportratamiento (Lista L, int &tratamiento, int &protesis, int &saludable);
-//
-//// Dada una fecha, obtener la cantidad de consultas que fueron realizadas en dicha fecha: ")
-//int cantidadConsultasporfecha (Lista L, fecha f);
-//
-//// desplegar consultas por cedula
-//void desplegarporcedula (Lista L, long int cedula);
-//
-//// Obtener la cedula del paciente que ha realizado la mayor cantidad de consultas hasta el momento, junto con la cantidad de consultas correspondiente
-////PRECONDICION - inicializar variables
-//void mayorcantidadconsultas (Lista L, long int &cedula, int &mayor);
-//
-///*Dada una lista y un número de cedula, devuelve la cantidad de veces que dicho
-//cedula aparece en la lista.*/
-//int ContarCedulas (long int e, Lista L);
-//
-////elimina consulta
-//void eliminarConsulta(Lista &L, long int cedula);
-//
-////desplegar consulta por fecha
-////PRECONDICIÓN: la cédula debe existir
-//void desplegarConsultaPorFecha(Lista L, fecha f);
-//
 
 
 #endif // LISTASTRINGS_H_INCLUDED

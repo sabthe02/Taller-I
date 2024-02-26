@@ -73,20 +73,3 @@ fclose (f);
 
 
 
-//void Bajar_Consultas (Lista L , String nomArchConsultas) {
-//FILE * f = fopen("Consultas.txt", "wb");
-//while (L != NULL){
-//    Bajar_Consulta (L -> info, f);
-//    L = L -> sig;
-//}
-//fclose(f);
-//}
-//
-//void Levantar_Consultas (Lista &L, String nomArchConsultas) {
-//FILE * f = fopen("Consultas.txt", "rb");
-//Consulta buffer;
-//Crear (L);
-//}
-//
-
-

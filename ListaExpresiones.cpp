@@ -59,11 +59,15 @@ void desplegarPorNumero (ListaExpresiones LE, int numero){
 }
 
 void liberarMemoriaListaE (ListaExpresiones &LE) {
+ArbolExpre ar;
     while (LE != NULL)
     {
         ListaExpresiones lista = LE;
+        ar = seleccionarArbolExpre(LE->expre);
+        liberarMemoriaArbol(ar);
         LE = LE->sig;
         delete lista;
+        LE = NULL;
     }
 }
 
