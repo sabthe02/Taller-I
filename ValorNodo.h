@@ -6,7 +6,7 @@
 
 
 typedef struct {int indice;
-TipoNodo discriminante;
+                TipoNodo discriminante;
 				union 	{boolean valor;
 						char operador;
 						char parentesis;
@@ -50,8 +50,9 @@ void insertarOperadorNodo (char o, ValorNodo &valor);
 void insertarParentesisNodo (char p, ValorNodo &valor);
 
 // Asignar índice a nodo (cuando se bajará a archivo)
-void asignarIndiceNodo (int indice, ValorNodo &valor);
+void asignarIndiceNodo (int ind, ValorNodo &valor);
 
+//transformar resultado de una evaluación al booleano que usamos en nuestro programa
 boolean transformarBoolEnBoolean (bool b);
 
 #endif // VALORNODO_H_INCLUDED

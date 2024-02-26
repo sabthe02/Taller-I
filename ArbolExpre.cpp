@@ -41,6 +41,7 @@ ArbolExpre HijoDer(ArbolExpre a)
 void insertarValorEnOrden(ValorNodo valor, ArbolExpre &a)
 {
 
+
     if (a == NULL)
     {
         a = new NodoA;
@@ -152,19 +153,6 @@ if(b != NULL)
 
 
 
-//
-//void cargarParentesis(char parentesis, ArbolExpre &a )
-//{
-//   if (a == NULL)
-//   {
-//       a = new NodoA;
-//        insertarParentesisNodo(parentesis, a->info);
-//       a->hizq = NULL;
-//       a->hder = NULL;
-//   }
-//}
-
-
 void cargarOperadorNOT(ArbolExpre &a, ArbolExpre ar, char operador)
 {
    // cargar un arbol en hder, en el min cargar parentesis (hizq)
@@ -252,13 +240,18 @@ boolean evaluarExpresion(ArbolExpre a){
              // sino si en raiz hay AND u OR, llamada recursivs a evaluarExpresion(arbol->hizq), conecto con || u &&, y luego llamada recursiva a evaluar con evaluarExpresion(arbol->hder)
 
 
-       // void enumerarNodos(ArbolExpre &a) {}
+void enumerarNodos(int &indice, ArbolExpre &a) {
+if (a->hizq != NULL)
+    {
+        enumerarNodos (indice, a->hizq);
+    }
+        indice++;
+        asignarIndiceNodo(indice, a->info);
+    if (a->hder !=NULL) {
+        enumerarNodos(indice, a->hder);
+    }
+
+}
 
 
-//void colocarParentesis(ArbolExpre & a)
-//{
-//           // colocar parentesis como hijo del ultimo hizq, y como hijo del ultimo hder
-//           // mientras hizq sea  != null, avanzo, sigo yendo a la izquierda
-//           // mientras hder sea  != null, avanzo, sigo yendo a la derecha
-//}
 

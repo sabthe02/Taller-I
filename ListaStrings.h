@@ -82,7 +82,7 @@ void show (ListaStrings L, ListaExpresiones LE, Expresion e, ArbolExpre ar);
 void evaluate (ListaStrings L, ListaExpresiones LE, Expresion e, ArbolExpre ar);
 
 //Ejecuta comando save
-void save (ListaStrings L, ListaExpresiones LE, Expresion e, ArbolExpre ar);
+void save (ListaStrings L, ListaExpresiones &LE, Expresion &e, ArbolExpre &ar);
 
 //Ejecuta comando load
 void load (ListaStrings L, ListaExpresiones &LE, Expresion &e, ArbolExpre &ar);

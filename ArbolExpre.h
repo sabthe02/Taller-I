@@ -93,6 +93,10 @@ void InsertarParentesisEnMaximo(char parentesis, ArbolExpre &a);
 //evaluar expresión
 boolean evaluarExpresion(ArbolExpre a);
 
+//enumerar nodod del árbol
+// precondición: Inizializar índice en 1
+void enumerarNodos(int &indice, ArbolExpre &a);
+
 
 ////Revisa si existe el índice en el árbol
 //boolean existeEnArbol (ArbolExpre a, int indice);

@@ -61,7 +61,7 @@
 1708206797 source:c:\users\sabth\ude (licenciatura en informática)\1°\taller i\archivo.cpp
 	"Archivo.h"
 
-1708206797 source:c:\users\sabth\ude licenciatura en informática\1°\taller i\archivo.cpp
+1708898569 source:c:\users\sabth\ude licenciatura en informática\1°\taller i\archivo.cpp
 	"Archivo.h"
 
 1708277985 c:\users\sabth\ude licenciatura en informática\1°\taller i\archivo.h
@@ -74,10 +74,10 @@
 1708785332 c:\users\sabth\ude licenciatura en informática\1°\taller i\expresion.h
 	"ArbolExpre.h"
 
-1708796009 c:\users\sabth\ude licenciatura en informática\1°\taller i\arbolexpre.h
+1708912193 c:\users\sabth\ude licenciatura en informática\1°\taller i\arbolexpre.h
 	"ValorNodo.h"
 
-1708704582 c:\users\sabth\ude licenciatura en informática\1°\taller i\valornodo.h
+1708905335 c:\users\sabth\ude licenciatura en informática\1°\taller i\valornodo.h
 	"TipoNodo.h"
 	"Boolean.h"
 
@@ -87,7 +87,7 @@
 1708542041 c:\users\sabth\ude licenciatura en informática\1°\taller i\boolean.h
 	<stdio.h>
 
-1708892217 c:\users\sabth\ude licenciatura en informática\1°\taller i\listastrings.h
+1708902448 c:\users\sabth\ude licenciatura en informática\1°\taller i\listastrings.h
 	"String.h"
 	"ListaExpresiones.h"
 
@@ -116,13 +116,13 @@
 1708182301 source:c:\users\sabth\ude licenciatura en informática\1°\taller i\tiponodo.cpp
 	"TipoNodo.h"
 
-1708704581 source:c:\users\sabth\ude licenciatura en informática\1°\taller i\valornodo.cpp
+1708912430 source:c:\users\sabth\ude licenciatura en informática\1°\taller i\valornodo.cpp
 	"ValorNodo.h"
 
-1708807597 source:c:\users\sabth\ude licenciatura en informática\1°\taller i\arbolexpre.cpp
+1708912246 source:c:\users\sabth\ude licenciatura en informática\1°\taller i\arbolexpre.cpp
 	"ArbolExpre.h"
 
-1708884194 source:c:\users\sabth\ude licenciatura en informática\1°\taller i\listastrings.cpp
+1708912697 source:c:\users\sabth\ude licenciatura en informática\1°\taller i\listastrings.cpp
 	"ListaStrings.h"
 	"Archivo.h"
 

@@ -96,11 +96,11 @@ void insertarParentesisNodo (char p, ValorNodo &valor) {
     }
 }
 
-void asignarIndiceNodo (int indice, ValorNodo &valor) {
+void asignarIndiceNodo (int ind, ValorNodo &valor) {
 
-valor.indice = indice;
-
+valor.indice = ind;
 }
+
 
 boolean transformarBoolEnBoolean (bool b) {
   switch(b) {

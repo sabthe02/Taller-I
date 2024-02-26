@@ -376,8 +376,9 @@ int Id1;
             }
 }
 
-void save (ListaStrings L, ListaExpresiones LE, Expresion e, ArbolExpre ar) {
+void save (ListaStrings L, ListaExpresiones &LE, Expresion &e, ArbolExpre &ar) {
 int Id1;
+int indice = 0;
 String entrada;
             if (PosicionListaString("save", L) != 1) {
                    printf("\nLa palabra 'save' debe ir en primer lugar, luego el numero de la expresion a guardar y en tercer lugar el nombre del archivo");
@@ -406,6 +407,8 @@ String entrada;
                                 }
                                 else {
                                         if (!ExisteArchivo(darPalabraporPosicion(3,L))) {
+                                            ar = seleccionarArbolExpre(darExpresionConID(Id1,LE));
+                                            enumerarNodos(indice, ar);
                                             FILE * f = fopen (darPalabraporPosicion(3,L), "wb");
                                             BajarArbolExpre(seleccionarArbolExpre(darExpresionConID(Id1,LE)), f);
                                             fclose(f);
@@ -422,6 +425,8 @@ String entrada;
                                                scan (entrada);
                                             }
                                             if (streq(entrada,"S")) {
+                                                ar = seleccionarArbolExpre(darExpresionConID(Id1,LE));
+                                                enumerarNodos(indice, ar);
                                                 FILE * f = fopen (darPalabraporPosicion(3,L), "wb");
                                                 BajarArbolExpre(seleccionarArbolExpre(darExpresionConID(Id1,LE)), f);
                                                 fclose(f);
@@ -438,7 +443,8 @@ String entrada;
 }
 
 void load (ListaStrings L, ListaExpresiones &LE, Expresion &e, ArbolExpre &ar) {
-if (PosicionListaString("load", L) != 1) {
+int indice = 1;
+    if (PosicionListaString("load", L) != 1) {
                    printf("\nLa palabra 'load' debe ir en primer lugar y en segundo 'true' o 'false'");
             }
             else {
@@ -482,9 +488,8 @@ void exit (ListaStrings &L, ListaExpresiones &LE, Expresion &e, ArbolExpre &ar) 
                         printf("\nCantidad de parametros incorrecta, debe ser 1");
                     }
                     else {
-//                          vaciarListaStrings(L);
-//                          liberarMemoriaListaE(LE);
-//                          liberarMemoriaArbol(ar);
+                          liberarMemoriaListaE(LE);
+                          liberarMemoriaArbol(ar);
 //                          strdestruir(nombrearchivo); // no lo creamos nunca, entonces no se debería tener que destruir
                             printf("hasta la proxima");
                         }
