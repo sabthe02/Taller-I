@@ -66,7 +66,7 @@ else {
     printf("\nNo se ha ingresado ningún comando \n");
  }
 
-}while(!(PerteneceIter("exit", L)));
+} while(!(PerteneceIter("exit", L) && !esExit(L)));
 vaciarListaStrings(L);
 
 }

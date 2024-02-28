@@ -180,13 +180,16 @@ return L->palabra;
 }
 
 void atomic (ListaStrings L, ListaExpresiones &LE, Expresion &e, ArbolExpre &ar) {
-
+int comando = 1;
+int codigo;
             if (PosicionListaString("atomic", L) != 1) {
                    printf("\nLa palabra 'atomic' debe ir en primer lugar y en segundo 'true' o 'false'");
             }
             else {
                     if (largoListaStrings(L) != 2) {
-                        printf("\nCantidad de parametros incorrecta, deben ser 2");
+                            codigo = 2;
+                            error (codigo,comando);
+//                        printf("\nCantidad de parametros incorrecta, deben ser 2");
                     }
                     else {
                             if (((PerteneceIter("true", L)) && (PosicionListaString("true", L) == 2)) || ((PerteneceIter("false", L)) && (PosicionListaString("false", L) == 2))) {
@@ -219,10 +222,15 @@ int Id1, Id2;
 ArbolExpre a, a2;
 String q;
 crearArbol(a);
+int comando = 2;
+int codigo;
 
             if (PosicionListaString("compound", L) == 1) {
                 if ((largoListaStrings(L) != 3) && (largoListaStrings(L) != 4) ) {
-                    printf("\nCantidad de parametros incorrecta, deben ser 3 o 4");
+                    codigo = 2;
+                    error (codigo, comando);
+//                    printf("\nCantidad de parametros incorrecta, deben ser 3 o 4");
+
                 }
                 else {
                         if ((largoListaStrings(L) == 3) && (PerteneceIter("NOT", L)) && (PosicionListaString("NOT", L) != 2)) {
@@ -231,12 +239,14 @@ crearArbol(a);
                         else {
                                 if ((largoListaStrings(L) == 3) && (PerteneceIter("NOT", L))) {
                                     if (!(esNatural(darPalabraporPosicion(3,L)))) {
-                                            printf("\nLa tercer palabra no es un natural");
+                                            printf("\nLa tercer palabra debe ser un natural");
                                     }
                                         else {
                                             Id1 = transformarANatural(darPalabraporPosicion(3, L));
                                             if (!(PerteneceAListaExpreConID(Id1, LE))) {
-                                                printf("\nNo existe la expresion correspondiente en Lista Expresiones");
+                                                codigo = 8;
+                                                error(codigo, comando);
+//                                                printf("\nNo existe la expresion correspondiente en Lista Expresiones");
                                                 }
                                                 else {
                                                     cargarOperadorNOT(a,(seleccionarArbolExpre (darExpresionConID(Id1,LE))),(transformarStringOperadorAChar(darPalabraDeLista("NOT", L))));
@@ -260,78 +270,87 @@ crearArbol(a);
 
                                 if ((largoListaStrings(L) == 4) && ((streq(darPalabraporPosicion(3,L),"AND")) || (streq(darPalabraporPosicion(3,L),"OR")))) {
                                         if (!(esNatural(darPalabraporPosicion(2, L)))) {
-                                            printf("\nLa segunda palabra debe ser natural");
+                                            codigo = 7;
+                                            error (codigo, comando);
+//                                            printf("\nLa segunda palabra debe ser un natural");
                                             }
 
                                         if (!(esNatural(darPalabraporPosicion(4, L)))) {
-                                            printf("\nLa cuarta palabra debe ser natural");
+                                            printf("\nLa cuarta palabra debe ser un natural");
                                             }
 
-                                else {
-                                        Id1 = transformarANatural((darPalabraporPosicion(2, L)));
-                                        Id2 = transformarANatural((darPalabraporPosicion(4, L)));
-                                        if ((!PerteneceAListaExpreConID(Id1, LE)) || (!PerteneceAListaExpreConID(Id2, LE))) {
-                                                if ((!PerteneceAListaExpreConID(Id1, LE))) {
-                                                     printf("\nNumero uno no pertenece a Lista de Expresiones");
-                                                }
-                                                else {
-                                                    if ((!PerteneceAListaExpreConID(Id2, LE))) {
-                                                         printf("\nNumero dos no pertenece a Lista de Expresiones");
-                                                    }
-                                                else {
-                                                    if ((!(PerteneceAListaExpreConID(Id1, LE)))&& (!(PerteneceAListaExpreConID(Id2, LE)))) {
-                                                        printf("\nNi numero uno ni numero dos pertenece a Lista Expresiones");
-                                                    }
-                                                }
-                                            }
-
-                                        }
                                             else {
-                                                if (PosicionListaString("AND", L) == 3) {
-                                                    cargarOperadorAndOr(a,(seleccionarArbolExpre (darExpresionConID(Id1,LE))),(seleccionarArbolExpre(darExpresionConID(Id2,LE))),(transformarStringOperadorAChar(darPalabraDeLista("AND", L))));
-                                                }
+                                                    if ((esNatural(darPalabraporPosicion(2, L)) && (esNatural(darPalabraporPosicion(4, L))))) {
+                                                        Id1 = transformarANatural((darPalabraporPosicion(2, L)));
+                                                        Id2 = transformarANatural((darPalabraporPosicion(4, L)));
+                                                        if ((!PerteneceAListaExpreConID(Id1, LE)) || (!PerteneceAListaExpreConID(Id2, LE))) {
+                                                                if ((!PerteneceAListaExpreConID(Id1, LE))) {
+                                                                     printf("\nNumero uno no pertenece a Lista de Expresiones");
+                                                                }
 
-                                                    else {
-                                                        if (PosicionListaString("OR", L) == 3) {
-                                                            cargarOperadorAndOr(a,(seleccionarArbolExpre (darExpresionConID(Id1,LE))),(seleccionarArbolExpre(darExpresionConID(Id2,LE))),(transformarStringOperadorAChar(darPalabraDeLista("OR", L))));
+                                                                if ((!PerteneceAListaExpreConID(Id2, LE))) {
+                                                                        printf("\nNumero dos no pertenece a Lista de Expresiones");
+                                                                }
+//                                                                        else {
+//                                                                            if ((!(PerteneceAListaExpreConID(Id1, LE)))&& (!(PerteneceAListaExpreConID(Id2, LE)))) {
+//                                                                                printf("\nNi numero uno ni numero dos pertenece a Lista Expresiones");
+//                                                                            }
+                                                            }
+                                                        else {
+                                                            if (PosicionListaString("AND", L) == 3) {
+                                                                cargarOperadorAndOr(a,(seleccionarArbolExpre (darExpresionConID(Id1,LE))),(seleccionarArbolExpre(darExpresionConID(Id2,LE))),(transformarStringOperadorAChar(darPalabraDeLista("AND", L))));
+                                                            }
+
+                                                                else {
+                                                                    if (PosicionListaString("OR", L) == 3) {
+                                                                        cargarOperadorAndOr(a,(seleccionarArbolExpre (darExpresionConID(Id1,LE))),(seleccionarArbolExpre(darExpresionConID(Id2,LE))),(transformarStringOperadorAChar(darPalabraDeLista("OR", L))));
+                                                                    }
+                                                                }
+                                                                asignarArbolExpresion(e, a);
+                                                                asignarNumeroExpresion (e, largoListaExpresiones(LE)+1);
+                                                                insertarNodoEnlista(e, LE);
+                                                                desplegarPorNumero(LE, seleccionarNumeroExpresion(e));
                                                         }
+
                                                     }
-                                                    asignarArbolExpresion(e, a);
-                                                    asignarNumeroExpresion (e, largoListaExpresiones(LE)+1);
-                                                    insertarNodoEnlista(e, LE);
-                                                    desplegarPorNumero(LE, seleccionarNumeroExpresion(e));
                                             }
 
-                                    }
                                 }
-
-                            }
                         }
 
-                    }
-
+                }
+            }
                 else {
                     printf("\nLa palabra 'compound' debe ir en primer lugar, seguido de 'NOT' y un numero natural o seguido de un numero natural, 'AND' u 'OR y otro numero natural");
                 }
+
 }
 
 void show (ListaStrings L, ListaExpresiones LE, Expresion e, ArbolExpre ar) {
 int Id1;
+int comando = 3;
+int codigo;
             if (PosicionListaString("show", L) != 1) {
                    printf("\nLa palabra 'show' debe ir en primer lugar y luego el numero de la expresion a mostrar");
             }
             else {
                     if (largoListaStrings(L) != 2) {
-                        printf("\nCantidad de parametros incorrecta, deben ser 2");
+//                        printf("\nCantidad de parametros incorrecta, deben ser 2");
+                            codigo = 2;
+                            error (codigo,comando);
                     }
                     else {
                         if (!(esNatural(darPalabraporPosicion(2,L)))) {
-                            printf("\nEl numero no es un natural");
+                            codigo = 7;
+                            error (codigo, comando);
+//                            printf("\nLa segunda palabra debe ser un natural");
                         }
                         else {
                             Id1 = transformarANatural(darPalabraporPosicion(2, L));
                             if (!(PerteneceAListaExpreConID(Id1, LE))) {
-                            printf("\nNo existe la expresion correspondiente en Lista Expresiones");
+                            codigo = 8;
+                            error(codigo, comando);
+//                            printf("\nNo existe la expresion correspondiente en Lista Expresiones");
                           }
                           else {
                             desplegarPorNumero(LE, Id1);
@@ -344,21 +363,30 @@ int Id1;
 
 void evaluate (ListaStrings L, ListaExpresiones LE, Expresion e, ArbolExpre ar) {
 int Id1;
+int comando = 4;
+int codigo;
             if (PosicionListaString("evaluate", L) != 1) {
                    printf("\nLa palabra 'evaluate' debe ir en primer lugar y luego el numero de la expresion a mostrar");
             }
             else {
+
                     if (largoListaStrings(L) != 2) {
-                        printf("\nCantidad de parametros incorrecta, deben ser 2");
+//                        printf("\nCantidad de parametros incorrecta, deben ser 2");
+                            codigo = 2;
+                            error (codigo,comando);
                     }
                     else {
                         if (!(esNatural(darPalabraporPosicion(2,L)))) {
-                            printf("\nEl numero no es un natural");
+                            codigo = 7;
+                            error (codigo, comando);
+//                            printf("\nLa segunda palabra debe ser un natural");
                         }
                         else {
                             Id1 = transformarANatural(darPalabraporPosicion(2, L));
                             if (!(PerteneceAListaExpreConID(Id1, LE))) {
-                            printf("\nNo existe la expresion correspondiente en Lista Expresiones");
+                            codigo = 8;
+                            error(codigo, comando);
+//                            printf("\nNo existe la expresion correspondiente en Lista Expresiones");
                           }
                           else {
                             evaluarExpresion (seleccionarArbolExpre(e));
@@ -379,21 +407,29 @@ void save (ListaStrings L, ListaExpresiones &LE, Expresion &e, ArbolExpre &ar) {
 int Id1;
 int indice = 0;
 String entrada;
+int comando = 5;
+int codigo;
             if (PosicionListaString("save", L) != 1) {
                    printf("\nLa palabra 'save' debe ir en primer lugar, luego el numero de la expresion a guardar y en tercer lugar el nombre del archivo");
             }
             else {
                     if (largoListaStrings(L) != 3) {
-                        printf("\nCantidad de parametros incorrecta, deben ser 3");
+                        codigo = 2;
+                        error (codigo,comando);
+//                        printf("\nCantidad de parametros incorrecta, deben ser 3");
                     }
                     else {
                         if (!(esNatural(darPalabraporPosicion(2,L)))) {
-                            printf("\nLa segunda palabra debe ser un natural");
+                            codigo = 7;
+                            error (codigo, comando);
+//                            printf("\nLa segunda palabra debe ser un natural");
                         }
                         else {
                             if (!esNombreArchivo(darPalabraporPosicion(3,L))) {
                                     if (esAlfabetico(darPalabraporPosicion(3,L))) {
-                                        printf("\nDebe terminar en .dat el nombre del archivo");
+                                        codigo = 9;
+                                        error(codigo, comando);
+//                                        printf("\nDebe terminar en .dat el nombre del archivo");
                                     }
                                     else {
                                         printf("\nLa tercer palabra debe ser alfabetica");
@@ -402,7 +438,9 @@ String entrada;
                             else {
                                 Id1 = transformarANatural(darPalabraporPosicion(2, L));
                                 if (!(PerteneceAListaExpreConID(Id1, LE))) {
-                                    printf("\nNo existe la expresion correspondiente en Lista Expresiones");
+                                    codigo = 8;
+                                    error(codigo, comando);
+//                                    printf("\nNo existe la expresion correspondiente en Lista Expresiones");
                                 }
                                 else {
                                         if (!ExisteArchivo(darPalabraporPosicion(3,L))) {
@@ -442,18 +480,23 @@ String entrada;
 }
 
 void load (ListaStrings L, ListaExpresiones &LE, Expresion &e, ArbolExpre &ar) {
-int indice = 1;
+int comando = 6;
+int codigo;
     if (PosicionListaString("load", L) != 1) {
                    printf("\nLa palabra 'load' debe ir en primer lugar y en segundo 'true' o 'false'");
             }
             else {
                     if (largoListaStrings(L) != 2) {
-                        printf("\nCantidad de parametros incorrecta, deben ser 2");
+//                        printf("\nCantidad de parametros incorrecta, deben ser 2");
+                            codigo = 2;
+                            error (codigo,comando);
                     }
                     else {
                             if (!esNombreArchivo(darPalabraporPosicion(2,L))) {
                                     if (esAlfabetico(darPalabraporPosicion(2,L))) {
-                                        printf("\nDebe terminar en .dat el nombre del archivo");
+                                        codigo = 9;
+                                        error(codigo, comando);
+//                                        printf("\nDebe terminar en .dat el nombre del archivo");
                                     }
                                     else {
                                         printf("\nLa segunda palabra debe ser alfabetica");
@@ -478,19 +521,84 @@ int indice = 1;
 }
 
 void exit (ListaStrings &L, ListaExpresiones &LE, Expresion &e, ArbolExpre &ar) {
-
+int comando = 7;
+int codigo;
     if (PosicionListaString("exit", L) != 1) {
                 printf("\nLa palabra 'exit' debe ir en primer lugar");
             }
             else {
                     if (largoListaStrings(L) != 1) {
-                        printf("\nCantidad de parametros incorrecta, debe ser 1");
+                        codigo = 2;
+                        error(codigo, comando);
+//                        printf("\nCantidad de parametros incorrecta, debe ser 1");
                     }
                     else {
                           liberarMemoriaListaE(LE);
                             printf("hasta la proxima");
                         }
                     }
+}
+
+void error (int codigo, int comando) {
+switch (codigo) {
+    case 2: switch (comando) {
+                    case 2: printf("\nCantidad de parametros incorrecta, deben ser 3 o 4");
+                    break;
+                    case 1:
+                    case 3:
+                    case 4:
+                    case 6: printf("\nCantidad de parametros incorrecta, deben ser 2");
+                    break;
+                    case 5: printf("\nCantidad de parametros incorrecta, deben ser 3");
+                    break;
+                    case 7: printf("\nCantidad de parametros incorrecta, debe ser 1");
+                    break;
+            }
+    break;
+    case 7: switch (comando) {
+                    case 2:
+                    case 3:
+                    case 4:
+                    case 5: printf("\nLa segunda palabra debe ser un natural");
+                    break;
+            }
+    break;
+    case 8: switch (comando) {
+                case 2:
+                case 3:
+                case 4:
+                case 5: printf("\nNo existe la expresion correspondiente en Lista Expresiones");
+                break;
+            }
+    break;
+    case 9: switch (comando) {
+                case 5:
+                case 6: printf("\nDebe terminar en .dat el nombre del archivo");
+                break;
+            }
+    break;
+
+}
+}
+
+boolean esExit (ListaStrings L) {
+boolean es = FALSE;
+int comando = 7;
+int codigo;
+    if (PosicionListaString("exit", L) != 1) {
+                printf("\nLa palabra 'exit' debe ir en primer lugar");
+            }
+            else {
+                    if (largoListaStrings(L) != 1) {
+                        codigo = 2;
+                        error(codigo, comando);
+//                        printf("\nCantidad de parametros incorrecta, debe ser 1");
+                    }
+                    else {
+                          es = TRUE;
+                        }
+                    }
+
 }
 
 

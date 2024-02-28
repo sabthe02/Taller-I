@@ -90,6 +90,11 @@ void load (ListaStrings L, ListaExpresiones &LE, Expresion &e, ArbolExpre &ar);
 //Ejecuta comando exit
 void exit (ListaStrings &L, ListaExpresiones &LE, Expresion &e, ArbolExpre &ar); ///// preguntar por cabezal y si procedimiento es correcto
 
+//Manejo de errores
+void error (int codigo, int numeroDecomando);
+
+// Chequeo si comando exit esttá ok
+boolean esExit (ListaStrings L);
 
 
 #endif // LISTASTRINGS_H_INCLUDED

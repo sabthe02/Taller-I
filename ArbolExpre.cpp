@@ -188,30 +188,77 @@ void InsertarParentesisEnMaximo(char parentesis, ArbolExpre &a) {
        }
 }
 
-boolean evaluarExpresion(ArbolExpre a){
-    if (darDiscriminante (a->info) == VALOR){
-        return darBooleanoArbol(a->info);
-    }
-        else {
-            if (darDiscriminante (a->info) == OPERADOR) {
-                    if (darOperadorArbol(a->info) == 'N') {
-                        return transformarBoolEnBoolean(!(evaluarExpresion(a->hder)));
-                    }
-
-                       else {
-                            if (darOperadorArbol(a->info) == 'A'){
-                                return transformarBoolEnBoolean((evaluarExpresion(a->hizq) && evaluarExpresion(a->hder)));
-                            }
-
-                            else {
-                                if (darOperadorArbol(a->info) == 'O'){
-                                        return transformarBoolEnBoolean((evaluarExpresion(a->hizq) || evaluarExpresion(a->hder)));
-                                }
-                            }
-                        }
+boolean evaluarExpresion(ArbolExpre a)
+{
+   if (darDiscriminante(a->info) == VALOR) {
+       return darBooleanoArbol(a->info);
+   }
+   else {
+       if (darDiscriminante(a->info) == OPERADOR) {
+           if (darOperadorArbol(a->info) == 'N'){
+            if (!(evaluarExpresion(a->hder))) {
+               return TRUE;
             }
-        }
+               else {
+                return FALSE;
+               }
+
+
+           }
+
+
+           else {
+               if (darOperadorArbol(a->info) == 'A'){
+                   if (evaluarExpresion(a->hizq) && evaluarExpresion(a->hder)) {
+                       return TRUE;
+                   }
+                   else {
+                       return FALSE;
+                   }
+               }
+
+
+               else {
+                   if (darOperadorArbol(a->info) == 'O'){
+                       if (evaluarExpresion(a->hizq) || evaluarExpresion(a->hder)) {
+                           return TRUE;
+                       }
+                       else {
+                           return FALSE;
+                       }
+                   }
+               }
+           }
+       }
+   }
 }
+
+
+//
+//boolean evaluarExpresion(ArbolExpre a){
+//    if (darDiscriminante (a->info) == VALOR){
+//        return darBooleanoArbol(a->info);
+//    }
+//        else {
+//            if (darDiscriminante (a->info) == OPERADOR) {
+//                    if (darOperadorArbol(a->info) == 'N') {
+//                        return transformarBoolEnBoolean(!(evaluarExpresion(a->hder)));
+//                    }
+//
+//                       else {
+//                            if (darOperadorArbol(a->info) == 'A'){
+//                                return transformarBoolEnBoolean((evaluarExpresion(a->hizq) && evaluarExpresion(a->hder)));
+//                            }
+//
+//                            else {
+//                                if (darOperadorArbol(a->info) == 'O'){
+//                                        return transformarBoolEnBoolean((evaluarExpresion(a->hizq) || evaluarExpresion(a->hder)));
+//                                }
+//                            }
+//                        }
+//            }
+//        }
+//}
 
 void enumerarNodos(int &indice, ArbolExpre &a) {
 if (a->hizq != NULL){
