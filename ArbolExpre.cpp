@@ -202,10 +202,7 @@ boolean evaluarExpresion(ArbolExpre a)
                else {
                 return FALSE;
                }
-
-
            }
-
 
            else {
                if (darOperadorArbol(a->info) == 'A'){
@@ -216,7 +213,6 @@ boolean evaluarExpresion(ArbolExpre a)
                        return FALSE;
                    }
                }
-
 
                else {
                    if (darOperadorArbol(a->info) == 'O'){

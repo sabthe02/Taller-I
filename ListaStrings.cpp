@@ -119,13 +119,13 @@ strcrear(s2);
 strcrear(p);
 strcrear(r);
 
-if (!esVacio(s)) { // hacer con while
+while (!esVacio(s)) {
 eliminarBlancosPrincipio (s, s2);
 dividirString(s2, p, r);
 InsBackIter(p, L);
-partirStrings(r, L->sig);
-}
+strcop(s,r);
 
+}
 }
 
 

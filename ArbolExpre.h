@@ -92,6 +92,7 @@ void InsertarParentesisEnMaximo(char parentesis, ArbolExpre &a);
 // sino si en raiz hay AND u OR, llamada recursiva a evaluarExpresion(arbol->hizq), conecto con || u &&, y luego llamada recursiva a evaluar con evaluarExpresion(arbol->hder)
 boolean evaluarExpresion(ArbolExpre a);
 
+
 //enumerar nodos del árbol
 // precondición: Inizializar índice en 0
 void enumerarNodos(int &indice, ArbolExpre &a);
