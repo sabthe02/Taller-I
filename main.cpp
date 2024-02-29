@@ -25,7 +25,7 @@ partirStrings(s, L);
 
 
 if (!Vacia(L)){
-        if (PerteneceIter("atomic", L)) {
+        if (PerteneceIter("atomic", L))  {
             atomic(L, LE, e, ar);
         }
         else

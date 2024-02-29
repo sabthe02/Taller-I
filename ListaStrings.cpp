@@ -39,12 +39,6 @@ void InsBackIter(String s, ListaStrings &L)
     }
 }
 
-void InsFront(String s, ListaStrings &L) {
-    ListaStrings aux = new NodoS;
-    aux->palabra = s;
-    aux->sig = L;
-    L = aux;
-}
 
 int largoListaStrings (ListaStrings L) {
 int contador = 0;
@@ -192,8 +186,8 @@ int codigo;
 //                        printf("\nCantidad de parametros incorrecta, deben ser 2");
                     }
                     else {
-                            if (((PerteneceIter("true", L)) && (PosicionListaString("true", L) == 2)) || ((PerteneceIter("false", L)) && (PosicionListaString("false", L) == 2))) {
-                                if ((PerteneceIter("true", L)) && (PosicionListaString("true", L) == 2)) {
+                            if ((streq(darPalabraporPosicion(2,L), "true")) || ((streq(darPalabraporPosicion(2,L), "false")))) {
+                                if ((streq(darPalabraporPosicion(2,L), "true"))) {
                                     insertarValorArbol ((transformarStringABoolean ("true")), ar);
                                     asignarNumeroExpresion (e, largoListaExpresiones(LE)+1);
                                     asignarArbolExpresion(e, ar);
@@ -291,10 +285,6 @@ int codigo;
                                                                 if ((!PerteneceAListaExpreConID(Id2, LE))) {
                                                                         printf("\nNumero dos no pertenece a Lista de Expresiones");
                                                                 }
-//                                                                        else {
-//                                                                            if ((!(PerteneceAListaExpreConID(Id1, LE)))&& (!(PerteneceAListaExpreConID(Id2, LE)))) {
-//                                                                                printf("\nNi numero uno ni numero dos pertenece a Lista Expresiones");
-//                                                                            }
                                                             }
                                                         else {
                                                             if (PosicionListaString("AND", L) == 3) {
@@ -470,6 +460,9 @@ int codigo;
                                                 printf("expresion %d respaldada correctamente en ", Id1);
                                                 print(darPalabraporPosicion(3,L));
                                             }
+                                            else {
+                                                printf("\nNo guardado ")
+                                            }
                                         }
                                 }
                             }
@@ -592,7 +585,6 @@ int codigo;
                     if (largoListaStrings(L) != 1) {
                         codigo = 2;
                         error(codigo, comando);
-//                        printf("\nCantidad de parametros incorrecta, debe ser 1");
                     }
                     else {
                           es = TRUE;

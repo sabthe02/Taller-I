@@ -234,6 +234,7 @@ while (s[i] != '\0') {
 }
 sb[j] = '\0';
 
+
 }
 
 void dividirString (String s, String &primero, String &resto) {

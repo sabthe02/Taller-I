@@ -29,9 +29,6 @@ void Resto(ListaStrings &L);
 //Dada una lista y un String, agrega dicho String al final de la lista.
 void InsBackIter(String s, ListaStrings &L);
 
-//Dada una lista, inserta un String al principio de la lista
-void InsFront(String s, ListaStrings &L);
-
 //Dada una lista, devuelve su largo (la cantidad de elementos de la lista)
 int largoListaStrings(ListaStrings L);
 
