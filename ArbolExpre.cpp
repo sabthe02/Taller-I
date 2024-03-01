@@ -1,44 +1,26 @@
 #include "ArbolExpre.h"
 
 void crearArbol (ArbolExpre &a) {
-
     a = NULL;
 }
 
 boolean ArbolEsVacio(ArbolExpre a)
 {
     boolean es;
-
-    if (a == NULL)
-    {
+    if (a == NULL){
         es = TRUE;
     }
-    else
-    {
+    else{
         es = FALSE;
     }
     return es;
 }
 
-ValorNodo darRaiz(ArbolExpre a)
-{
+ValorNodo darRaiz(ArbolExpre a){
     return a->info;
 }
 
-ArbolExpre HijoIzq(ArbolExpre a)
-{
-
-    return a->hizq;
-}
-
-ArbolExpre HijoDer(ArbolExpre a)
-{
-
-    return a->hder;
-}
-
-void insertarValorEnOrden(ValorNodo valor, ArbolExpre &a)
-{
+void insertarValorEnOrden(ValorNodo valor, ArbolExpre &a){
 
     if (a == NULL)
     {
@@ -60,8 +42,7 @@ void insertarValorEnOrden(ValorNodo valor, ArbolExpre &a)
     }
 }
 
-void insertarValorArbol(boolean v, ArbolExpre &a)
-{
+void insertarValorArbol(boolean v, ArbolExpre &a){
 
     a = new NodoA;
     insertarValorNodo(v, a->info);
@@ -70,8 +51,7 @@ void insertarValorArbol(boolean v, ArbolExpre &a)
 }
 
 
-void liberarMemoriaArbol(ArbolExpre &a)
-{
+void liberarMemoriaArbol(ArbolExpre &a){
     if (a != NULL)
     {
         liberarMemoriaArbol(a->hizq);
@@ -81,8 +61,7 @@ void liberarMemoriaArbol(ArbolExpre &a)
     }
 }
 
-void desplegarNodosArbolOrden(ArbolExpre a)
-{
+void desplegarNodosArbolOrden(ArbolExpre a){
     if (a != NULL)
     {
         desplegarNodosArbolOrden(a->hizq);
@@ -91,25 +70,6 @@ void desplegarNodosArbolOrden(ArbolExpre a)
     }
 }
 
-
-ValorNodo Maximo (ArbolExpre a) {
-
-if (a->hder==NULL) {
-    return a->info;
-}
-else {
-    return Maximo(a->hder);
-}
-}
-
-
-ValorNodo Minimo (ArbolExpre a) {
-    if (a -> hizq == NULL)   {
-            return (a->info);
-    }
-    else {
-         return Minimo (a -> hizq); }
-}
 
 
 void insertarValorNodoArbol(ValorNodo vn, ArbolExpre &a){
@@ -131,7 +91,6 @@ if(b != NULL)
 
     }
 }
-
 
 
 void cargarOperadorNOT(ArbolExpre &a, ArbolExpre ar, char operador)
@@ -188,8 +147,7 @@ void InsertarParentesisEnMaximo(char parentesis, ArbolExpre &a) {
        }
 }
 
-boolean evaluarExpresion(ArbolExpre a)
-{
+boolean evaluarExpresion(ArbolExpre a){
    if (darDiscriminante(a->info) == VALOR) {
        return darBooleanoArbol(a->info);
    }
@@ -203,7 +161,6 @@ boolean evaluarExpresion(ArbolExpre a)
                 return FALSE;
                }
            }
-
            else {
                if (darOperadorArbol(a->info) == 'A'){
                    if (evaluarExpresion(a->hizq) && evaluarExpresion(a->hder)) {
@@ -213,7 +170,6 @@ boolean evaluarExpresion(ArbolExpre a)
                        return FALSE;
                    }
                }
-
                else {
                    if (darOperadorArbol(a->info) == 'O'){
                        if (evaluarExpresion(a->hizq) || evaluarExpresion(a->hder)) {

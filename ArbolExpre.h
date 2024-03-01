@@ -22,14 +22,6 @@ boolean ArbolEsVacio (ArbolExpre a);
 //Precondición: Árbol no vacío
 ValorNodo darRaiz (ArbolExpre a);
 
-// Obtener subárbol izquierdo
-//Precondición: Árbol no vacío
-ArbolExpre HijoIzq (ArbolExpre a);
-
-// Obtener subárbol derecho
-//Precondición: Árbol no vacío
-ArbolExpre HijoDer (ArbolExpre a);
-
 // Procedimiento para subir a memoria los nodos según su índice
 // Solo sirve para insertar desde archivo porque tiene que venir con el indice seteado, no sirve si el indice no esta definido
 //Precondición: el valor no existía previamente en el árbol
@@ -55,12 +47,6 @@ void liberarMemoriaArbol(ArbolExpre &a);
 
 // Listar todos los nodos del árbol en pantalla, recorriéndolo en órden
 void desplegarNodosArbolOrden (ArbolExpre a);
-
-//Obtiene el valor almacenado en el Máximo (hijo más derecho del árbol)
-ValorNodo Maximo (ArbolExpre a);
-
-//Obtiene el valor almacenado en el Mínimo (hijo más iqzuierdo del árbol)
-ValorNodo Minimo (ArbolExpre a);
 
 //asigna al árbol un nuevo nodo de tipo ValorNodo (no importando qué tiene adentro)
 void insertarValorNodoArbol(ValorNodo vn, ArbolExpre &a);
@@ -91,7 +77,6 @@ void InsertarParentesisEnMaximo(char parentesis, ArbolExpre &a);
 // sino, si en raiz hay un NOT, evaluo con ! y llamada recursiva a evaluarExpresion(arbol->hder)
 // sino si en raiz hay AND u OR, llamada recursiva a evaluarExpresion(arbol->hizq), conecto con || u &&, y luego llamada recursiva a evaluar con evaluarExpresion(arbol->hder)
 boolean evaluarExpresion(ArbolExpre a);
-
 
 //enumerar nodos del árbol
 // precondición: Inizializar índice en 0

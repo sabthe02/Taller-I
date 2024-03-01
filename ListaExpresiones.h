@@ -16,14 +16,6 @@ void crearLista (ListaExpresiones &LE);
 //Verifica si la lista esta vacia
 boolean VaciaExpre(ListaExpresiones LE);
 
-//Obtiene el primer elemento de la lista
-///* Precondición: lista NO vacía */
-Expresion PrimeroExpre(ListaExpresiones LE);
-
-// Obtiene el resto de la lista
-///* Precondición: lista NO vacía */
-void RestoExpre(ListaExpresiones &LE);
-
 ////Dada una lista y una expresión, agrega dicha expresión al final de la lista.
 void insertarNodoEnlista (Expresion e, ListaExpresiones &LE);
 //

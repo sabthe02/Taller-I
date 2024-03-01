@@ -63,10 +63,16 @@ void eliminarBlancosPrincipio (String s, String &sb);
 // Precondición: s no es vacío
 void dividirString (String s, String &primero, String &resto);
 
+//Divide el String nombre de un archivo con extensión en la parte del nombre y la extensión
+void dividirStringDeArchivo (String s, String &primero, String &resto);
+
 //Revisa si un string consiste solo en letras
 boolean esAlfabetico(String s);
 
-// Verifica si el nombre del archivo termina en .dat y es alfanumerico
+//Revisa si un String es igual a ".dat"
+boolean tieneExtension (String s);
+
+// Divide el String en dos y verifica si el nombre del archivo (la primer parte) es alfabético y la segunda parte termina en .dat
 boolean esNombreArchivo (String s);
 
 

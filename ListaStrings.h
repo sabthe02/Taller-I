@@ -18,14 +18,6 @@ void Crear (ListaStrings &L);
 //Verifica si la lista esta vacia
 boolean Vacia(ListaStrings L);
 
-// Devuelve la primer palabra de la lista
-/* Precondición: lista NO vacía */
-String Primero(ListaStrings L);
-
-// Devuelve el resto de una lista
-/* Precondición: lista NO vacía */
-void Resto(ListaStrings &L);
-
 //Dada una lista y un String, agrega dicho String al final de la lista.
 void InsBackIter(String s, ListaStrings &L);
 
@@ -85,12 +77,12 @@ void save (ListaStrings L, ListaExpresiones &LE, Expresion &e, ArbolExpre &ar);
 void load (ListaStrings L, ListaExpresiones &LE, Expresion &e, ArbolExpre &ar);
 
 //Ejecuta comando exit
-void exit (ListaStrings &L, ListaExpresiones &LE, Expresion &e, ArbolExpre &ar); ///// preguntar por cabezal y si procedimiento es correcto
+void exit (ListaStrings &L, ListaExpresiones &LE, Expresion &e, ArbolExpre &ar);
 
 //Manejo de errores
 void error (int codigo, int numeroDecomando);
 
-// Chequeo si comando exit esttá ok
+// Chequear si comando exit está ok
 boolean esExit (ListaStrings L);
 
 

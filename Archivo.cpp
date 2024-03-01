@@ -13,8 +13,7 @@ fclose (f);
 return existeArchivo;
 }
 
-//// ValorNodo
-//
+
 void bajarValorNodo (ValorNodo v, FILE *f) {
 
     fwrite (&v.indice, sizeof(int), 1, f);
@@ -43,7 +42,7 @@ switch (darTipo(v.discriminante)) {
     }
 }
 
-// ÁrbolExpre
+
 void BajarArbolExpre (ArbolExpre a, FILE *f) {
 
 if (a != NULL) {

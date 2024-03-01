@@ -322,6 +322,17 @@ while (es && (s[i] != '\0'))
 return es;
 }
 
+boolean tieneExtension (String s) {
+boolean tiene;
+
+if (streq(s,".dat")) {
+    tiene = TRUE;
+}
+else {
+    tiene = FALSE;
+}
+return tiene;
+}
 
 
 boolean esNombreArchivo (String s){
@@ -338,7 +349,7 @@ dividirStringDeArchivo(s, p, r);
         es = FALSE;
     }
     else {
-        if (!streq(r,".dat") || !esAlfabetico(p)){
+        if ((!tieneExtension(r)) || (!esAlfabetico(p))){
                 es = FALSE;
             }
     }

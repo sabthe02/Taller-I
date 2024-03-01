@@ -12,16 +12,6 @@ boolean VaciaExpre(ListaExpresiones LE) {
 }
 
 
-Expresion PrimeroExpre(ListaExpresiones LE) {
-    return LE->expre;
-}
-
-
-void RestoExpre(ListaExpresiones &LE) {
-    ListaExpresiones aux = LE;
-    LE = LE->sig;
-    delete aux;
-}
 
 void insertarNodoEnlista (Expresion e, ListaExpresiones &LE)
 {
