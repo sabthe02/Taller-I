@@ -3,7 +3,6 @@
 
 #include <stdlib.h>
 #include "Boolean.h"
-#include "ValorNodo.h"
 
 const int MAX = 80;
 typedef char *String;

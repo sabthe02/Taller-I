@@ -68,7 +68,7 @@
 	"ListaExpresiones.h"
 	"ListaStrings.h"
 
-1708987918 c:\users\sabth\ude licenciatura en informática\1°\taller i\listaexpresiones.h
+1709335529 c:\users\sabth\ude licenciatura en informática\1°\taller i\listaexpresiones.h
 	"Expresion.h"
 
 1708984680 c:\users\sabth\ude licenciatura en informática\1°\taller i\expresion.h
@@ -87,20 +87,19 @@
 1708542041 c:\users\sabth\ude licenciatura en informática\1°\taller i\boolean.h
 	<stdio.h>
 
-1709335104 c:\users\sabth\ude licenciatura en informática\1°\taller i\listastrings.h
+1709335574 c:\users\sabth\ude licenciatura en informática\1°\taller i\listastrings.h
 	"String.h"
 	"ListaExpresiones.h"
 	"Archivo.h"
 
-1709306690 c:\users\sabth\ude licenciatura en informática\1°\taller i\string.h
+1709390991 c:\users\sabth\ude licenciatura en informática\1°\taller i\string.h
 	<stdlib.h>
 	"Boolean.h"
-	"ValorNodo.h"
 
 1708626158 source:c:\users\sabth\ude licenciatura en informática\1°\taller i\boolean.cpp
 	"Boolean.h"
 
-1709332613 source:c:\users\sabth\ude licenciatura en informática\1°\taller i\expresion.cpp
+1709335415 source:c:\users\sabth\ude licenciatura en informática\1°\taller i\expresion.cpp
 	"Expresion.h"
 
 1708990060 source:c:\users\sabth\ude licenciatura en informática\1°\taller i\listaexpresiones.cpp
