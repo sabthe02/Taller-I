@@ -10,6 +10,7 @@ ArbolExpre ar;
 ListaExpresiones LE;
 Expresion e;
 String s, q;
+boolean es;
 Crear(L);
 crearLista(LE);
 crearArbol(ar);
@@ -51,22 +52,23 @@ if (!Vacia(L)){
                         else
                             if (PerteneceIter("exit", L)) {
                                 exit (L, LE, e, ar);
+                                es = esExit(L);
                             }
                     else {
                     printf("\nPor favor ingrese un comando valido (atomic, compound, show, evaluate, save, load, exit)");
                     }
 
-if (!(PerteneceIter("exit", L))) {
+if (!es) {
     vaciarListaStrings(L);
     printf("\n");
     }
 }
 // si no se ha ingresado nada
 else {
-    printf("\nNo se ha ingresado ningún comando \n");
+    printf("\nNo se ha ingresado ningn comando \n");
  }
 
-} while(!(PerteneceIter("exit", L) && !esExit(L)));
+} while(!es);
 vaciarListaStrings(L);
 
 }

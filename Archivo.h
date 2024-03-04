@@ -1,8 +1,8 @@
 #ifndef ARCHIVO_H_INCLUDED
 #define ARCHIVO_H_INCLUDED
 
-#include "ListaExpresiones.h"
-#include "ListaStrings.h"
+#include "ArbolExpre.h"
+#include "String.h"
 
 //Saber si existe un archivo
 boolean ExisteArchivo (String nombrearchivo);

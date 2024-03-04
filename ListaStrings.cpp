@@ -13,6 +13,17 @@ boolean Vacia(ListaStrings L) {
 }
 
 
+String Primero(ListaStrings L) {
+    return L->palabra;
+}
+
+
+void Resto(ListaStrings &L) {
+    ListaStrings aux = L;
+    L = L->sig;
+    delete aux;
+}
+
 void InsBackIter(String s, ListaStrings &L)
 {
     ListaStrings nuevo = new NodoS;
@@ -157,14 +168,15 @@ return L->palabra;
 
 void atomic (ListaStrings L, ListaExpresiones &LE, Expresion &e, ArbolExpre &ar) {
 int comando = 1;
-errores COMANDOENLUGAREQUIVOCADO, CANTIDADDEPARAMETROSINCORRECTA, PALABRAEQUIVOCADA;
+errores codigo;
             if (PosicionListaString("atomic", L) != 1) {
-
-                    error (COMANDOENLUGAREQUIVOCADO,comando, L);
+                    codigo = COMANDOENLUGAREQUIVOCADO;
+                    error (codigo,comando, L);
             }
             else {
                     if (largoListaStrings(L) != 2) {
-                            error (CANTIDADDEPARAMETROSINCORRECTA,comando, L);
+                            codigo = CANTIDADDEPARAMETROSINCORRECTA;
+                            error (codigo,comando, L);
                     }
                     else {
                             if ((streq(darPalabraporPosicion(2,L), "true")) || ((streq(darPalabraporPosicion(2,L), "false")))) {
@@ -185,7 +197,8 @@ errores COMANDOENLUGAREQUIVOCADO, CANTIDADDEPARAMETROSINCORRECTA, PALABRAEQUIVOC
 
                             }
                             else {
-                                error (PALABRAEQUIVOCADA,comando, L);
+                                codigo = PALABRAEQUIVOCADA;
+                                error (codigo,comando, L);
                             }
                 }
             }
@@ -198,96 +211,118 @@ ArbolExpre a, a2;
 String q;
 crearArbol(a);
 int comando = 2;
-errores CANTIDADDEPARAMETROSINCORRECTA, PALABRAENLUGAREQUIVOCADO, PALABRADEBESERNATURAL, NOEXISTEENLISTAEXPRESIONES,
-PALABRAEQUIVOCADA, NOEXISTEENLISTAEXPRESIONESPRIMERO, NOEXISTEENLISTAEXPRESIONESSEGUNDO, COMANDOENLUGAREQUIVOCADO;
+errores codigo;
 
             if (PosicionListaString("compound", L) == 1) {
                 if ((largoListaStrings(L) != 3) && (largoListaStrings(L) != 4) ) {
-                    error (CANTIDADDEPARAMETROSINCORRECTA, comando, L);
+                    codigo = CANTIDADDEPARAMETROSINCORRECTA;
+                    error (codigo, comando, L);
 
                 }
                 else {
-                        if ((largoListaStrings(L) == 3) && (PerteneceIter("NOT", L)) && (PosicionListaString("NOT", L) != 2)) {
-                            error (PALABRAENLUGAREQUIVOCADO, comando, L);
-                        }
-                        else {
-                                if ((largoListaStrings(L) == 3) && (PerteneceIter("NOT", L))) {
-                                    if (!(esNatural(darPalabraporPosicion(3,L)))) {
-                                            error (PALABRADEBESERNATURAL, comando, L);
-                                    }
-                                        else {
-                                            Id1 = transformarANatural(darPalabraporPosicion(3, L));
-                                            if (!(PerteneceAListaExpreConID(Id1, LE))) {
-                                                error(NOEXISTEENLISTAEXPRESIONES, comando, L);
-                                                }
+                        if ((largoListaStrings(L) == 3) && (!(PerteneceIter("NOT", L)))) {
+                            codigo = NOCONTIENEFORMATO;
+                            error(codigo, comando, L);
+                            }
+                            else {
+                                if ((largoListaStrings(L) == 3) && (PerteneceIter("NOT", L)) && (PosicionListaString("NOT", L) != 2)) {
+                                    codigo = PALABRAENLUGAREQUIVOCADO;
+                                    error (codigo, comando, L);
+                                }
+                                else {
+                                        if ((largoListaStrings(L) == 3) && (PerteneceIter("NOT", L))) {
+                                            if (!(esNatural(darPalabraporPosicion(3,L)))) {
+                                                    codigo = PALABRADEBESERNATURAL;
+                                                    error (codigo, comando, L);
+                                            }
                                                 else {
-                                                    cargarOperadorNOT(a,(seleccionarArbolExpre (darExpresionConID(Id1,LE))),(transformarStringOperadorAChar(darPalabraDeLista("NOT", L))));
-                                                    asignarArbolExpresion(e, a);
-                                                    asignarNumeroExpresion (e, largoListaExpresiones(LE)+1);
-                                                    insertarNodoEnlista(e, LE);
-                                                    desplegarPorNumero(LE, seleccionarNumeroExpresion(e));
+                                                    Id1 = transformarANatural(darPalabraporPosicion(3, L));
+                                                    if (!(PerteneceAListaExpreConID(Id1, LE))) {
+                                                        codigo = NOEXISTEENLISTAEXPRESIONES;
+                                                        error(codigo, comando, L);
+                                                        }
+                                                        else {
+                                                            cargarOperadorNOT(a,(seleccionarArbolExpre (darExpresionConID(Id1,LE))),(transformarStringOperadorAChar(darPalabraDeLista("NOT", L))));
+                                                            asignarArbolExpresion(e, a);
+                                                            asignarNumeroExpresion (e, largoListaExpresiones(LE)+1);
+                                                            insertarNodoEnlista(e, LE);
+                                                            desplegarPorNumero(LE, seleccionarNumeroExpresion(e));
+                                                        }
+
                                                 }
 
                                         }
-
                                 }
-                        }
-                        if (((largoListaStrings(L) == 4) && (((PerteneceIter("AND", L)) || (PerteneceIter("OR", L)))) && (((PosicionListaString("AND", L) !=3) && (PosicionListaString("OR", L) !=3))))) {
-                                error (PALABRAENLUGAREQUIVOCADO, comando, L);
-                        }
-                        else {
-                                if ((largoListaStrings(L) == 4) && (!(streq(darPalabraporPosicion(3,L), "AND"))) && (!(streq(darPalabraporPosicion(3,L), "OR")))) {
-                                        error (PALABRAEQUIVOCADA, comando, L);
-                                    }
-
-                                if ((largoListaStrings(L) == 4) && ((streq(darPalabraporPosicion(3,L),"AND")) || (streq(darPalabraporPosicion(3,L),"OR")))) {
-                                        if (!(esNatural(darPalabraporPosicion(2, L)))) {
-                                            error (PALABRADEBESERNATURAL, comando, L);
+                            }
+                            if ((largoListaStrings(L) == 4) && ((!(PerteneceIter("AND", L)) && (!(PerteneceIter("OR", L)))))) {
+                                codigo = NOCONTIENEFORMATO;
+                                error(codigo, comando, L);
+                            }
+                            else {
+                                if (((largoListaStrings(L) == 4) && (((PerteneceIter("AND", L)) || (PerteneceIter("OR", L)))) && (((PosicionListaString("AND", L) !=3) && (PosicionListaString("OR", L) !=3))))) {
+                                        codigo = PALABRAENLUGAREQUIVOCADO;
+                                        error (codigo, comando, L);
+                                }
+                                else {
+                                        if ((largoListaStrings(L) == 4) && (!(streq(darPalabraporPosicion(3,L), "AND"))) && (!(streq(darPalabraporPosicion(3,L), "OR")))) {
+                                                codigo = PALABRAEQUIVOCADA;
+                                                error (codigo, comando, L);
                                             }
 
-                                        if (!(esNatural(darPalabraporPosicion(4, L)))) {
-                                            error (PALABRADEBESERNATURAL, comando, L);
-                                            }
-
-                                            else {
-                                                    if ((esNatural(darPalabraporPosicion(2, L)) && (esNatural(darPalabraporPosicion(4, L))))) {
-                                                        Id1 = transformarANatural((darPalabraporPosicion(2, L)));
-                                                        Id2 = transformarANatural((darPalabraporPosicion(4, L)));
-                                                        if ((!PerteneceAListaExpreConID(Id1, LE)) || (!PerteneceAListaExpreConID(Id2, LE))) {
-                                                                if ((!PerteneceAListaExpreConID(Id1, LE))) {
-                                                                    error(NOEXISTEENLISTAEXPRESIONESPRIMERO, comando, L);
-                                                                }
-
-                                                                if ((!PerteneceAListaExpreConID(Id2, LE))) {
-                                                                        error(NOEXISTEENLISTAEXPRESIONESSEGUNDO, comando, L);
-                                                                }
-                                                            }
-                                                        else {
-                                                            if (PosicionListaString("AND", L) == 3) {
-                                                                cargarOperadorAndOr(a,(seleccionarArbolExpre (darExpresionConID(Id1,LE))),(seleccionarArbolExpre(darExpresionConID(Id2,LE))),(transformarStringOperadorAChar(darPalabraDeLista("AND", L))));
-                                                            }
-
-                                                                else {
-                                                                    if (PosicionListaString("OR", L) == 3) {
-                                                                        cargarOperadorAndOr(a,(seleccionarArbolExpre (darExpresionConID(Id1,LE))),(seleccionarArbolExpre(darExpresionConID(Id2,LE))),(transformarStringOperadorAChar(darPalabraDeLista("OR", L))));
-                                                                    }
-                                                                }
-                                                                asignarArbolExpresion(e, a);
-                                                                asignarNumeroExpresion (e, largoListaExpresiones(LE)+1);
-                                                                insertarNodoEnlista(e, LE);
-                                                                desplegarPorNumero(LE, seleccionarNumeroExpresion(e));
-                                                        }
-
+                                        if ((largoListaStrings(L) == 4) && ((streq(darPalabraporPosicion(3,L),"AND")) || (streq(darPalabraporPosicion(3,L),"OR")))) {
+                                                if (!(esNatural(darPalabraporPosicion(2, L)))) {
+                                                    codigo = PALABRADEBESERNATURAL;
+                                                    error (codigo, comando, L);
                                                     }
-                                            }
 
+                                                if (!(esNatural(darPalabraporPosicion(4, L)))) {
+                                                    codigo = PALABRADEBESERNATURAL;
+                                                    error (codigo, comando, L);
+                                                    }
+
+                                                    else {
+                                                            if ((esNatural(darPalabraporPosicion(2, L)) && (esNatural(darPalabraporPosicion(4, L))))) {
+                                                                Id1 = transformarANatural((darPalabraporPosicion(2, L)));
+                                                                Id2 = transformarANatural((darPalabraporPosicion(4, L)));
+                                                                if ((!PerteneceAListaExpreConID(Id1, LE)) || (!PerteneceAListaExpreConID(Id2, LE))) {
+                                                                        if ((!PerteneceAListaExpreConID(Id1, LE))) {
+                                                                            codigo = NOEXISTEENLISTAEXPRESIONESPRIMERO;
+                                                                            error(codigo, comando, L);
+                                                                        }
+
+                                                                        if ((!PerteneceAListaExpreConID(Id2, LE))) {
+                                                                                codigo = NOEXISTEENLISTAEXPRESIONESSEGUNDO;
+                                                                                error(codigo, comando, L);
+                                                                        }
+                                                                    }
+                                                                else {
+                                                                    if (PosicionListaString("AND", L) == 3) {
+                                                                        cargarOperadorAndOr(a,(seleccionarArbolExpre (darExpresionConID(Id1,LE))),(seleccionarArbolExpre(darExpresionConID(Id2,LE))),(transformarStringOperadorAChar(darPalabraDeLista("AND", L))));
+                                                                    }
+
+                                                                        else {
+                                                                            if (PosicionListaString("OR", L) == 3) {
+                                                                                cargarOperadorAndOr(a,(seleccionarArbolExpre (darExpresionConID(Id1,LE))),(seleccionarArbolExpre(darExpresionConID(Id2,LE))),(transformarStringOperadorAChar(darPalabraDeLista("OR", L))));
+                                                                            }
+                                                                        }
+                                                                        asignarArbolExpresion(e, a);
+                                                                        asignarNumeroExpresion (e, largoListaExpresiones(LE)+1);
+                                                                        insertarNodoEnlista(e, LE);
+                                                                        desplegarPorNumero(LE, seleccionarNumeroExpresion(e));
+                                                                }
+
+                                                            }
+                                                    }
+
+                                        }
                                 }
-                        }
+                    }
 
                 }
             }
                 else {
-                    error (COMANDOENLUGAREQUIVOCADO,comando, L);
+                    codigo = COMANDOENLUGAREQUIVOCADO;
+                    error (codigo,comando, L);
                 }
 
 }
@@ -295,22 +330,26 @@ PALABRAEQUIVOCADA, NOEXISTEENLISTAEXPRESIONESPRIMERO, NOEXISTEENLISTAEXPRESIONES
 void show (ListaStrings L, ListaExpresiones LE, Expresion e, ArbolExpre ar) {
 int Id1;
 int comando = 3;
-errores COMANDOENLUGAREQUIVOCADO, CANTIDADDEPARAMETROSINCORRECTA, PALABRADEBESERNATURAL, NOEXISTEENLISTAEXPRESIONES;
+errores codigo;
             if (PosicionListaString("show", L) != 1) {
-                    error(COMANDOENLUGAREQUIVOCADO, comando, L);
+                    codigo = COMANDOENLUGAREQUIVOCADO;
+                    error(codigo, comando, L);
             }
             else {
                     if (largoListaStrings(L) != 2) {
-                            error (CANTIDADDEPARAMETROSINCORRECTA,comando, L);
+                            codigo = CANTIDADDEPARAMETROSINCORRECTA;
+                            error (codigo,comando, L);
                     }
                     else {
                         if (!(esNatural(darPalabraporPosicion(2,L)))) {
-                            error (PALABRADEBESERNATURAL, comando, L);
+                            codigo = PALABRADEBESERNATURAL;
+                            error (codigo, comando, L);
                         }
                         else {
                             Id1 = transformarANatural(darPalabraporPosicion(2, L));
                             if (!(PerteneceAListaExpreConID(Id1, LE))) {
-                            error(NOEXISTEENLISTAEXPRESIONES, comando, L);
+                            codigo = NOEXISTEENLISTAEXPRESIONES;
+                            error(codigo, comando, L);
                           }
                           else {
                             desplegarPorNumero(LE, Id1);
@@ -324,23 +363,27 @@ errores COMANDOENLUGAREQUIVOCADO, CANTIDADDEPARAMETROSINCORRECTA, PALABRADEBESER
 void evaluate (ListaStrings L, ListaExpresiones LE, Expresion e, ArbolExpre ar) {
 int Id1;
 int comando = 4;
-errores COMANDOENLUGAREQUIVOCADO, CANTIDADDEPARAMETROSINCORRECTA, PALABRADEBESERNATURAL, NOEXISTEENLISTAEXPRESIONES;
+errores codigo;
             if (PosicionListaString("evaluate", L) != 1) {
-                error(COMANDOENLUGAREQUIVOCADO, comando, L);
+                codigo = COMANDOENLUGAREQUIVOCADO;
+                error(codigo, comando, L);
             }
             else {
 
                     if (largoListaStrings(L) != 2) {
-                            error (CANTIDADDEPARAMETROSINCORRECTA,comando, L);
+                            codigo = CANTIDADDEPARAMETROSINCORRECTA;
+                            error (codigo,comando, L);
                     }
                     else {
                         if (!(esNatural(darPalabraporPosicion(2,L)))) {
-                            error (PALABRADEBESERNATURAL, comando, L);
+                            codigo = PALABRADEBESERNATURAL;
+                            error (codigo, comando, L);
                         }
                         else {
                             Id1 = transformarANatural(darPalabraporPosicion(2, L));
                             if (!(PerteneceAListaExpreConID(Id1, LE))) {
-                            error(NOEXISTEENLISTAEXPRESIONES, comando, L);
+                            codigo = NOEXISTEENLISTAEXPRESIONES;
+                            error(codigo, comando, L);
                           }
                           else {
                             evaluarExpresion (seleccionarArbolExpre(e));
@@ -363,32 +406,38 @@ int indice = 0;
 String entrada;
 String p, r;
 int comando = 5;
-errores COMANDOENLUGAREQUIVOCADO, CANTIDADDEPARAMETROSINCORRECTA, PALABRADEBESERNATURAL, ARCHIVONODAT, PALABRANOALFABETICA, NOEXISTEENLISTAEXPRESIONES;
+errores codigo;
             if (PosicionListaString("save", L) != 1) {
-                error(COMANDOENLUGAREQUIVOCADO, comando, L);
+                codigo = COMANDOENLUGAREQUIVOCADO;
+                error(codigo, comando, L);
             }
             else {
                     if (largoListaStrings(L) != 3) {
-                        error (CANTIDADDEPARAMETROSINCORRECTA,comando, L);
+                        codigo = CANTIDADDEPARAMETROSINCORRECTA;
+                        error (codigo,comando, L);
                     }
                     else {
                         if (!(esNatural(darPalabraporPosicion(2,L)))) {
-                            error (PALABRADEBESERNATURAL, comando, L);
+                            codigo = PALABRADEBESERNATURAL;
+                            error (codigo, comando, L);
                         }
                         else {
                             if (!esNombreArchivo(darPalabraporPosicion(3,L))) {
                                     dividirStringDeArchivo (darPalabraporPosicion(3,L), p, r);
-                                    if (esAlfabetico(p)) {
-                                        error(ARCHIVONODAT, comando, L);
+                                    if (!(esAlfabetico(p))) {
+                                        codigo = PALABRANOALFABETICA;
+                                        error(codigo, comando, L);
                                     }
-                                    else {
-                                        error(PALABRANOALFABETICA, comando, L);
+                                    if (!(tieneExtension(r))) {
+                                        codigo = ARCHIVONODAT;
+                                        error(codigo, comando, L);
                                     }
                             }
                             else {
                                 Id1 = transformarANatural(darPalabraporPosicion(2, L));
                                 if (!(PerteneceAListaExpreConID(Id1, LE))) {
-                                    error(NOEXISTEENLISTAEXPRESIONES, comando, L);
+                                    codigo = NOEXISTEENLISTAEXPRESIONES;
+                                    error(codigo, comando, L);
                                 }
                                 else {
                                         if (!ExisteArchivo(darPalabraporPosicion(3,L))) {
@@ -434,27 +483,32 @@ errores COMANDOENLUGAREQUIVOCADO, CANTIDADDEPARAMETROSINCORRECTA, PALABRADEBESER
 void load (ListaStrings L, ListaExpresiones &LE, Expresion &e, ArbolExpre &ar) {
 String p, r;
 int comando = 6;
-errores COMANDOENLUGAREQUIVOCADO, CANTIDADDEPARAMETROSINCORRECTA, ARCHIVONODAT, PALABRANOALFABETICA, NOEXISTEARCHIVO;
+errores codigo;
     if (PosicionListaString("load", L) != 1) {
-                    error(COMANDOENLUGAREQUIVOCADO, comando, L);
+                    codigo = COMANDOENLUGAREQUIVOCADO;
+                    error(codigo, comando, L);
             }
             else {
                     if (largoListaStrings(L) != 2) {
-                            error (CANTIDADDEPARAMETROSINCORRECTA,comando, L);
+                            codigo = CANTIDADDEPARAMETROSINCORRECTA;
+                            error (codigo,comando, L);
                     }
                     else {
                             if (!esNombreArchivo(darPalabraporPosicion(2,L))) {
                                     dividirStringDeArchivo (darPalabraporPosicion(2,L), p, r);
-                                    if (esAlfabetico(p)) {
-                                        error(ARCHIVONODAT, comando, L);
+                                    if (!(esAlfabetico(p))) {
+                                        codigo = PALABRANOALFABETICA;
+                                        error(codigo, comando, L);
                                     }
-                                    else {
-                                        error(PALABRANOALFABETICA, comando, L);
+                                    if (!(tieneExtension(r))) {
+                                        codigo = ARCHIVONODAT;
+                                        error(codigo, comando, L);
                                     }
                             }
                             else {
                                 if (!(ExisteArchivo(darPalabraporPosicion(2,L)))) {
-                                        error(NOEXISTEARCHIVO, comando, L);
+                                        codigo = NOEXISTEARCHIVO;
+                                        error(codigo, comando, L);
                                 }
                                 else {
                                     LevantarArbolExpre(ar, darPalabraporPosicion(2,L));
@@ -472,13 +526,15 @@ errores COMANDOENLUGAREQUIVOCADO, CANTIDADDEPARAMETROSINCORRECTA, ARCHIVONODAT, 
 
 void exit (ListaStrings &L, ListaExpresiones &LE, Expresion &e, ArbolExpre &ar) {
 int comando = 7;
-errores COMANDOENLUGAREQUIVOCADO, CANTIDADDEPARAMETROSINCORRECTA;
+errores codigo;
     if (PosicionListaString("exit", L) != 1) {
-            error(COMANDOENLUGAREQUIVOCADO, comando, L);
+            codigo = COMANDOENLUGAREQUIVOCADO;
+            error(codigo, comando, L);
             }
             else {
                     if (largoListaStrings(L) != 1) {
-                        error(CANTIDADDEPARAMETROSINCORRECTA, comando, L);
+                        codigo = CANTIDADDEPARAMETROSINCORRECTA;
+                        error(codigo, comando, L);
                     }
                     else {
                           liberarMemoriaListaE(LE);
@@ -490,20 +546,14 @@ errores COMANDOENLUGAREQUIVOCADO, CANTIDADDEPARAMETROSINCORRECTA;
 
 boolean esExit (ListaStrings L) {
 boolean es = FALSE;
-int comando = 7;
-errores COMANDOENLUGAREQUIVOCADO, CANTIDADDEPARAMETROSINCORRECTA;
-    if (PosicionListaString("exit", L) != 1) {
-                error(COMANDOENLUGAREQUIVOCADO, comando, L);
-            }
-            else {
-                    if (largoListaStrings(L) != 1) {
-                        error(CANTIDADDEPARAMETROSINCORRECTA, comando, L);
-                    }
-                    else {
+
+    if (PosicionListaString("exit", L) == 1) {
+                    if (largoListaStrings(L) == 1) {
                           es = TRUE;
                         }
-                    }
+    }
 
+return es;
 }
 
 

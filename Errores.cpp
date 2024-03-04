@@ -21,6 +21,17 @@ switch (codigo) {
                                                 break;
                                     }
     break;
+    case NOCONTIENEFORMATO: switch (comando) {
+                                                case 2: if (largoListaStrings(L)==3) {
+                                                            printf("\n 'compound' debe ser seguido por 'NOT'");
+                                                        }
+                                                        else
+                                                        if (largoListaStrings(L)==4) {
+                                                            printf("\n 'compound' debe ser seguido por un natural, luego 'AND' u 'OR' y otro natural");
+                                                        }
+                                                break;
+                            }
+    break;
     case PALABRAENLUGAREQUIVOCADO: switch (comando) {
                                                 case 1: printf("\nLa palabra 'atomic' debe ir en primer lugar y en segundo 'true' o 'false'");
                                                 break;
@@ -34,9 +45,9 @@ switch (codigo) {
                                     }
     break;
     case CANTIDADDEPARAMETROSINCORRECTA: switch (comando) {
+                                                case 1:
                                                 case 2: printf("\nCantidad de parametros incorrecta, deben ser 3 o 4");
                                                 break;
-                                                case 1:
                                                 case 3:
                                                 case 4:
                                                 case 6: printf("\nCantidad de parametros incorrecta, deben ser 2");

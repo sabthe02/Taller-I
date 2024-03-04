@@ -64,9 +64,9 @@
 1709332258 source:c:\users\sabth\ude licenciatura en informática\1°\taller i\archivo.cpp
 	"Archivo.h"
 
-1708981416 c:\users\sabth\ude licenciatura en informática\1°\taller i\archivo.h
-	"ListaExpresiones.h"
-	"ListaStrings.h"
+1709409572 c:\users\sabth\ude licenciatura en informática\1°\taller i\archivo.h
+	"ArbolExpre.h"
+	"String.h"
 
 1709335529 c:\users\sabth\ude licenciatura en informática\1°\taller i\listaexpresiones.h
 	"Expresion.h"
@@ -102,15 +102,15 @@
 1709335415 source:c:\users\sabth\ude licenciatura en informática\1°\taller i\expresion.cpp
 	"Expresion.h"
 
-1708990060 source:c:\users\sabth\ude licenciatura en informática\1°\taller i\listaexpresiones.cpp
+1709335524 source:c:\users\sabth\ude licenciatura en informática\1°\taller i\listaexpresiones.cpp
 	"ListaExpresiones.h"
 
-1709237937 source:c:\users\sabth\ude licenciatura en informática\1°\taller i\main.cpp
+1709577784 source:c:\users\sabth\ude licenciatura en informática\1°\taller i\main.cpp
 	"ListaExpresiones.h"
 	"ListaStrings.h"
 	"Archivo.h"
 
-1709306763 source:c:\users\sabth\ude licenciatura en informática\1°\taller i\string.cpp
+1709411387 source:c:\users\sabth\ude licenciatura en informática\1°\taller i\string.cpp
 	"String.h"
 
 1708182301 source:c:\users\sabth\ude licenciatura en informática\1°\taller i\tiponodo.cpp
@@ -122,14 +122,14 @@
 1709335258 source:c:\users\sabth\ude licenciatura en informática\1°\taller i\arbolexpre.cpp
 	"ArbolExpre.h"
 
-1709335099 source:c:\users\sabth\ude licenciatura en informática\1°\taller i\listastrings.cpp
+1709577067 source:c:\users\sabth\ude licenciatura en informática\1°\taller i\listastrings.cpp
 	"ListaStrings.h"
 	"Errores.h"
 
-1709333535 source:c:\users\sabth\ude licenciatura en informática\1°\taller i\errores.cpp
+1709579338 source:c:\users\sabth\ude licenciatura en informática\1°\taller i\errores.cpp
 	"Errores.h"
 
-1709333543 c:\users\sabth\ude licenciatura en informática\1°\taller i\errores.h
+1709579277 c:\users\sabth\ude licenciatura en informática\1°\taller i\errores.h
 	<stdio.h>
 	"ListaStrings.h"
 

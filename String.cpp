@@ -267,6 +267,7 @@ while (s[i] != '\0') {
     j++;
 }
 resto[j] = '\0';
+
 }
 
 void dividirStringDeArchivo (String s, String &primero, String &resto) {
