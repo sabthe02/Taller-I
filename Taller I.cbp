@@ -38,6 +38,8 @@
 		<Unit filename="Archivo.h" />
 		<Unit filename="Boolean.cpp" />
 		<Unit filename="Boolean.h" />
+		<Unit filename="Errores.cpp" />
+		<Unit filename="Errores.h" />
 		<Unit filename="Expresion.cpp" />
 		<Unit filename="Expresion.h">
 			<Option target="Debug" />

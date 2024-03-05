@@ -276,7 +276,7 @@ errores codigo;
                                                     }
 
                                                 if (!(esNatural(darPalabraporPosicion(4, L)))) {
-                                                    codigo = PALABRADEBESERNATURAL;
+                                                    codigo = CUARTAPALABRADEBESERNATURAL;
                                                     error (codigo, comando, L);
                                                     }
 

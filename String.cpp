@@ -50,27 +50,6 @@ void scan (String &s){
 }
 
 
-boolean strmen (String s1, String s2)
-{
- int i = 0;
- boolean encontre = FALSE;
- boolean menor = FALSE;
-
- while ((!encontre) && (s1[i] != '\0') && (s2[i] != '\0'))
-{
- if (s1[i] != s2[i])
- encontre = TRUE;
-
- if (s1[i] < s2[i])
- menor = TRUE;
- i++;
-}
- if ((!encontre) && (s2[i]!='\0'))
- menor = TRUE;
-
- return menor;
-}
-
 boolean streq (String s1, String s2)
 {
  int i = 0;
@@ -86,8 +65,7 @@ while (iguales && (s1[i] != '\0') && (s2[i] != '\0'))
 return iguales;
 }
 
-void strcop (String &s1,String s2)
-{
+void strcop (String &s1,String s2){
 int i = 0;
 int largo = strlar(s2) + 1;
 delete [] s1;
@@ -100,41 +78,6 @@ while (s2[i] != '\0') {
 s1[i] = '\0';
 }
 
-void strcon (String &s1, String s2)
-{
- String s3;
- int i = 0;
- int j = 0;
- s3 = new char [strlar(s1)+strlar(s2)+1];
-
- while (i < (strlar(s1)+strlar(s2)))
-{
-    while(s1[i] != '\0')
-    {
-        s3[i] = s1[i];
-        i++;
-    }
-    s3[i] = s2[j];
-    j++;
-    i++;
-    }
- s3[i] = '\0';
-
- strcop (s1, s3);
- strdestruir (s3);
-
-
-}
-
-void strswp (String &s1,String &s2)
-{
- String aux;
-
- aux = s1;
- s1 = s2;
- s2 = aux;
-
-}
 
 int transformarANatural (String s) {
 
@@ -307,6 +250,8 @@ boolean esAlfabetico (String s) {
 boolean es = TRUE;
 int i = 0;
 
+if (!esVacio(s)) {
+
 while (es && (s[i] != '\0'))
 {
  if (!((s[i] >=  'a' && s[i] <= 'z') || ((s[i] >=  'A' && s[i] <= 'Z')))) {
@@ -317,7 +262,11 @@ while (es && (s[i] != '\0'))
     }
 }
  if ((s[i] != '\0')){
- es = FALSE;
+    es = FALSE;
+    }
+}
+else {
+    es = FALSE;
 }
 
 return es;

@@ -23,11 +23,11 @@ switch (codigo) {
     break;
     case NOCONTIENEFORMATO: switch (comando) {
                                                 case 2: if (largoListaStrings(L)==3) {
-                                                            printf("\n 'compound' debe ser seguido por 'NOT'");
+                                                            printf("\nFormato incorrecto, 'compound' debe ser seguido por 'NOT'");
                                                         }
                                                         else
                                                         if (largoListaStrings(L)==4) {
-                                                            printf("\n 'compound' debe ser seguido por un natural, luego 'AND' u 'OR' y otro natural");
+                                                            printf("\nFormato incorrecto, 'compound' debe ser seguido por un natural, luego 'AND' u 'OR' y otro natural");
                                                         }
                                                 break;
                             }
@@ -70,15 +70,8 @@ switch (codigo) {
                                                 printf("\nLa tercer palabra debe ser un natural");
                                             }
                                             else {
-                                                    if (!(esNatural(darPalabraporPosicion(2, L)))) {
-                                                        printf("\nLa segunda palabra debe ser un natural");
+                                                    printf("\nLa segunda palabra debe ser un natural");
                                                     }
-                                                    else {
-                                                        if (!(esNatural(darPalabraporPosicion(4, L)))) {
-                                                            printf("\nLa cuarta palabra debe ser un natural");
-                                                        }
-                                                    }
-                                                }
                                     break;
                                     case 3:
                                     case 4:
@@ -86,6 +79,12 @@ switch (codigo) {
                                     break;
                                 }
     break;
+    case CUARTAPALABRADEBESERNATURAL: switch (comando) {
+                                            case 2: printf("\nLa cuarta palabra debe ser un natural");
+                                            break;
+                                        }
+    break;
+
     case NOEXISTEENLISTAEXPRESIONES: switch (comando) {
                                         case 2:
                                         case 3:

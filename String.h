@@ -22,20 +22,11 @@ void print (String s);
 //leer un String desde teclado
 void scan (String &s);
 
-// Determinar si un String es menor a otro
-boolean strmen (String s1, String s2);
-
 //Determinar si dos Strings son iguales
 boolean streq (String s1, String s2);
 
 //Copiar un String a otro
 void strcop (String &s1,String s2);
-
-// Concatenar un String detrás de otro
-void strcon (String &s1, String s2);
-
-// Intercambiar dos Strings
-void strswp (String &s1,String &s2);
 
 // Transformar un String a un natural
 int transformarANatural (String s);
