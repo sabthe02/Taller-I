@@ -102,15 +102,5 @@ valor.indice = ind;
 }
 
 
-//boolean transformarBoolEnBoolean (bool b) {
-//  switch(b) {
-//        case true:   return TRUE;
-//        break;
-//        case false:  return FALSE;
-//        break;
-//    }
-//
-//}
-
 
 

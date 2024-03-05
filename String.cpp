@@ -92,7 +92,7 @@ boolean es;
 int num;
 num = atoi(s);
 
-if (num == 0) {
+if (num <= 0) {
     es = FALSE;
 }
 else {

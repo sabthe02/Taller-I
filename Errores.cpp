@@ -107,7 +107,7 @@ switch (codigo) {
 
     case PALABRANOALFABETICA: switch(comando) {
                                 case 5:
-                                case 6: printf("\nEl nombre del archivo debe ser alfabetico");
+                                case 6: printf("\nEl nombre del archivo debe ser alfabetico, sin signos ni numeros");
                                 break;
                             }
     break;
