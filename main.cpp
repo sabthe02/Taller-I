@@ -63,7 +63,7 @@ if (!es) {
     printf("\n");
     }
 }
-// si no se ha ingresado nada
+
 else {
     printf("\nNo se ha ingresado ningn comando \n");
  }
