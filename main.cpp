@@ -10,7 +10,7 @@ ArbolExpre ar;
 ListaExpresiones LE;
 Expresion e;
 String s, q;
-boolean es;
+boolean es = FALSE;
 Crear(L);
 crearLista(LE);
 crearArbol(ar);
@@ -65,7 +65,7 @@ if (!es) {
 }
 
 else {
-    printf("\nNo se ha ingresado ningn comando \n");
+    printf("\nNo se ha ingresado ningun comando \n");
  }
 
 } while(!es);
