@@ -45,7 +45,8 @@ switch (codigo) {
                                     }
     break;
     case CANTIDADDEPARAMETROSINCORRECTA: switch (comando) {
-                                                case 1:
+                                                case 1: printf("\nCantidad de parametros incorrecta, deben ser 2");
+                                                break;
                                                 case 2: printf("\nCantidad de parametros incorrecta, deben ser 3 o 4");
                                                 break;
                                                 case 3:
