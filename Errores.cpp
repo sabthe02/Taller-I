@@ -13,7 +13,7 @@ switch (codigo) {
                                                 break;
                                                 case 5: printf("\nLa palabra 'save' debe ir en primer lugar, luego el numero de la expresion a guardar y en tercer lugar el nombre del archivo");
                                                 break;
-                                                case 6: printf("\nLa palabra 'load' debe ir en primer lugar y en segundo 'true' o 'false'");
+                                                case 6: printf("\nLa palabra 'load' debe ir en primer lugar seguido del nombre del archivo a cargar alfabetico con extension .dat");
                                                 break;
                                                 case 7: printf("\nLa palabra 'exit' debe ir en primer lugar");
                                                 break;
